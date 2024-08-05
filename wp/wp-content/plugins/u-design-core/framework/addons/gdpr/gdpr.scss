@@ -1,0 +1,119 @@
+/* -------------------------------------------
+    Cookie information popup
+        1. Base
+        2. Button
+---------------------------------------------- */
+
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+// 1. Base
+.cookies-popup {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #{$right}: 1.5rem;
+    bottom: 3rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: .3s;
+    z-index: 2000;
+
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.cookies-popup-inner {
+    position: relative;
+    padding: 1rem;
+    background: var(--alpha-change-color-light-1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+    border-radius: 5px;
+}
+.cookies-info a {
+    color: var(--alpha-primary-color);
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+@include mq(md, 'max') {
+    .cookies-popup {
+        left: 1rem;
+        right: 1rem;
+        bottom: 2rem;
+    }
+    .cookies-popup-inner {
+        text-align: center;
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+    }
+}
+
+// 2. Button
+.cookies-popup {
+    .btn {
+        &.btn-sm {
+            font-size: 0.93em;
+        }
+        font-weight: 400;
+    }
+    .btn {
+        background-color: var(--alpha-change-color-light-2);
+        border-color: var(--alpha-change-color-light-2);
+
+        &:hover {
+            color: var(--alpha-change-color-dark-1);
+            background-color: var(--alpha-change-border-color);
+            border-color: var(--alpha-change-border-color);
+        }
+    }
+    .accept-cookie-btn {
+        border-radius: 3px;
+    }
+    .decline-cookie-btn {
+        padding: 2px;
+        border-radius: 50%;
+    }
+    .btn-close {
+        display: inline-flex;
+        align-items: center;
+        margin-#{$left}: 1rem;
+    }
+    .btn-close i {
+        margin: 0;
+        font-size: 1em;
+        line-height: 1;
+        color: var(--alpha-body-color);
+    }
+}
+.accept-cookie-btn {
+    margin-#{$right}: 1.5rem;
+    
+    @include mq(md) {
+        & {
+            order: -1;
+        }
+    }
+}
+@include mq(md, 'max') {
+    .cookies-popup-inner {
+        .accept-cookie-btn {
+            margin-#{$right}: 0;
+            margin-top: 1rem;
+        }
+        .btn-close {
+            position: absolute;
+            top: 0;
+            margin-top: -9px;
+            #{$left}: 100%;
+            margin-#{$left}: -13px;
+        }
+    }
+}

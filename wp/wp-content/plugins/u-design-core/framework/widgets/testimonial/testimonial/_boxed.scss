@@ -1,0 +1,14 @@
+// Boxed
+.testimonial-boxed {
+    text-align: center;
+    .avatar {
+        margin: 0 auto 1.5rem auto;
+    }
+    .name { margin-bottom: .8rem; }
+    .ratings-container {
+        margin-bottom: 1rem;
+    }
+    .comment {
+        padding: 0 2rem;
+    }
+}

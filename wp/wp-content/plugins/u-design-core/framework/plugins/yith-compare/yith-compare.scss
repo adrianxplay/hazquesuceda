@@ -1,0 +1,18 @@
+/** Compatibility with Yith Compare **/
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+.summary {
+    .compare.button {
+        color: var(--alpha-white-color);
+        margin-bottom: 1.5rem;
+    }
+}
+
+.compare.button:before {
+    font-family: "wpalpha";
+    font-size: 1.25em;
+    color: inherit;
+}

@@ -1,0 +1,97 @@
+/* -------------------------------------------
+    Vendors 
+        1. Base style
+        2. Type 1
+        3. Type 2
+        4. Type 3
+------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+// Vendor Base style
+.vendor-widget {
+    margin-bottom: 2rem;
+    .vendor-details {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+    }
+    .vendor-logo {
+        max-width: var(--alpha-vendor-logo-width,7rem);
+        width: 100%;
+        background-color: var(--alpha-change-border-color);
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .vendor-personal {
+        margin-#{$left}: 1em;
+    }
+    .vendor-name {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 0;
+        font-size: 1.5em;
+        letter-spacing: -.025em;
+        line-height: 1.4;
+        text-transform: capitalize;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .vendor-products-count {
+        color: var(--alpha-body-color);
+        font-weight: 400;
+        font-size: 1.2em;
+        letter-spacing: 0;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+    .vendor-sale {
+        margin-bottom: 0;
+    }
+    .ratings-container {
+        line-height: 1;
+        margin-top: .4rem;
+        .star-rating {
+            font-size: 1.2em;
+        }
+        + .vendor-sale {
+            margin-top: .4rem;
+        }
+    }
+}
+
+.vendor-products.grid-type {
+    display: grid;
+    width: calc(100% + 5px);
+    margin: -2.5px;
+    grid-template-columns: repeat(auto-fill, calc(100% / 3));
+    grid-auto-rows: 1fr;
+
+    .product-media {
+        padding: 2.5px;
+        grid-column-end: span 1;
+        grid-row-end: span 1;
+        &:first-child {
+            grid-column-end: span 2;
+            grid-row-end: span 2;
+        }
+    }
+    .product-media,
+    a,
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+//Vendor Type 1
+@import './type/vendor-1';
+//Vendor Type 2
+@import './type/vendor-2';
+//Vendor Type 3
+@import './type/vendor-3';

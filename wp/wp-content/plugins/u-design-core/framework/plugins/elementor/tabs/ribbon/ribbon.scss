@@ -1,0 +1,248 @@
+/* -------------------------------------------
+    Ribbon
+        1. Base Style
+        2. Ribbon Type
+---------------------------------------------- */
+
+@import '../../../../../assets/sass/config';
+@import '../../../../assets/sass/mixins/direction';
+@import '../../../../assets/sass/mixins/mixins';
+
+// 1. Base Style
+
+div.ribbon {
+    position: absolute;
+    display: block;
+    text-align: center;
+    background-color: var(--alpha-primary-color);
+    z-index: 2;
+}
+.ribbon-text {
+    display: block;
+    font-size: .85em;
+    line-height: 1;
+    color: var(--alpha-white-color);
+    text-transform: uppercase;
+}
+
+.ribbon-top-left {
+    top: 0;
+    left: 0;
+}
+.ribbon-top-right {
+    top: 0;
+    right: 0;
+}
+.ribbon-bottom-left {
+    bottom: 0;
+    left: 0;
+}
+.ribbon-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+.ribbon-widget .elementor-container {
+    overflow: inherit;
+}
+
+// 2. Ribbon Type
+
+.ribbon-type-1 { // Type 1
+    padding: 1rem 1.5rem;
+
+    &.ribbon-top-left {
+        top: 2rem;
+        left: -3px;
+    }
+    &.ribbon-top-right {
+        top: 2rem;
+        right: -3px;
+    }
+    &.ribbon-bottom-right {
+        bottom: 2rem;
+        right: -3px;
+    }
+    &.ribbon-bottom-left {
+        bottom: 2rem;
+        left: -3px;
+    }
+}
+
+.ribbon-type-2 { // Type 2
+    padding: 1rem 1.5rem;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 7px;
+        width: 7px;
+        bottom: -6px;
+        background: inherit;
+        filter: brightness(.7);
+        clip-path: path('M0,0 L 7,7 V 0 Z');
+    }
+
+    &.ribbon-top-left {
+        top: 2rem;
+        left: -7px;
+    }
+    &.ribbon-bottom-left {
+        bottom: 2rem;
+        left: -7px;
+    }
+    &.ribbon-top-left,
+    &.ribbon-bottom-left {
+        &:after {
+            left: 0;
+        }
+    }
+
+    &.ribbon-top-right {
+        top: 2rem;
+        right: -7px;
+    }
+    &.ribbon-bottom-right {
+        bottom: 2rem;
+        right: -7px;
+    }
+    &.ribbon-top-right,
+    &.ribbon-bottom-right {
+        &:after {
+            right: 0;
+            clip-path: path('M0,0 V 7 L 7,0 Z');
+        }
+    }
+}
+
+.ribbon-type-3 { // Type 3
+    padding: 2.2rem 1rem;
+
+    &.ribbon-top-left {
+        left: 3rem;
+    }
+    &.ribbon-top-right {
+        right: 3rem;
+    }
+    &.ribbon-bottom-left {
+        bottom: 0;
+        left: 3rem;
+    }
+    &.ribbon-bottom-right {
+        bottom: 0;
+        right: 3rem;
+    }
+}
+
+.ribbon-type-4 { // Type 4
+    width: 1em;
+    height: 1em;
+    transform: rotateZ(-45deg);
+    font-size: 10rem;
+
+    .ribbon-text {
+        font-size: 1.2rem;
+        position: absolute;
+        top: 80%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+    }
+
+    &.ribbon-top-left {
+        top: -.5em;
+        left: -.5em;
+    }
+    &.ribbon-top-right {
+        top: -.5em;
+        right: -.5em;
+        transform: rotateZ(45deg);
+
+        .ribbon-text {
+            top: 80%;
+        }
+    }
+    &.ribbon-bottom-left {
+        bottom: -.5em;
+        left: -.5em;
+        transform: rotateZ(45deg);
+
+        .ribbon-text {
+            top: 20%;
+        }
+    }
+    &.ribbon-bottom-right {
+        bottom: -.5em;
+        right: -.5em;
+
+        .ribbon-text {
+            top: 25%;
+        }
+    }
+}
+
+.ribbon-type-5 { // Type 5
+    position: absolute;
+    text-align: center;
+    padding: .9rem 1.5rem;
+    min-width: 20rem;
+
+    &.ribbon-top-left {
+        top: 0;
+        left: 0;
+        transform: translate(calc(-50% + 2.5rem), calc(-50% + 2.5rem)) rotateZ(-45deg);
+    }
+    &.ribbon-top-right {
+        top: 0;
+        right: 0;
+        transform: translate(calc(50% - 2.5rem), calc(-50% + 2.5rem)) rotateZ(45deg);
+    }
+    &.ribbon-bottom-left {
+        bottom: 0;
+        left: 0;
+        transform: translate(calc(-50% + 2.5rem), calc(50% - 2.5rem)) rotateZ(45deg);
+    }
+    &.ribbon-bottom-right {
+        bottom: 0;
+        right: 0;
+        transform: translate(calc(50% - 2.5rem), calc(50% - 2.5rem)) rotateZ(-45deg);
+    }
+}
+
+.ribbon-type-6 { //Type 6
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+
+    &.ribbon {
+        display: flex;
+    }
+
+    .ribbon-text {
+        padding: 0 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &.ribbon-top-left {
+        top: 1.4rem;
+        left: 1.7rem;
+    }
+
+    &.ribbon-top-right {
+        top: 1.4rem;
+        right: 1.7rem;
+    }
+
+    &.ribbon-bottom-left {
+        bottom: 1.4rem;
+        left: 1.7rem;
+    }
+
+    &.ribbon-bottom-right {
+        bottom: 1.4rem;
+        right: 1.7rem;
+    }
+}

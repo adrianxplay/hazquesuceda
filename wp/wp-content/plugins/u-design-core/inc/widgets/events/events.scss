@@ -1,0 +1,395 @@
+/* -------------------------------------------
+    Event
+        - Default
+        - List Type Base Style
+        - List Type 1
+        - List Type 2
+        - Widget
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/mixins';
+@import '../../../assets/sass/direction';
+
+// Default
+.post-calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    color: var(--alpha-change-color-dark-1);
+    background: var(--alpha-change-color-light-1);
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1;
+    z-index: 2;
+    .event & {
+        width: 8rem;
+        height: 8rem;
+        border: 2px solid var(--alpha-primary-color);
+    }
+
+    &.skin-dark {
+        background-color: var(--alpha-change-color-dark-1);
+        border-color: var(--alpha-change-color-dark-1);
+        .post-day {
+            color: var(--alpha-primary-color);
+        }
+        .post-month {
+            color: var(--alpha-change-color-light-1);
+        }
+    }
+}
+
+.post-media,
+.post-media > a,
+.post-media img {
+    border-radius: inherit;
+}
+.post-media img {
+    display: block;
+    width: 100%;
+}
+
+.post-media {
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.event span.post-day {
+    margin-bottom: 1px;
+    font-size: 2.8rem;
+}
+.event span.post-month {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--alpha-body-color);
+}
+
+.post-media .post-calendar {
+    position: absolute;
+    text-transform: uppercase;
+    #{$left}: 3rem;
+    top: 3rem;
+}
+
+.calendar-bottom {
+    .post-media {
+        overflow: visible;
+    }
+    .post-calendar {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(50%);
+    }
+}
+
+.event-content {
+    padding: 3rem 2rem 3.8rem;
+
+    h3 {
+        font-size: 1.8rem;
+
+        a {
+            color: inherit;
+        }
+
+        a:hover {
+            color: var(--alpha-primary-color);
+        }
+    }
+    h5 {
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--alpha-body-color);
+        margin-bottom: 0;
+    }
+    h5 + h5 {
+        margin-top: 1.5rem;
+    }
+
+    .event-venue:before {
+        content: '\e915';
+        font-family: $theme-font;
+        margin-#{$right}: .5rem;
+    }
+    
+    .calendar-bottom & {
+        padding-top: 6.3rem;
+    }
+}
+
+.event-excerpt p {
+    margin-bottom: 0;
+}
+
+.event-wrap .event-title {
+    line-height: 1.4em;
+    margin-bottom: 1.4rem;
+}
+
+.event-schedule:before {
+    content: '\e910';
+    font-family: $theme-font;
+    margin-#{$right}: .5rem;
+}
+
+.event-event-2 {
+    background-color: var(--alpha-change-color-light-2);
+}
+
+// List Type Base Style
+.event-horizontal {
+    display: flex;
+    align-items: center;
+
+    .event-content {
+        flex: 1;
+        padding: 13px 15px;
+    }
+    .event-excerpt {
+        margin-top: 1.8rem;
+    }
+
+    .event-schedule {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    @include mq(md) {
+        .post-media {
+            width: 285px;
+            max-width: 45%;
+        }
+        & {
+            padding: 0 2rem;
+        }
+    }
+    .post-media .post-calendar {
+        #{$left}: 2rem;
+        top: 2rem;
+    }
+}
+
+// List Type 1
+.event-list-1 {
+    position: relative;
+
+    .event-schedule:before {
+        content: none;
+    }
+
+    @include mq(md) {
+        .calendar-wrap {
+            flex: 0 0 24%;
+            max-width: 24%;
+        }
+        .post-calendar {
+            position: relative;
+            width: 144px;
+            max-width: 67%;
+            height: auto;
+            padding: 2.2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
+            border: none;
+
+            &:after {
+                content: '';
+                position: absolute;
+                #{$right}: -24.1%;
+                width: 1px;
+                height: 64px;
+                background-color: var(--alpha-change-border-color-light);
+            }
+        }
+        
+        span.post-day {
+            font-size: 8rem;
+            color: var(--alpha-primary-color);
+        }
+        span.post-month {
+            width: 100%;
+            text-align: center;
+            margin-top: 1.1rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--alpha-traffic-white-color);
+            font-size: 2.2rem;
+        }
+    }
+    @include mq(md, max) {
+        .event-content {
+            padding: 15px 20px;
+        }
+        .post-calendar {
+            position: absolute;
+            #{$left}: 3rem;
+            top: 3rem;
+            z-index: 1;
+        }
+    }
+    @include mq(md) {
+        .post-media {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+    @include mq(lg) {
+        .post-media {
+            flex: 0 0 285px;
+            max-width: 285px;
+        }
+        .calendar-wrap {
+            flex: 0 0 18%;
+            max-width: 18%;
+        }
+        .event-content {
+            max-width: 580px;
+            margin-#{$right}: auto;
+        }
+    }
+    .skin-dark .post-month {
+        border-color: var(--alpha-change-color-dark-1);
+    }
+}
+
+.events-list-1 {
+    .event-wrap {
+        &:before {
+            content: '';
+            position: absolute;
+            --alpha-gap: inherit;
+            left: var(--alpha-gap);
+            right: var(--alpha-gap);
+            top: 0;
+            height: 1px;
+            background-color: var(--alpha-change-border-color);
+        }
+
+        &:last-child:after {
+            content: '';
+            position: absolute;
+            --alpha-gap: inherit;
+            left: var(--alpha-gap);
+            right: var(--alpha-gap);
+            bottom: 0;
+            height: 1px;
+            background-color: var(--alpha-change-border-color);
+        }
+    }
+}
+
+// List Type 2
+.event-list-2 {
+    padding: 2rem;
+
+    .event-schedule:before {
+        content: none;
+    }
+    
+    .event-content {
+        padding: 1.3rem 4rem;
+    }
+
+    .post-calendar {
+        width: 6rem;
+        height: 6rem;
+        .post-day {
+            font-size: 2.2rem;
+        }
+        .post-month {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.event-list-1,
+.event-list-2 {
+    .event-title {
+        font-size: 2.2rem;
+    }
+    .post-media img {
+        min-height: 180px;
+        object-fit: cover;
+    }
+}
+
+// Widget Type
+.event-widget {
+    .post-media {
+        position: relative;
+        width: 8rem;
+        height: 8rem;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .post-calendar {
+            left: 0;
+            right: 0;
+            top: 100%;
+            height: 100%;
+        }
+
+        img,
+        .post-calendar {
+            will-change: transform;
+            transition: transform .3s;
+        }
+    }
+
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: .5rem;
+    }
+    h5 {
+        font-size: 1.2rem;
+    }
+    .event-content {
+        padding-#{$left}: 3.5rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        h5 {
+            margin: 0;
+        }
+    }
+
+    &:hover {
+        .post-media img,
+        .post-calendar {
+            transform: translateY(-100%);;
+        }
+    }
+}
+
+.event-shadow {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
+}
+
+@include mq(md) {
+    .event-list-1 {
+        .post-media {
+            order: 13;
+        }
+    }
+}
+
+@include mq(md, max) {
+    .event-list-1,
+    .event-list-2 {
+        display: block;
+
+        .event-content {
+            padding: 30px 0 0;
+        }
+    }
+}

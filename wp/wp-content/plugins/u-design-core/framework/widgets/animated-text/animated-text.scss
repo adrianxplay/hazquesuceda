@@ -1,0 +1,87 @@
+/* -------------------------------------------
+    Animated Text
+        1. Animated Text Base Style
+        2. Animation Types
+            - Rotation Type
+            - Croco Type
+            - Scaling Type
+            - Typing Type
+---------------------------------------------- */
+
+// 1. Animated Text Base Style
+.animating-text {
+    position: relative;
+}
+
+// 2. Animation Types
+.animating-item {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 1;
+
+    &.active {
+        position: relative;
+        z-index: 2;
+    }
+
+    &.visible {
+        visibility: visible;
+    }
+
+    .a-text-wrap {
+        position: relative;
+        display: inline-flex;
+    }
+
+    .animating-reveal & .a-text-wrap {
+        overflow: hidden;
+    }
+
+    .a-text {
+        position: relative;
+        align-self: auto;
+        opacity: 0;
+    }
+
+    // Rotation Type
+    .animating-text-rotation & {
+        perspective: 1000px;
+        transform-origin: 50% 100%;
+    }
+
+    // Croco Type
+    .animating-text-croco & {
+        perspective: 1000px;
+
+        span {
+            transform-origin: 50% 100%;
+        }
+    }
+
+    // Scaling Type
+    .animating-text-scaling & {
+        perspective: 1000px;
+    }
+
+    // Typing Type
+    .animating-text-typing & {
+        span {
+            overflow: hidden;
+            transform-origin: 0 50%;
+        }
+
+        &:after {
+            content: '|';
+            display: inline-block;
+            overflow: hidden;
+            color: #000;
+            animation: 1s blink step-end infinite;
+        }
+    }
+}

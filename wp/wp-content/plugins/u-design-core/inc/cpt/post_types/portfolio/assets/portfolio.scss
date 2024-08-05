@@ -1,0 +1,212 @@
+/* -------------------------------------------
+	Portfolio
+		1. Base Style
+        2. Meta Group
+        3. Portfolio Type
+            - Default
+            - Card
+            - Gallery
+            - List
+---------------------------------------------- */
+
+@import '../../../assets/config';
+@import '../../../assets/mixins';
+@import '../../../assets/direction';
+
+// 1. Base Style
+.portfolios {
+    figure {
+        border-radius: inherit;
+    }
+
+    .post-cats {
+        position: static;
+        margin-bottom: .2rem;
+
+        >a {
+            padding: 0;
+            color: var(--alpha-change-color-dark-1);
+            background: none;
+            transition: color .3s;
+
+            &:hover,
+            &:focus {
+                color: var(--alpha-primary-color);
+                background: none;
+            }
+        }
+    }
+
+    .post-meta {
+        font-size: 1.2rem;
+        text-transform: capitalize;
+
+        >:not(:last-child) {
+            margin-#{$right}: 1rem;
+        }
+    }
+
+    .portfolio-meta {
+        max-width: 100%;
+        flex: 0 0 100%;
+        margin-bottom: 7px;
+    }
+
+    .post-title {
+        font-size: 1.4rem;
+        margin-bottom: .6rem;
+    }
+
+    .post-content {
+        margin-bottom: 1.4rem;
+    }
+
+    .rollover-title {
+        font-size: 2.2rem;
+        line-height: 1.63;
+
+        @include mq(xxl, max) {
+            font-size: 2rem;
+        }
+    }
+}
+
+// 2. Meta Group
+.portfolios .meta-group {
+    display: block;
+    margin-bottom: 1.5rem;
+
+    label {
+        display: inline-block;
+        margin-#{$right}: 3px;
+        font-size: 1.4rem;
+        color: var(--alpha-change-color-dark-1);
+
+        &:#{$after} {
+            content: ':';
+        }
+    }
+
+    a {
+        color: var(--alpha-body-color);
+
+        &:hover,
+        &:focus {
+            color: var(--alpha-primary-color);
+        }
+    }
+}
+
+// 3. Portfolio Type
+
+// Default type
+.portfolio-default {
+    .post-cats {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+    }
+
+    .post-title {
+        font-size: 2.2rem;
+        letter-spacing: -.01em;
+    }
+
+    .post-details {
+        padding: 2.5rem 0 2.7rem;
+    }
+}
+
+// Card Type
+.portfolio-card {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .07);
+
+    .post-cats {
+        margin-bottom: .2rem;
+    }
+
+    .post-details {
+        padding: 1.6rem 2rem 1.6rem;
+    }
+}
+
+// Gallery Type
+.portfolio-gallery {
+    .post-title {
+        letter-spacing: 0;
+    }
+
+    .post-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2rem;
+        color: var(--alpha-change-color-light-1);
+        text-align: center;
+        transition: top .3s, opacity .3s;
+        opacity: 0;
+
+        a {
+            color: var(--alpha-change-color-light-1);
+        }
+    }
+
+    &:hover .post-details {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+article.portfolio-gallery {
+    background: none;
+}
+
+// List Type
+.portfolio-list .post-cats>a,
+.portfolio-card .post-cats>a {
+    color: inherit;
+}
+
+.portfolio-list {
+    .post-cats {
+        margin-top: 1.3rem;
+        margin-bottom: .4rem;
+    }
+
+    .post-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .portfolio-meta {
+        margin-bottom: .2rem;
+    }
+}
+
+@include mq(sm) {
+    .portfolio-list {
+        display: flex;
+        align-items: center;
+
+        figure {
+            flex: 0 0 47.5%;
+        }
+
+        .post-details {
+            flex: 0 0 52.5%;
+            max-width: 52.5%;
+        }
+    }
+}
+
+@include mq(sm, max) {
+    .portfolio-list .post-details {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}

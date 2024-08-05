@@ -1,0 +1,195 @@
+/* -------------------------------------------
+    Timeline
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.timeline {
+    position: relative;
+    --alpha-point-size: 7rem;
+    --alpha-point-spacing: 2rem;
+}
+.timeline-item {
+    display: flex;
+    position: relative;
+    & + & {
+        margin-top: 5rem;
+    }
+    .timeline-v-align-top & {
+        align-items: flex-start;
+    }
+    .timeline-v-align-middle & {
+        align-items: center;
+    }
+    .timeline-v-align-bottom & {
+        align-items: flex-end;
+    }
+    &.active .timeline-point {
+        color: var(--alpha-white-color);
+        background-color: var(--alpha-primary-color);
+    }
+}
+.timeline-media {
+    img {
+        object-fit: cover;
+    }
+    & + .timeline-title {
+        margin-top: .357em;
+    }
+}
+.timeline-content {
+    .timeline-with-shadow & {
+        padding: 3rem;
+        box-shadow: 0 5px 40px rgba(0, 0, 0, .07);
+    }
+    & > * {
+        margin-top: .5rem;
+        margin-bottom: 0;
+
+        &:first-child {
+            margin: 0;
+        }
+    }
+}
+.timeline-title {
+    font-size: 2em;
+}
+.timeline-meta {
+    font-size: 1.142em;
+    letter-spacing: .1em;
+    color: var(--alpha-primary-color);
+    margin-top: 2px;
+}
+.timeline-desc {
+    margin-top: 1em;
+}
+.timeline-point {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--alpha-point-size);
+    height: var(--alpha-point-size);
+    flex: 0 0 auto;
+    overflow: hidden;
+    margin-left: var(--alpha-point-spacing);
+    margin-right: var(--alpha-point-spacing);
+    font-size: 1.571em;
+    font-weight: 600;
+    color: var(--alpha-change-color-dark-1);
+    background-color: var(--alpha-change-color-light-2);
+    border-radius: 50%;
+    transition: .3s;
+}
+.timeline-progress {
+    background-color: var(--alpha-primary-color);
+}
+div.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--alpha-change-color-light-2);
+}
+.timeline-h-align-left {
+    .timeline-line {
+        #{$left}: 0;
+        margin-#{$left}: calc(var(--alpha-point-size) / 2);
+    }
+    .timeline-point {
+        order: -1;
+    }
+    .timeline-item .timeline-content,
+    .timeline-item .timeline-meta-wrap {
+        text-align: $left;
+    }
+    &.timeline .timeline-point {
+        margin-#{$left}: 0;
+    }
+}
+.timeline-h-align-center {
+    .timeline-item:nth-child(odd) {
+        flex-direction: row-reverse;
+
+        .timeline-meta-wrap {
+            text-align: $right;
+        }
+    }
+    .timeline-item:nth-child(even) {
+        .timeline-content {
+            text-align: $right;
+        }
+    }
+}
+.timeline-h-align-right {
+    .timeline-line {
+        #{$left}: auto;
+        #{$right}: 0;
+        transform: translateX(50%);
+        margin-#{$right}: calc(var(--alpha-point-size) / 2);
+    }
+    .timeline-point {
+        order: 13;
+    }
+    .timeline-item .timeline-content,
+    .timeline-item .timeline-meta-wrap {
+        text-align: $right;
+    }
+    &.timeline .timeline-point {
+        margin-#{$right}: 0;
+    }
+}
+.timeline-vertical {
+    .timeline-content {
+        flex: 1;
+        max-width: 100%;
+    }
+    &.timeline-h-align-center {
+
+        .timeline-content,
+        .timeline-meta-wrap {
+            width: calc(50% - var(--alpha-point-spacing) - var(--alpha-point-size)/2 );
+        }
+
+        @include mq(lg) {
+            .timeline-line {
+                margin: 0 !important;
+            }
+        }
+        @include mq(lg, max) {
+            .timeline-meta-wrap {
+                display: none;
+            }
+
+            .timeline-line {
+                #{$left}: 0;
+                margin-#{$left}: calc(var(--alpha-point-size) / 2);
+            }
+
+            .timeline-list .timeline-content {
+                flex: 1;
+                max-width: none;
+                text-align: $left;
+            }
+
+            .timeline-list .timeline-item {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .timeline-point {
+                order: -1;
+                margin-#{$left}: 0;
+            }
+        }
+    }
+}
+
+@include mq(lg) {
+    .timeline-lg-none {
+        display: none;
+    }
+}

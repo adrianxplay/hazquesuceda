@@ -1,0 +1,253 @@
+/* -------------------------------------------
+	Hotspot
+	1. Wrapper
+	2. Hotspot
+	3. Box
+	4. Hotspot Product
+	5. Type 1
+	6. Type 2
+	7. Elementor Compatibility
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+@keyframes zooming {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(2.5);
+	}
+}
+
+@keyframes zooming2 {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: .5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// 1. Wrapper
+.hotspot-wrapper {
+	position: relative;
+	z-index: 1;
+	font-size: .857em;
+
+	&:hover {
+		.hotspot-box {
+			visibility: visible;
+			opacity: 1;
+			pointer-events: all;
+		}
+		.hotspot {
+			color: var(--alpha-change-color-light-1);
+			background: var(--alpha-change-color-dark-1);
+		}
+
+		.hotspot-box-top {
+			transform: translate(-50%, -31px);
+		}
+
+		.hotspot-box-bottom {
+			transform: translate(-50%, 30px);
+		}
+
+		.hotspot-box-right {
+			transform: translate(30px, -50%);
+		}
+
+		.hotspot-box-left {
+			transform: translate(-30px, -50%);
+		}
+	}
+
+}
+
+// 2. Hotspot
+.hotspot {
+	--alpha-hotspot-bg-size: 3rem;
+	display: block;
+	position: relative;
+	width: var(--alpha-hotspot-bg-size);
+	height: var(--alpha-hotspot-bg-size);
+	z-index: 1001;
+	text-align: center;
+	color: inherit;
+	transition: .3s;
+	line-height: calc(var(--alpha-hotspot-bg-size) - 2px);
+	border-radius: 50%;
+	color: var(--alpha-change-color-dark-1);
+	background: var(--alpha-change-color-light-1);
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	i, svg {
+		vertical-align: middle;
+	}
+}
+
+// 3. Box
+.hotspot-box {
+	position: absolute;
+	width: 20rem;
+	padding: 1rem;
+	background: var(--alpha-change-color-light-1);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1;
+	transition: opacity .3s, transform .3s, visibility .3s;
+	pointer-events: none;
+
+
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		z-index: 1000;
+	}
+
+	&:before {
+		#{$left}: 50%;
+		margin-#{$left}: -10px;
+		border: 10px solid transparent;
+	}
+
+	&:after {
+		border: 50px solid transparent;
+		transform: translate(-50%);
+	}
+
+	&.hotspot-box-top, &.hotspot-box-bottom {
+		#{$left}: 50%;
+	}
+		
+	&.hotspot-box-right, &.hotspot-box-left {
+		top: 50%;
+		&:before {
+			margin-#{$left}: 0;
+			top: 50%;
+		}
+	}
+
+	&.hotspot-box-top {
+		bottom: 100%;
+		#{$left}: 50%;
+		transform: translate(-50%, -20px);
+		&::before {
+			bottom: 0;
+			transform: translateY(95%);
+			border-top-color: var(--alpha-change-color-light-1);
+		}
+		&::after {
+			#{left}: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&.hotspot-box-left {
+		right: 100%;
+		top: 50%;
+		transform: translate(-20px, -50%);
+		&::before {
+			#{$right}: 0;
+			#{$left}: auto;
+			transform: translate(95%, -50%);
+			border-#{$left}-color: var(--alpha-change-color-light-1);
+		}
+		&::after {
+			#{$left}: 100%;
+			bottom: 50%;
+			transform: translateY(50%);
+		}
+	}
+
+	&.hotspot-box-bottom {
+		top: 100%;
+		#{$left}: 50%;
+		transform: translate(-50%, 20px);
+		&::before {
+			top: 0;
+			transform: translateY(-95%);
+			border-bottom-color: var(--alpha-change-color-light-1);
+		}
+		&::after {
+			#{$left}: 50%;
+			bottom: 100%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&.hotspot-box-right {
+		#{$left}: 100%;
+		top: 50%;
+		transform: translate(20px, -50%);
+		&::before {
+			#{$left}: 0;
+			transform: translate(-95%, -50%);
+			border-#{$right}-color: var(--alpha-change-color-light-1);
+		}
+		&::after {
+			top: 50%;
+			#{$right}: 100%;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+// 4. Hotspot Product
+.hotspot-product {
+	.product {
+		font-size: 1rem;
+	}
+	.product-body {
+		padding: 1.5rem 0 0;
+	}
+	.product-action-vertical {
+		opacity: 1;
+		visibility: inherit;
+		transition: none;
+	}
+	.price {
+		margin-bottom: 0;
+	}
+}
+
+// 5. Type 1
+.hotspot-type1:not(:hover) {
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		#{$left}: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--alpha-change-color-light-1);
+		border-radius: 50%;
+		animation: zooming 2s infinite;
+	}
+}
+
+// 6. Type 2
+.hotspot-type2:not(:hover) {
+	.hotspot {
+		animation: zooming2 2s infinite;
+	}
+}
+
+// 7. Elementor Compatibility
+.elementor-element.elementor-widget-#{$theme-name}_widget_hotspot {
+	position: absolute;
+	width: auto;
+	transform: translate(-50%,-50%);
+}

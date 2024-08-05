@@ -1,0 +1,243 @@
+/* -------------------------------------------
+	Hotspot
+		1. Wrapper
+		2. Hotspot
+		3. Box
+		4. Hotspot Product
+		5. Type 1
+		6. Type 2
+        7. Elementor Compatibility
+        8. Position
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+@import '../../../assets/sass/mixins';
+
+@keyframes zooming {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(4);
+	}
+}
+
+@keyframes zooming2 {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: .5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// 1. Wrapper
+.hotspot-wrapper {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+
+	&:hover {
+		.hotspot-box {
+			visibility: visible;
+			opacity: 1;
+			pointer-events: all;
+		}
+		.hotspot {
+			color: var(--alpha-change-color-light-1);
+			background: var(--alpha-change-color-dark-1);
+		}
+		.hotspot-box-top {
+			transform: translateY(-10px);
+		}
+		.hotspot-box-bottom {
+			transform: translateY(10px);
+		}
+		.hotspot-box-left {
+			transform: translateX(-10px);
+		}
+		.hotspot-box-right {
+			transform: translateX(10px);
+		}
+	}
+
+	.hotspot:before {
+		content: '';
+		position: absolute;
+		left: -10px;
+		right: -1rem;
+		top: -1rem;
+		bottom: -1rem;
+	}
+	
+	.banner & {
+		font-size: 1.4em;
+	}
+}
+
+// 2. Hotspot
+.hotspot {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: inherit;
+	transition: .3s;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	color: var(--alpha-change-color-dark-1);
+	background: var(--alpha-change-color-light-1);
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	i {
+		font-size: 1.2rem;
+		line-height: 0;
+		vertical-align: middle;
+	}
+}
+
+// 3. Box
+.hotspot-box {
+	position: absolute;
+	width: 29.2rem;
+	padding: .5rem;
+	background: var(--alpha-change-color-light-1);
+	text-align: center;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1;
+	transition: opacity .3s, transform .3s, visibility .3s;
+	pointer-events: none;
+}
+
+// 4. Hotspot Product
+.hotspot-product {
+	.hotspot-box {
+		padding: 1rem;
+	}
+	.product-media {
+		flex: 0 0 10.9rem;
+		align-self: stretch;
+		margin-#{$right}: 1.5rem;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.product-body {
+		text-align: $left;
+	}
+	.product-title {
+		margin-bottom: 0;
+		white-space: normal;
+	}
+	.product-title,
+	.price {
+		font-size: inherit;
+	}
+	.product-action-vertical {
+		opacity: 1;
+		visibility: inherit;
+		transition: none;
+	}
+	.price {
+		margin-bottom: 0;
+	}
+	.btn-product-icon {
+		display: block;
+		padding: .5rem 1rem;
+		margin-top: 1rem;
+		border: 2px solid var(--alpha-change-color-light-3);
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--alpha-change-color-dark-1);
+		text-align: center;
+		transition: color .3s, background-color .3s, border-color .3s;
+
+		&:hover {
+			color: var(--alpha-change-color-light-1);
+			background-color: var(--alpha-change-color-dark-1);
+			border-color: var(--alpha-change-color-dark-1);
+		}
+
+		&.hotspot-product-action:before {
+			content: none;
+		}
+	}
+	
+	.product {
+		display: flex;
+		align-items: center;
+	}
+	
+	@include mq(md, max) {
+		.product {
+			display: block;
+		}
+		.hotspot-box {
+			width: 20rem;
+		}
+		.product-media {
+			margin: 0 0 1.5rem;
+		}
+	}
+
+}
+
+// 5. Type 1
+.hotspot-type1:not(:hover) {
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		#{$left}: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--alpha-change-color-light-1);
+		border-radius: 50%;
+		animation: zooming 2s infinite;
+	}
+}
+
+// 6. Type 2
+.hotspot-type2:not(:hover) {
+	.hotspot {
+		animation: zooming2 2s infinite;
+	}
+}
+
+// 7. Elementor Compatibility
+.elementor-element.elementor-widget-#{$theme-name}_widget_hotspot {
+	position: absolute;
+	width: auto;
+}
+
+// 8. Position
+.hotspot-box-top {
+	bottom: 100%;
+	#{$left}: -40px;
+}
+.hotspot-box-left {
+	#{$right}: 100%;
+	top: -15px;
+}
+.hotspot-box-right {
+	#{$left}: 100%;
+	top: -15px;
+}
+.hotspot-box-bottom {
+	top: 100%;
+	#{$left}: -40px;
+}

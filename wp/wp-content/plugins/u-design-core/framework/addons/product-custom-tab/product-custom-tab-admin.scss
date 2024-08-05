@@ -1,0 +1,22 @@
+/* -------------------------------------------
+    Admin Product Custom Tab
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+.alpha_custom_tab_content_field {
+    padding: side-values(5px 20px 5px 162px);
+}
+#alpha_custom_tab_options .wp-editor-container {
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+
+    textarea {
+        height: 7.5em;
+    }
+}

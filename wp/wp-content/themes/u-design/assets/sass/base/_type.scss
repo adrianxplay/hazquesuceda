@@ -1,0 +1,174 @@
+/* -------------------------------------------
+		Typography
+---------------------------------------------- */
+
+body {
+	font-family: var(--alpha-body-font-family), sans-serif;
+	font-weight: var(--alpha-body-font-weight);
+	font-size: var(--alpha-body-font-size);
+	line-height: var(--alpha-body-line-height);
+	letter-spacing: var(--alpha-body-letter-spacing);
+	text-transform: var(--alpha-body-text-transform);
+	color: var(--alpha-body-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 2rem;
+	font-family: var(--alpha-heading-font-family), var(--alpha-body-font-family), sans-serif;
+	font-weight: var(--alpha-heading-font-weight, 600);
+	font-size: var(--alpha-heading-font-size);
+	line-height: var(--alpha-heading-line-height, var(--alpha-body-line-height));
+	letter-spacing: var(--alpha-heading-letter-spacing, var(--alpha-body-letter-spacing));
+	text-transform: var(--alpha-heading-text-transform, var(--alpha-body-text-transform));
+	color: var(--alpha-heading-color, var(--alpha-body-color));
+}
+
+p {
+	margin: 0 0 2rem;
+}
+
+h1 {
+	font-size: var(--alpha-h1-font-size, 5rem);
+}
+
+h2 {
+	font-size: var(--alpha-h2-font-size, 3.8rem);
+}
+
+h3 {
+	font-size: var(--alpha-h3-font-size, 2.8rem);
+}
+
+h4 {
+	font-size: var(--alpha-h4-font-size, 2.2rem);
+}
+
+h5 {
+	font-size: var(--alpha-h5-font-size, 1.8rem);
+}
+
+h6 {
+	font-size: var(--alpha-h6-font-size, 1.6rem);
+}
+
+.esg-grid {
+	font-family: inherit;
+}
+
+.list-type-check {
+	list-style: none;
+	padding-#{$left}: 0;
+
+	li {
+		position: relative;
+		padding-#{$left}: 2rem;
+
+		&::before {
+			position: absolute;
+			display: block;
+			#{$left}: 0;
+			top: 1px;
+			content: '\e969';
+			font-family: $framework-font;
+			font-weight: 700;
+		}
+	}
+}
+
+.nolink:hover {
+	cursor: default;
+}
+
+.alpha-rounded-skin {
+
+	.form-control,
+	input[type="checkbox"],
+	.alert,
+	.alert .btn,
+	.wpcf7-form-control,
+	.comment-respond .btn-submit,
+	.calendar_wrap caption,
+	.cat-type-frame,
+	.post-wrap .post-cats>a,
+	.member-boxed,
+	.instagram img,
+	.instagram figure:before,
+	.member-card .post-details,
+	.post-modern .post-details,
+	.product .countdown-container,
+	.product-hide-details .btn-product,
+	.product-list .btn-product,
+	.cat-type-default .category-content,
+	.hotspot-box,
+	.hotspot-product .btn-product-icon,
+	.alpha-compare-table .compare-value .label-swatch,
+	.search-wrapper .btn-search,
+	.quantity,
+	.compare-popup .btn,
+	.dropdown-box .buttons a,
+	.live-search-list {
+		border-radius: $corner-sm;
+	}
+
+	.post-wrap .post,
+	.member-default,
+	.brand-widget-3,
+	.testimonial,
+	.testimonial .content,
+	.elementor-widget-#{$theme-name}_widget_banner .elementor-widget-container,
+	.products .banner,
+	.cat-type-banner,
+	.cat-type-classic,
+	.wp-block-search .wp-block-search__inside-wrapper,
+	.post-intro .btn {
+		border-radius: $corner-md;
+	}
+
+	.vendor-widget:not(.vendor-widget-3) .vendor-logo,
+	.vendor-widget .vendor-product>figure,
+	.vendor-widget:not(.vendor-widget-3) .vendor-banner,
+	.vendor-widget-2,
+	.vendor-widget-3 {
+		border-radius: $corner-md;
+		overflow: hidden;
+	}
+
+	.post-wrap .portfolio-gallery,
+	.post-wrap .post-modern,
+	.flipbox .flipbox_front,
+	.flipbox .flipbox_back,
+	.member-card,
+	.cat-type-default,
+	.cat-type-card {
+		border-radius: $corner-lg;
+	}
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+input[type=reset],
+input[type=tel],
+textarea {
+	min-height: 4.1rem;
+	padding: 1.1rem 2rem;
+	border: 1px solid var(--alpha-change-border-color);
+	font-size: 1.4rem;
+	line-height: 1.5;
+	font-weight: 400;
+	color: var(--alpha-body-color);
+	background-color: transparent;
+	box-shadow: none;
+	outline: 0;
+	vertical-align: middle;
+}

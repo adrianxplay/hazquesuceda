@@ -1,0 +1,1530 @@
+/* -------------------------------------------
+    Buttons
+        - Button
+            - Default
+            - Solid
+        - Outline Button
+        - Icon Button
+            - Icon Button
+            - Reveal Button
+            - Slide Button
+        - Shadow Button
+        - Underline Button
+        - Link Button
+        - Other Button Styles
+        - Button Color Styles
+        - Button Text Hover Styles
+        - Button Background Hover Styles
+---------------------------------------------- */
+
+// Button
+button {
+    cursor: pointer;
+    transition: color .3s, border-color .3s, background-color .3s, box-shadow .3s;
+}
+
+.btn {
+    --alpha-btn-skin-color: var(--alpha-change-color-light-2);
+    --alpha-btn-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-bd-color: var(--alpha-change-color-light-2);
+    --alpha-btn-bg-color: var(--alpha-change-color-light-2);
+    --alpha-btn-hover-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-hover-bd-color: var(--alpha-change-border-color-light);
+    --alpha-btn-hover-bg-color: var(--alpha-change-border-color-light);
+    --alpha-btn-active-color: var(--alpha-change-color-dark-1, --alpha-btn-hover-color);
+    --alpha-btn-active-bd-color: var(--alpha-change-border-color-light, --alpha-btn-hover-bd-color);
+    --alpha-btn-active-bg-color: var(--alpha-change-border-color-light, --alpha-btn-hover-bg-color);
+
+    display: inline-block;
+    border: 2px solid var(--alpha-btn-bd-color);
+    background-color: var(--alpha-btn-bg-color);
+    color: var(--alpha-btn-color);
+    outline: 0;
+    border-radius: 0;
+    // Height 44px, Width 120px for default
+    padding: 1.8rem 3.9rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: -.025em;
+    line-height: 1;
+    text-transform: capitalize;
+    text-align: center;
+    transition: color .3s, border-color .3s, background-color .3s, box-shadow .3s;
+    white-space: nowrap;
+    cursor: pointer;
+
+    i {
+        display: inline-block;
+        margin-#{$left}: var(--alpha-btn-icon-spacing);
+        font-size: var(--alpha-btn-icon-size);
+        vertical-align: -0.15em;
+        line-height: 0;
+    }
+
+    svg {
+        width: var(--alpha-btn-icon-size);
+        height: var(--alpha-btn-icon-size);
+
+        fill: var(--alpha-btn-color);
+        stroke: var(--alpha-btn-color);
+
+        transition: fill .3s, stroke .3s;
+    }
+
+    &:hover {
+        color: var(--alpha-btn-hover-color);
+        border-color: var(--alpha-btn-hover-bd-color);
+        background-color: var(--alpha-btn-hover-bg-color);
+
+        svg {
+            fill: var(--alpha-btn-hover-color);
+            stroke: var(--alpha-btn-hover-color);
+        }
+    }
+
+    &:active,
+    &:focus {
+        color: var(--alpha-btn-active-color, --alpha-btn-hover-color);
+        border-color: var(--alpha-btn-active-bd-color, --alpha-btn-hover-bd-color);
+        background-color: var(--alpha-btn-active-bg-color, --alpha-btn-hover-bg-color);
+
+        svg {
+            fill: var(--alpha-btn-active-color, --alpha-btn-hover-color);
+            stroke: var(--alpha-btn-active-color, --alpha-btn-hover-color);
+        }
+    }
+}
+
+.btn,
+.button {
+    --alpha-btn-icon-spacing: .4rem;
+    --alpha-btn-icon-size: 1.3em;
+}
+
+// Solid Button
+.btn-solid {
+    --alpha-btn-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-bd-color: var(--alpha-white-color);
+    --alpha-btn-bg-color: var(--alpha-white-color);
+    --alpha-btn-hover-color: var(--alpha-white-color);
+    --alpha-btn-hover-bd-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-hover-bg-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-active-color: var(--alpha-white-color);
+    --alpha-btn-active-bd-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-active-bg-color: var(--alpha-change-color-dark-1);
+}
+
+// Outline Button
+.btn-outline {
+    --alpha-btn-bd-color: var(--alpha-change-color-light-2);
+    --alpha-btn-bg-color: transparent;
+    --alpha-btn-hover-bd-color: var(--alpha-change-border-color-light);
+    --alpha-btn-hover-bg-color: var(--alpha-change-border-color-light);
+    --alpha-btn-active-bd-color: var(--alpha-change-border-color-light);
+    --alpha-btn-active-bg-color: var(--alpha-change-border-color-light);
+
+    &.btn-outline-light {
+        padding: 1.07em 2.21em;
+        border-width: 1px;
+    }
+}
+
+.btn-outline2 {
+    position: relative;
+    border: 0;
+    margin: 5px;
+
+    &:after,
+    &:before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        bottom: -5px;
+        right: -5px;
+        border-radius: inherit;
+    }
+
+    &:after {
+        border: 1px solid;
+        border-color: var(--alpha-btn-bd-color);
+        opacity: 1;
+        transition: margin .3s, opacity .3s;
+    }
+
+    &:hover:after {
+        margin: 5px;
+        opacity: 0;
+    }
+}
+
+.btn-outline3 {
+    --alpha-btn-color: var(--alpha-body-color);
+    --alpha-btn-bd-color: #eee;
+    --alpha-btn-bg-color: transparent;
+    --alpha-btn-hover-bd-color: #eee;
+    --alpha-btn-hover-bg-color: transparent;
+    --alpha-btn-active-bd-color: #eee;
+    --alpha-btn-active-bg-color: transparent;
+
+    position: relative !important;
+    border-top: 2px solid var(--alpha-btn-bd-color);
+    border-right: none;
+    border-bottom: 2px solid var(--alpha-btn-bd-color);
+    border-left: none;
+
+    &:before,
+    &:after {
+        content: '';
+        width: 2px;
+        height: 38%;
+        position: absolute;
+        background-color: var(--alpha-btn-bd-color);
+        transition: height .3s, background-color .3s;
+    }
+
+    &:before {
+        top: 0;
+        right: 0;
+    }
+
+    &:after {
+        left: 0;
+        bottom: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+
+        &:before,
+        &:after {
+            height: 100%;
+        }
+    }
+
+    &:hover {
+        & {
+            border-color: var(--alpha-btn-hover-bd-color);
+        }
+
+        &:before,
+        &:after {
+            background-color: var(--alpha-btn-hover-bd-color);
+        }
+    }
+
+    &:active,
+    &:focus {
+        & {
+            border-color: var(--alpha-btn-active-bd-color);
+        }
+
+        &:before,
+        &:after {
+            background-color: var(--alpha-btn-active-bd-color);
+        }
+    }
+}
+
+// Button Icon
+.btn-icon {
+    --alpha-btn-icon-spacing: .8rem;
+
+    >i:first-child:last-child {
+        margin: 0;
+        line-height: 1;
+    }
+}
+
+.btn-icon-right {
+
+    >i,
+    >svg {
+        margin-#{$left}: var(--alpha-btn-icon-spacing);
+        margin-#{$right}: 0;
+    }
+}
+
+.btn-icon-left {
+
+    >i,
+    >svg {
+        margin-#{$left}: 0;
+        margin-#{$right}: var(--alpha-btn-icon-spacing);
+    }
+}
+
+// Reveal Button
+.btn-icon-left.btn-reveal {
+
+    i,
+    svg {
+        opacity: 0;
+        margin-#{$left}: -1em;
+        transform: translateX(if-ltr(.5em, -.5em));
+        margin-#{$right}: 0;
+        transition: transform .3s, opacity .3s, margin .3s;
+    }
+
+    &:not(:hover, :active, :focus) svg {
+        width: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        --alpha-btn-icon-spacing: .7rem;
+
+        i,
+        svg {
+            opacity: 1;
+            margin-#{$left}: 0;
+            transform: translateX(0);
+            margin-#{$right}: var(--alpha-btn-icon-spacing);
+        }
+    }
+}
+
+.btn-icon-right.btn-reveal {
+
+    i,
+    svg {
+        opacity: 0;
+        margin-#{$right}: -1em;
+        transform: translateX(if-ltr(-.5em, .5em));
+        margin-#{$left}: 0;
+        transition: transform .3s, opacity .3s, margin .3s;
+    }
+
+    &:not(:hover, :active, :focus) svg {
+        width: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        --alpha-btn-icon-spacing: .7rem;
+
+        i,
+        svg {
+            opacity: 1;
+            margin-#{$left}: var(--alpha-btn-icon-spacing);
+            transform: translateX(0);
+            margin-#{$right}: 0;
+        }
+    }
+}
+
+// Slide Button
+.btn-slide-left {
+
+    &:hover,
+    &:active,
+    &:focus {
+        i {
+            animation: .5s ease slideLeft;
+        }
+    }
+}
+
+.btn-slide-right {
+
+    &:hover,
+    &:active,
+    &:focus {
+        i {
+            animation: .5s ease slideRight;
+        }
+    }
+}
+
+.btn-slide-up {
+
+    &:hover,
+    &:active,
+    &:focus {
+        i {
+            animation: .5s ease slideUp;
+        }
+    }
+}
+
+.btn-slide-down {
+
+    &:hover,
+    &:active,
+    &:focus {
+        i {
+            animation: .5s ease slideDown;
+        }
+    }
+}
+
+.btn-infinite {
+    &:hover {
+        i {
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(if-ltr(-.5em, .5em));
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(if-ltr(.5em, -.5em));
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-.5em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(.5em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+// Shadow Button
+.btn.btn-shadow-lg {
+    box-shadow: 0 5px 50px rgba(0, 0, 0, .1);
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.btn.btn-shadow {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.btn.btn-shadow-sm {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+// Underline Button
+.btn-underline {
+
+    &:hover,
+    &.active,
+    &:focus {
+        &:after {
+            transform: scaleX(1);
+        }
+    }
+
+    &:after {
+        display: block;
+        margin-top: 3px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        border-bottom: 3px solid;
+        transform: scaleX(0);
+        transition: transform .3s;
+        content: '';
+    }
+}
+
+.btn-underline.sm:after {
+    width: 46%;
+}
+
+.btn-underline.lg:after {
+    width: 60%;
+    margin-#{$left}: 0;
+    transform-origin: $left;
+}
+
+// Link Button
+.btn-link {
+    --alpha-btn-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-bg-color: transparent;
+    --alpha-btn-hover-bg-color: transparent;
+    --alpha-btn-active-bg-color: transparent;
+
+    padding: 0;
+    border: 0;
+}
+
+// Box Shadow Button
+.btn-boxshadow {
+    position: relative;
+    border: none;
+    transition: ease transform .3s, color .3s, background-color .3s, border-color .3s, box-shadow .3s;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        opacity: 0.4;
+        border-radius: inherit;
+        transform: translate3d(5px, 5px, 0);
+        transition: ease transform .3s;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: inherit;
+    }
+
+    >* {
+        z-index: 1;
+    }
+
+    &:hover {
+        transform: translate3d(2.5px, 2.5px, 0);
+
+        &:before {
+            transform: translate3d(0, 0, 0) !important;
+        }
+    }
+
+    span {
+        position: relative;
+    }
+}
+
+// Button Shapes
+.btn-rounded {
+    border-radius: $corner-sm;
+}
+
+.btn-ellipse {
+    border-radius: 100px;
+}
+
+.btn-circle {
+    border-radius: 50%;
+}
+
+.btn {
+    &.btn-block {
+        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    &.btn-xl {
+        font-size: 2.2rem;
+        padding: 2.8rem 5.1rem;
+    }
+
+    &.btn-lg {
+        font-size: 1.8rem;
+        padding: 2.15rem 4.4rem;
+    }
+
+    &.btn-md {
+        font-size: 1.4rem;
+        padding: 1.4rem 2.9rem;
+    }
+
+    &.btn-sm {
+        font-size: 1.2rem;
+        padding: 1.1rem 1.9rem;
+    }
+
+    &.btn-link {
+        padding: 0;
+    }
+
+    &.btn-border-thin {
+        border-width: 1px;
+        padding: 1.4rem 2.9rem;
+    }
+}
+
+// 8. Button Color Styles
+.btn-default {
+    --alpha-btn-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-bd-color: var(--alpha-change-color-light-3);
+    --alpha-btn-bg-color: var(--alpha-change-color-light-3);
+    --alpha-btn-hover-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-hover-bd-color: var(--alpha-change-border-color);
+    --alpha-btn-hover-bg-color: var(--alpha-change-border-color);
+    --alpha-btn-active-color: var(--alpha-change-color-dark-1);
+    --alpha-btn-active-bd-color: var(--alpha-change-border-color);
+    --alpha-btn-active-bg-color: var(--alpha-change-border-color);
+
+    &.disabled {
+        --alpha-btn-bd-color: var(--alpha-change-color-light-3);
+        --alpha-btn-bg-color: var(--alpha-change-color-light-3);
+    }
+
+    &.btn-outline {
+        --alpha-btn-bg-color: transparent;
+    }
+}
+
+.btn-primary {
+    --alpha-btn-skin-color: var(--alpha-primary-color);
+    --alpha-btn-skin-color-hover: var(--alpha-primary-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-primary-color);
+    --alpha-btn-bg-color: var(--alpha-primary-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-primary-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-primary-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-primary-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-primary-color-hover);
+}
+
+.btn-secondary {
+    --alpha-btn-skin-color: var(--alpha-secondary-color);
+    --alpha-btn-skin-color-hover: var(--alpha-secondary-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-secondary-color);
+    --alpha-btn-bg-color: var(--alpha-secondary-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-secondary-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-secondary-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-secondary-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-secondary-color-hover);
+}
+
+.btn-accent {
+    --alpha-btn-skin-color: var(--alpha-accent-color);
+    --alpha-btn-skin-color-hover: var(--alpha-accent-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-accent-color);
+    --alpha-btn-bg-color: var(--alpha-accent-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-accent-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-accent-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-accent-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-accent-color-hover);
+}
+
+.btn-success {
+    --alpha-btn-skin-color: var(--alpha-success-color);
+    --alpha-btn-skin-color-hover: var(--alpha-success-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-success-color);
+    --alpha-btn-bg-color: var(--alpha-success-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-success-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-success-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-success-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-success-color-hover);
+}
+
+.btn-info {
+    --alpha-btn-skin-color: var(--alpha-info-color);
+    --alpha-btn-skin-color-hover: var(--alpha-info-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-info-color);
+    --alpha-btn-bg-color: var(--alpha-info-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-info-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-info-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-info-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-info-color-hover);
+}
+
+.btn-warning {
+    --alpha-btn-skin-color: var(--alpha-alert-color);
+    --alpha-btn-skin-color-hover: var(--alpha-alert-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-alert-color);
+    --alpha-btn-bg-color: var(--alpha-alert-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-alert-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-alert-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-alert-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-alert-color-hover);
+}
+
+.btn-danger {
+    --alpha-btn-skin-color: var(--alpha-danger-color);
+    --alpha-btn-skin-color-hover: var(--alpha-danger-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-danger-color);
+    --alpha-btn-bg-color: var(--alpha-danger-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-danger-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-danger-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-danger-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-danger-color-hover);
+}
+
+.btn-dark {
+    --alpha-btn-skin-color: var(--alpha-dark-color);
+    --alpha-btn-skin-color-hover: var(--alpha-dark-color-hover);
+    --alpha-btn-color: #fff;
+    --alpha-btn-bd-color: var(--alpha-dark-color);
+    --alpha-btn-bg-color: var(--alpha-dark-color);
+    --alpha-btn-hover-color: #fff;
+    --alpha-btn-hover-bd-color: var(--alpha-dark-color-hover);
+    --alpha-btn-hover-bg-color: var(--alpha-dark-color-hover);
+    --alpha-btn-active-color: #fff;
+    --alpha-btn-active-bd-color: var(--alpha-dark-color-hover);
+    --alpha-btn-active-bg-color: var(--alpha-dark-color-hover);
+}
+
+.btn-white {
+    --alpha-btn-skin-color: var(--alpha-white-color);
+    --alpha-btn-skin-color-hover: var(--alpha-primary-color);
+    --alpha-btn-color: var(--alpha-dark-color);
+    --alpha-btn-bd-color: var(--alpha-white-color);
+    --alpha-btn-bg-color: var(--alpha-white-color);
+    --alpha-btn-hover-color: var(--alpha-white-color);
+    --alpha-btn-hover-bd-color: var(--alpha-primary-color);
+    --alpha-btn-hover-bg-color: var(--alpha-primary-color);
+    --alpha-btn-active-color: var(--alpha-white-color);
+    --alpha-btn-active-bd-color: var(--alpha-primary-color);
+    --alpha-btn-active-bg-color: var(--alpha-primary-color);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-accent,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger,
+.btn-dark,
+.btn-white {
+    &.btn-solid {
+        --alpha-btn-color: var(--alpha-btn-skin-color);
+        --alpha-btn-bd-color: #fff;
+        --alpha-btn-bg-color: #fff;
+        --alpha-btn-hover-color: #fff;
+        --alpha-btn-hover-bd-color: var(--alpha-btn-skin-color);
+        --alpha-btn-hover-bg-color: var(--alpha-btn-skin-color);
+        --alpha-btn-active-color: #fff;
+        --alpha-btn-active-bd-color: var(--alpha-btn-skin-color);
+        --alpha-btn-active-bg-color: var(--alpha-btn-skin-color);
+    }
+
+    &.btn-outline {
+        --alpha-btn-color: var(--alpha-btn-skin-color);
+        --alpha-btn-bd-color: var(--alpha-btn-skin-color);
+        --alpha-btn-bg-color: transparent;
+        --alpha-btn-hover-color: #fff;
+        --alpha-btn-hover-bd-color: var(--alpha-btn-skin-color);
+        --alpha-btn-hover-bg-color: var(--alpha-btn-skin-color);
+        --alpha-btn-active-color: #fff;
+        --alpha-btn-active-bd-color: var(--alpha-btn-skin-color);
+        --alpha-btn-active-bg-color: var(--alpha-btn-skin-color);
+    }
+
+    &.btn-outline3 {
+        --alpha-btn-color: var(--alpha-btn-skin-color);
+        --alpha-btn-bd-color: var(--alpha-btn-skin-color);
+        --alpha-btn-bg-color: transparent;
+        --alpha-btn-hover-color: var(--alpha-btn-skin-color-hover);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-color: var(--alpha-btn-skin-color-hover);
+        --alpha-btn-active-bg-color: transparent;
+    }
+
+    &.btn-link {
+        --alpha-btn-color: var(--alpha-btn-skin-color);
+        --alpha-btn-bg-color: transparent;
+        --alpha-btn-hover-color: var(--alpha-change-color-dark-1);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-color: var(--alpha-change-color-dark-1);
+        --alpha-btn-active-bg-color: transparent;
+    }
+
+    &.btn-underline {
+        --alpha-btn-hover-color: var(--alpha-btn-skin-color);
+        --alpha-btn-active-color: var(--alpha-btn-skin-color);
+    }
+}
+
+.btn-white {
+    &.btn-outline {
+        --alpha-btn-hover-color: var(--alpha-primary-color);
+        --alpha-btn-active-color: var(--alpha-primary-color);
+    }
+
+    &.btn-link {
+        --alpha-btn-hover-color: var(--alpha-white-color);
+        --alpha-btn-active-color: var(--alpha-white-color);
+    }
+}
+
+// Gradient Button
+.btn-gradient {
+    --alpha-btn-color: var(--alpha-white-color);
+    --alpha-btn-hover-color: var(--alpha-white-color);
+    --alpha-btn-active-color: var(--alpha-white-color);
+
+    position: relative;
+    background: linear-gradient(113deg, #f4f4f4, #edf7fa);
+    border: none;
+    padding: 2rem 4.9rem;
+    transition: background .25s, color .25s, border .25s, box-shadow .25s;
+    overflow: hidden;
+
+    &.btn-xl {
+        padding: 3rem 4.9rem;
+    }
+
+    &.btn-lg {
+        padding: 2.45rem 4.4rem;
+    }
+
+    &.btn-md {
+        padding: 1.6rem 3rem;
+    }
+
+    &.btn-sm {
+        padding: 1.25rem 2rem;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: 0%;
+        right: 0%;
+        bottom: -50%;
+        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%);
+        transform: skewX(-45deg) translateX(-100%);
+        transition: transform 0.8s;
+    }
+
+    &:hover:after {
+        transform: skewX(-45deg) translateX(100%);
+    }
+}
+
+.btn-gra-primary {
+    background: linear-gradient(100deg, var(--alpha-primary-gradient-2) 26%, var(--alpha-primary-gradient-1) 74%);
+}
+
+.btn-gra-purple {
+    background: linear-gradient(135deg, #8b47de 26%, #1637e2 74%);
+}
+
+.btn-gra-blue {
+    background: linear-gradient(148deg, #00cfff 26%, #00a2ff 74%);
+}
+
+.btn-gra-orange {
+    background: linear-gradient(142deg, #fc7638 26%, #fd5d42 74%);
+}
+
+.btn-gra-pink {
+    background: linear-gradient(148deg, #da008b 29%, #9400f4 71%);
+}
+
+.btn-gra-green {
+    background: linear-gradient(124deg, #3ac3d5 26%, #aab927 74%);
+}
+
+.btn-gra-dark {
+    background: linear-gradient(128deg, #7f7c7c 27%, #414141 73%);
+}
+
+.btn-link-gradient {
+    background: transparent;
+
+    &,
+    & i:before {
+        background-size: 100%;
+        background-attachment: scroll;
+        background-position: 0 0;
+        background-repeat: repeat;
+        -webkit-box-decoration-break: clone;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &:after {
+        content: none;
+    }
+
+    &.btn {
+        padding: 0;
+    }
+
+    &.btn-gra-primary {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(100deg, var(--alpha-primary-gradient-2) 26%, var(--alpha-primary-gradient-1) 74%);
+        }
+    }
+
+    &.btn-gra-purple {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(135deg, #8b47de 26%, #1637e2 74%);
+        }
+    }
+
+    &.btn-gra-blue {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(148deg, #00cfff 26%, #00a2ff 74%);
+        }
+    }
+
+    &.btn-gra-orange {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(142deg, #fc7638 26%, #fd5d42 74%);
+        }
+    }
+
+    &.btn-gra-pink {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(148deg, #da008b 29%, #9400f4 71%);
+        }
+    }
+
+    &.btn-gra-green {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(124deg, #3ac3d5 26%, #aab927 74%);
+        }
+    }
+
+    &.btn-gra-dark {
+
+        &,
+        & i:before {
+            background-image: linear-gradient(128deg, #7f7c7c 27%, #414141 73%);
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-position: 3em 0;
+    }
+}
+
+// Button Text Hover Styles
+.btn-text-hover-effect {
+    vertical-align: middle;
+    overflow: hidden;
+
+    span {
+        display: inline-block;
+        position: relative;
+        z-index: 3;
+        transition: opacity .65s, transform .85s;
+
+        &:after {
+            content: attr(data-text);
+            position: absolute;
+            white-space: nowrap;
+            top: 50%;
+            opacity: 0;
+            transition: inherit;
+        }
+    }
+
+    &:hover span:after {
+        opacity: 1;
+    }
+
+    &:not(.btn-icon) {
+
+        span,
+        span:after {
+            width: 100%;
+        }
+    }
+}
+
+.btn-text-switch-left {
+    span:after {
+        left: 100%;
+        transform: translate(50%, -50%);
+    }
+
+    &:hover span {
+        transform: translateX(-200%);
+
+        &:after {
+            transform: translate(100%, -50%);
+        }
+    }
+}
+
+.btn-text-switch-up {
+    span:after {
+        left: 50%;
+        transform: translate(-50%, 100%);
+    }
+
+    &:hover span {
+        transform: translateY(-200%);
+
+        &:after {
+            transform: translate(-50%, 150%);
+        }
+    }
+}
+
+.btn-text-marquee-left {
+    span:after {
+        left: 100%;
+        transform: translate(100%, -50%);
+    }
+
+    &:hover span {
+        animation: btnMarqueeLeft 2s linear infinite;
+    }
+}
+
+.btn-text-marquee-up {
+    span:after {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 100%);
+    }
+
+    &:hover span {
+        animation: btnMarqueeUp 1s linear infinite;
+    }
+}
+
+.btn-text-marquee-down {
+    span:after {
+        top: -100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    &:hover span {
+        animation: btnMarqueeDown 1s linear infinite;
+    }
+}
+
+/* Hover Text effects */
+@keyframes btnMarqueeLeft {
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes btnMarqueeUp {
+    100% {
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes btnMarqueeDown {
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+/* Button Background Hover Styles */
+
+// Sweep Effects
+.btn-bg-hover-effect {
+    position: relative;
+    overflow: hidden;
+
+    span,
+    i {
+        position: relative;
+        z-index: 1;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        transition: all .4s;
+        background-color: var(--alpha-btn-hover-bg-color);
+    }
+
+    &.btn-outline {
+        background-color: transparent;
+    }
+
+    &.btn-antiman:before {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.btn-bubble,
+    &.btn-bubble.btn-outline {
+        --alpha-btn-color: var(--alpha-dark-color);
+
+        padding: 0;
+        border: none;
+    }
+}
+
+.btn-sweep-to-right {
+    &:before {
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+    }
+
+    &:hover:before,
+    &:focus:before {
+        transform: scaleX(1);
+    }
+
+    &:hover {
+        background-color: var(--alpha-btn-bg-color);
+    }
+}
+
+.btn-sweep-to-left {
+    &:before {
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+    }
+
+    &:hover:before,
+    &:focus:before {
+        transform: scaleX(1);
+    }
+
+    &:hover {
+        background-color: var(--alpha-btn-bg-color);
+    }
+}
+
+.btn-sweep-to-bottom {
+    &:before {
+        transform: scaleY(0);
+        transform-origin: 50% 0%;
+    }
+
+    &:hover:before,
+    &:focus:before {
+        transform: scaleY(1);
+    }
+
+    &:hover {
+        background-color: var(--alpha-btn-bg-color);
+    }
+}
+
+.btn-sweep-to-top {
+    &:before {
+        transform: scaleY(0);
+        transform-origin: 50% 100%;
+    }
+
+    &:hover:before,
+    &:focus:before {
+        transform: scaleY(1);
+    }
+
+    &:hover {
+        background-color: var(--alpha-btn-bg-color);
+    }
+}
+
+.btn-sweep-to-horizontal {
+    &:before {
+        transform: scaleX(0);
+        transform-origin: 50% 50%;
+    }
+
+    &:hover:before,
+    &:focus:before {
+        transform: scaleX(1);
+    }
+
+    &:hover {
+        background-color: var(--alpha-btn-bg-color);
+    }
+}
+
+.btn-sweep-to-vertical {
+    &:before {
+        transform: scaleY(0);
+        transform-origin: 50% 50%;
+    }
+
+    &:hover:before,
+    &:focus:before {
+        transform: scaleY(1);
+    }
+
+    &:hover {
+        background-color: var(--alpha-btn-bg-color);
+    }
+}
+
+.btn-antiman,
+.btn-bubble {
+    overflow: visible;
+}
+
+.btn-antiman {
+    &:before {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale3d(1.3, 1.3, 1);
+    }
+
+    &:hover:before,
+    &:focus:before {
+        opacity: 1;
+        visibility: visible;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.btn-bubble {
+    background-color: transparent !important;
+
+    &:before {
+        #{$left}: -1.875em;
+        top: 50%;
+        width: 3.75em;
+        height: 3.75em;
+        border-radius: 3.75em;
+        background-color: var(--alpha-btn-bg-color);
+        transform: translateY(if-ltr(-50%, 50%));
+    }
+
+    &.btn-outline {
+        &:before {
+            border: 2px solid var(--alpha-btn-bd-color);
+            background-color: transparent;
+        }
+    }
+
+    &:hover:before {
+        width: calc(100% + 3.75em);
+        background-color: var(--alpha-btn-hover-bg-color);
+    }
+
+    &.btn-outline:hover:before {
+        border-color: var(--alpha-btn-hover-bd-color);
+    }
+
+    &:focus:before,
+    &:active:before {
+        width: calc(100% + 3.75em);
+        background-color: var(--alpha-btn-active-bg-color);
+    }
+
+    &.btn-outline:hover:before {
+        border-color: var(--alpha-btn-active-bd-color);
+    }
+}
+
+// For gutenberg
+.btn.hover-bg-primary {
+    --alpha-btn-hover-bg-color: var(--alpha-primary-color-hover);
+    --alpha-btn-active-bd-color: var(--alpha-primary-color-hover);
+
+    &.btn-bubble.btn-outline {
+        --alpha-btn-hover-color: var(--alpha-dark-color);
+        --alpha-btn-active-color: var(--alpha-dark-color);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-bg-color: transparent;
+    }
+}
+
+.btn.hover-bg-secondary {
+    --alpha-btn-hover-bg-color: var(--alpha-secondary-color-hover);
+    --alpha-btn-active-bd-color: var(--alpha-secondary-color-hover);
+
+    &.btn-bubble.btn-outline {
+        --alpha-btn-hover-color: var(--alpha-dark-color);
+        --alpha-btn-active-color: var(--alpha-dark-color);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-bg-color: transparent;
+    }
+}
+
+.btn.hover-bg-warning {
+    --alpha-btn-hover-bg-color: var(--alpha-warning-color-hover);
+    --alpha-btn-active-bd-color: var(--alpha-warning-color-hover);
+
+    &.btn-bubble.btn-outline {
+        --alpha-btn-hover-color: var(--alpha-dark-color);
+        --alpha-btn-active-color: var(--alpha-dark-color);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-bg-color: transparent;
+    }
+}
+
+.btn.hover-bg-danger {
+    --alpha-btn-hover-bg-color: var(--alpha-danger-color-hover);
+    --alpha-btn-active-bd-color: var(--alpha-danger-color-hover);
+
+    &.btn-bubble.btn-outline {
+        --alpha-btn-hover-color: var(--alpha-dark-color);
+        --alpha-btn-active-color: var(--alpha-dark-color);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-bg-color: transparent;
+    }
+}
+
+.btn.hover-bg-dark {
+    --alpha-btn-hover-bg-color: var(--alpha-dark-color-hover);
+    --alpha-btn-active-bd-color: var(--alpha-dark-color-hover);
+
+    &.btn-bubble.btn-outline {
+        --alpha-btn-hover-color: var(--alpha-dark-color);
+        --alpha-btn-active-color: var(--alpha-dark-color);
+        --alpha-btn-hover-bg-color: transparent;
+        --alpha-btn-active-bg-color: transparent;
+    }
+}
+
+// Svg stroke animation
+.btn-icon-draw {
+
+    &:hover svg {
+        polyline {
+            stroke-dashoffset: 0;
+            stroke-dasharray: 45px;
+            animation: btnArrowAnim 0.6s cubic-bezier(.25, 0, 0.45, 1) forwards 0.1s;
+        }
+    }
+}
+
+.btn-draw-left-right:hover svg path {
+    animation: btnArrowRightLineAnim 0.6s cubic-bezier(.25, 0, 0.45, 1) forwards;
+}
+
+.btn-draw-right-left:hover svg path {
+    animation: btnArrowLeftLineAnim 0.6s cubic-bezier(.25, 0, 0.45, 1) forwards;
+}
+
+.btn-draw-top-bottom:hover svg path {
+    animation: btnArrowBottomLineAnim 0.6s cubic-bezier(.25, 0, 0.45, 1) forwards;
+}
+
+.btn-draw-bottom-top:hover svg path {
+    animation: btnArrowTopLineAnim 0.6s cubic-bezier(.25, 0, 0.45, 1) forwards;
+}
+
+@keyframes btnArrowLeftLineAnim {
+    0% {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+
+    51% {
+        transform-origin: right;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+}
+
+@keyframes btnArrowRightLineAnim {
+    0% {
+        transform-origin: right;
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform-origin: right;
+        transform: scaleX(0);
+    }
+
+    51% {
+        transform-origin: left;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+@keyframes btnArrowTopLineAnim {
+    0% {
+        transform-origin: top;
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform-origin: top;
+        transform: scaleY(0);
+    }
+
+    51% {
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes btnArrowBottomLineAnim {
+    0% {
+        transform-origin: bottom;
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform-origin: bottom;
+        transform: scaleY(0);
+    }
+
+    51% {
+        transform-origin: top;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+@keyframes btnArrowAnim {
+    0% {
+        stroke-dasharray: 45px;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 45px;
+        stroke-dashoffset: -45px
+    }
+
+    51% {
+        stroke-dasharray: 45px;
+        stroke-dashoffset: 45px;
+    }
+
+    100% {
+        stroke-dasharray: 45px;
+        stroke-dashoffset: 0;
+    }
+}
+
+// Other Button Styles
+.btn-load {
+    position: relative;
+    left: 50%;
+    border-radius: $corner-md;
+    transform: translateX(-50%);
+    margin: 4rem 0 2rem;
+}
+
+.btn.disabled,
+.button.disabled,
+.btn[disabled],
+.button[disabled] {
+    background-color: var(--alpha-change-border-color);
+    color: var(--alpha-body-color);
+    border-color: var(--alpha-change-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+
+    &.btn-outline {
+        background-color: transparent;
+        color: var(--alpha-grey-color);
+    }
+}
+
+.btn-search i {
+    font-size: inherit;
+}
+
+.video-popup .btn-video-iframe,
+.btn-video-player {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

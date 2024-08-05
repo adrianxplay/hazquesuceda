@@ -1,0 +1,354 @@
+/* -------------------------------------------
+	Footer
+		- Default Footer
+		- Scroll Top
+		- Sticky Footer
+---------------------------------------------- */
+.footer-copyright {
+	padding: 3rem 0;
+	background: var(--alpha-dark-color);
+	color: var(--alpha-grey-color);
+	text-align: center;
+	z-index: 3;
+}
+
+@include mq(md) {
+	.addtocart-fixed .footer {
+		padding-bottom: 125px;
+	}
+}
+
+// ScrollTop 
+@include mq(md) {
+	#scroll-top {
+		position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		bottom: -4rem;
+		right: 1.5rem;
+		z-index: 9999;
+		width: 46px;
+		height: 46px;
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: var(--alpha-dark-color);
+		opacity: 0;
+		transition: bottom .3s, opacity .3s;
+
+		&.show {
+			opacity: 1;
+			bottom: calc(2.5rem + var(--alpha-bottom-sticky-h));
+		}
+
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+
+		i {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 36px;
+			height: 36px;
+			color: var(--alpha-white-color);
+			background-color: var(--alpha-dark-color);
+			border: 2px solid var(--alpha-dark-color);
+			border-radius: 50%;
+			z-index: 1;
+		}
+
+		svg {
+			position: absolute;
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			top: 1px;
+			left: 1px;
+			z-index: -1;
+
+			circle {
+				stroke: var(--alpha-primary-color);
+				stroke-width: 4px;
+				stroke-linecap: round;
+				stroke-dasharray: 1, 400;
+			}
+		}
+
+		// #progress-indicator {
+		// 	stroke-dasharray: 1, 138;
+		// }
+	}
+}
+
+@include mq(md, max) {
+	#scroll-top {
+		display: none;
+	}
+}
+
+
+// Sticky Footer
+.mobile-icon-bar {
+	display: flex;
+	color: #bebebe;
+	height: 73px;
+
+	&,
+	&.fixed {
+		background: transparent;
+		box-shadow: none;
+	}
+
+	>* {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: center;
+		flex: 1;
+		padding: 1.5rem 0 1.5rem;
+		justify-content: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, .8);
+			backdrop-filter: blur(5px);
+		}
+	}
+
+	.customize-partial-edit-shortcut {
+		display: none;
+	}
+
+	.alpha-dark &>*:before {
+		background-color: rgba(34, 34, 34, .8);
+	}
+
+	.cart-toggle,
+	.search-toggle {
+		padding: 0;
+		color: inherit;
+	}
+
+	.dropdown:hover .cart-toggle {
+		color: #fff;
+	}
+
+	.hs-toggle {
+		.input-wrapper {
+			position: absolute;
+			#{$right}: -1.5rem;
+			top: 100%;
+			padding: 1.5rem;
+			height: 8rem;
+			background-color: var(--alpha-change-color-light-1);
+			box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+			visibility: hidden;
+			opacity: 0;
+			transform: translate3d(0, -10px, 0);
+			transition: transform .4s .2s, visibility .4s .2s, opacity .4s .2s;
+			min-width: 54rem;
+		}
+
+		.form-control {
+			border: 0;
+			background: var(--alpha-change-color-light-2);
+			padding: 1.4rem 2rem;
+			font-size: 13px;
+			color: var(--alpha-dark-body-color);
+		}
+
+		.btn-search {
+			background: var(--alpha-change-color-light-2);
+			min-width: 50px;
+			font-size: 1.8rem;
+			color: var(--alpha-change-color-dark-1);
+		}
+
+		.untouchable &:hover,
+		&.show {
+			.input-wrapper {
+				transform: translate3d(0, 0, 0);
+				visibility: visible;
+				transition: transform .4s;
+				opacity: 1;
+			}
+		}
+
+		.search-right+.input-wrapper {
+			#{$right}: auto;
+		}
+	}
+
+	.hs-toggle .input-wrapper {
+		top: initial;
+		bottom: 100%;
+		#{$right}: 1.5rem;
+		margin-bottom: 11px;
+		border-radius: $corner-sm;
+		transform: translate3d(0, 10px, 0);
+		min-width: 29rem;
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 100%;
+			height: 20px;
+		}
+	}
+
+	.search-toggle:after {
+		content: "";
+		position: absolute;
+		z-index: 1;
+		left: 50%;
+		transform: translate(-50%, -5px);
+		bottom: 100%;
+		border: 11px solid transparent;
+		border-top: 11px solid var(--alpha-change-color-light-1);
+		visibility: hidden;
+		opacity: 0;
+		transition: transform .4s .2s, visibility .4s .2s, opacity .4s .2s;
+	}
+
+	.untouchable & .search-wrapper:hover>.search-toggle:after,
+	.show>.search-toggle:after {
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-50%, -15px);
+		transition: transform .4s;
+	}
+
+	.hs-toggle.mobile-item-center {
+		.input-wrapper {
+			margin-bottom: 38px;
+		}
+
+		.search-toggle:after {
+			transform: translate(-50%, 0);
+		}
+	}
+
+	.live-search-list {
+		margin-bottom: 3px;
+		top: initial;
+		bottom: 100%;
+	}
+
+	#scroll-top {
+		display: flex;
+		background: none;
+	}
+
+	&:not(.fixed) {
+
+		.input-wrapper,
+		.search-toggle:after {
+			display: none;
+		}
+	}
+}
+
+.mobile-item {
+
+	&.compare-open span {
+		margin-#{$left}: 0;
+	}
+
+	.mobile-icon-bar & i {
+		width: 23px;
+		height: 24px;
+		line-height: 24px;
+		text-align: center;
+		font-size: 23px;
+		line-height: 1;
+		margin: 0;
+	}
+
+	&:hover,
+	&.active {
+		color: #fff;
+	}
+}
+
+.cart-dropdown:after,
+.dropdown .mobile-item::after {
+	content: none;
+}
+
+.mobile-icon-bar .search-wrapper a.search-toggle:hover {
+	color: #fff;
+}
+
+.mobile-item-center {
+	flex: 0 0 84px;
+
+	&:before {
+		clip-path: path('M86.01,0c-5.141,0.641-9.063,4.479-10.958,10.75c-0.017-0.011-0.747,3.375-0.747,3.375  c-2.795,14.542-15.121,26.38-31.296,26.38c-16.481,0-29.875-12.85-31.531-27.756c0,0-0.517-2.599-0.531-2.594  C10.035,5.93,5.578,0.141,0.009,0v73H86.01V0z');
+	}
+
+	.mobile-icon-bar &>a,
+	.mobile-icon-bar &>i {
+		width: 50px;
+		height: 50px;
+		margin-top: -58px;
+		margin-#{$left}: 1px;
+		justify-content: center;
+		line-height: 50px;
+		border-radius: 50%;
+		color: #fff;
+		background-color: var(--alpha-primary-color);
+		text-align: center;
+		transition: margin .3s;
+	}
+}
+
+.mobile-icon-bar.ending {
+	.mobile-item-center {
+
+		>a,
+		>i {
+			margin-top: 0;
+		}
+
+		&:before {
+			clip-path: none
+		}
+	}
+}
+
+@include mq(md) {
+	.mobile-icon-bar {
+		display: none;
+	}
+}
+
+// For Fixed Footer
+.fixed-footer {
+
+	.main,
+	.breadcrumb-wrap,
+	.page-header {
+		background-color: inherit;
+		z-index: 1;
+	}
+
+	.footer {
+		position: sticky;
+		top: auto;
+		bottom: 0;
+		left: 0;
+	}
+}

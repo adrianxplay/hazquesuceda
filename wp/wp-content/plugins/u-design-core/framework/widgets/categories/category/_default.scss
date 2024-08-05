@@ -1,0 +1,19 @@
+// Default Type
+.cat-type-default {
+    .category-content {
+        padding: 1.65em 0;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        background: var(--alpha-change-color-light-1);
+    }
+    &.active,
+    &:hover {
+        .category-content {
+            background: var(--alpha-primary-color);
+        }
+        .woocommerce-loop-category__title {
+            color: var(--alpha-change-color-light-1);
+        }
+    }
+}

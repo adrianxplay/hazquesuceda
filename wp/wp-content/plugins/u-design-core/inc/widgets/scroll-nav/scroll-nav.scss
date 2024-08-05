@@ -1,0 +1,118 @@
+/* -------------------------------------------
+    Scroll Nav
+---------------------------------------------- */
+
+@import "../../../assets/sass/config";
+@import "../../../assets/sass/direction";
+@import "../../../assets/sass/mixins";
+
+.elementor-widget-#{$theme-name}_widget_scroll_nav {
+  .scroll-nav-wrapper.slider-container {
+    height: 100vh;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .slider-wrapper {
+    overflow: visible;
+  }
+
+  .scroll-navigation-inner,
+  .scroll-navigation-inner>.alpha-block,
+  .scroll-navigation-inner>.alpha-block>.elementor,
+  .scroll-navigation-inner>.alpha-block>.elementor>.elementor-section-wrap,
+  .scroll-navigation-inner>.alpha-block>.elementor>.elementor-inner,
+  .scroll-navigation-inner>.alpha-block>.elementor>.elementor-inner>.elementor-section-wrap {
+    height: 100%;
+  }
+
+  .scroll-nav-wrapper:not(.slider-container-initialized)+.slider-pagination {
+    display: none;
+  }
+}
+
+.scroll-nav-wrapper+.slider-pagination {
+  .slider-pagination-bullet {
+    position: relative;
+    margin: 0 20px;
+    width: 15px;
+    height: 15px;
+    border-width: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    &.active {
+      background-color: var(--alpha-primary-color);
+    }
+
+    &:before {
+      content: attr(data-tooltip);
+      position: absolute;
+      padding: 3.5px 18px;
+      background-color: rgba(0, 0, 0, 0.8);
+      font-size: 12px;
+      color: #fff;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    &:hover:before {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.scroll-nav-wrapper.slider-container-horizontal+.slider-pagination-bullets {
+  bottom: 3rem;
+
+  .slider-pagination-bullet {
+    display: inline-block;
+
+    &.active {
+      width: 50px;
+    }
+
+    &:before {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+    }
+
+    &:hover:before {
+      top: -15px;
+    }
+  }
+}
+
+.scroll-nav-wrapper.slider-container-vertical+.slider-pagination-bullets {
+  #{$left}: auto;
+  #{$right}: 60px;
+  top: 50%;
+  bottom: auto;
+  transform: translate3d(0px, -50%, 0);
+
+  .slider-pagination-bullet {
+    display: block;
+    margin: 20px 0;
+    padding: 0;
+
+    &.active {
+      height: 50px;
+    }
+
+    &:before {
+      #{$left}: 0;
+      top: 50%;
+      transform: translate(-100%, -50%);
+    }
+
+    &:hover:before {
+      #{$left}: -15px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+/* -------------------------------------------
+	Widget 
+------------------------------------------- */
+
+.widgettitle,
+.widget-title {
+    margin: 0;
+    padding: 1.6rem 0;
+    font-size: 1.8rem;
+
+    @include mq(xl, max) {
+        font-size: 1.6rem;
+    }
+}
+
+@if use(contact-info) {
+    .widget .contact-info {
+        label {
+            margin-#{$right}: 3px;
+        }
+        .work label {
+            display: block;
+            margin-bottom: 15px;
+        }
+    }
+
+    .contact-info label {
+        @include if-rtl {
+                float: right;
+        }
+    }
+
+    @include if-rtl {
+        .contact-info .work label {
+            float: none;
+        }
+    }
+}
+
+.widget .current-cat > a {
+    color: var(--alpha-primary-color);
+}
+.widget {
+    .children {
+        padding-#{$left}: 1.3rem;    
+    }
+}

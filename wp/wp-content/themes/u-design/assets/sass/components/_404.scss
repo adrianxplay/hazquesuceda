@@ -1,0 +1,66 @@
+/* -------------------------------------------
+	Erorr 404 Page
+---------------------------------------------- */
+
+.error404 .main {
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+}
+
+.area_404 {
+	background-color: #f3f3f3;
+	background-position: 45% center;
+	background-image: url(../images/404.jpg);
+	background-size: cover;
+
+	.container {
+		position: relative;
+		height: 100vh;
+		min-height: 600px;
+	}
+
+	h1 {
+		font-size: 11rem;
+		font-weight: 100;
+		line-height: .9;
+		margin-bottom: 2.5rem;
+
+		strong {
+			font-size: 1.136em;
+			font-weight: 600;
+		}
+	}
+
+	h3 {
+		font-size: 2.8rem;
+		font-weight: 400;
+		margin-bottom: 1.8rem;
+	}
+
+	.content_404 {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		#{$left}: 10%;
+		width: 476px;
+		max-width: 80%;
+
+		@include mq(xs, 'max') {
+			& {
+				#{$left}: 7%;
+			}
+		}
+	}
+
+	p {
+		font-size: 1.8rem;
+		line-height: 1.7;
+		color: var(--alpha-grey-color);
+		margin-bottom: 3rem;
+	}
+
+	.alpha-rounded-skin & .btn {
+        border-radius: $corner-sm;
+	}
+}

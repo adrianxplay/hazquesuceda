@@ -1,0 +1,37 @@
+/* -------------------------------------------
+    Minicart Quantity Input
+        1. Page Styles
+        2. Component
+---------------------------------------------- */
+
+$dir: ltr !default; 
+@import '../../assets/sass/mixins/direction';
+
+
+// 1. Page Styles
+body.woocommerce-cart,
+body.woocommerce-checkout {
+    .cart-with-qty:hover .dropdown-box {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+// 2. Component
+.mini_cart_item .cart-item-meta {
+    .quantity {
+        flex-direction: if-ltr(row, row-reverse);
+    }
+    .quantity-minus {
+        right: 7.8rem;
+    }
+    input.qty {
+        min-width: 10rem;
+        height: 4rem;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: auto;
+        }
+    }
+}

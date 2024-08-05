@@ -1,0 +1,91 @@
+/* -------------------------------------------
+	Admin Styles
+	- Dashboard
+	- Admin Menu
+    - Customize Panel
+    - Wizard
+    - Extra
+---------------------------------------------- */
+
+@import '../../assets/sass/config';
+@import '../../assets/sass/mixins';
+@import '../../assets/sass/direction';
+
+// Dashboard
+.alpha-changelog li:not(:last-child) {
+    margin-bottom: 0;
+}
+
+// Admin Menu
+.toplevel_page_alpha .toplevel_page_alpha {
+    background: linear-gradient(to right, #f66f2a, #ec6269) !important;
+    background-size: contain !important;
+
+    .wp-menu-name {
+        font-weight: 600;
+    }
+}
+
+#wp-admin-bar-alpha {
+    >a {
+        background: linear-gradient(to right, #f66f2a, #ec6269) !important;
+        background-size: contain !important;
+    }
+
+    &:hover>a.ab-item,
+    &.hover>a.ab-item,
+    &:hover span.ab-label,
+    &.hover span.ab-label,
+    & a:focus span.ab-label {
+        color: #fff !important;
+    }
+}
+
+#adminmenu li.toplevel_page_alpha.menu-top:hover,
+#adminmenu li.toplevel_page_alpha.opensub>a.menu-top,
+#adminmenu li.toplevel_page_alpha>a.menu-top:hover,
+#adminmenu li.toplevel_page_alpha>a.menu-top:focus {
+    color: #fff;
+}
+
+.alpha-admin-page {
+
+    #adminmenuback,
+    #adminmenuwrap {
+        filter: none;
+    }
+}
+
+.alpha-install-editors {
+    display: none;
+}
+
+// Wizard
+.alpha-system-status i {
+    vertical-align: middle;
+}
+
+#theme-install-demos {
+    margin: -10px -28px;
+}
+
+// Extra
+.alpha-install-demo .plugins-used .thumb {
+    width: 32px;
+}
+
+.css-iifrkg-Root .css-rnkj6t-Flex-ItemsColumn {
+    height: auto;
+}
+
+.wp-admin p label input[type="checkbox"] {
+    margin-top: 0px;
+}
+
+.components-base-control .css-1wkpk1y-Flex-ItemsColumn {
+    height: auto;
+}
+
+.alpha-dialog-close:before {
+    font-family: $framework-font;
+}

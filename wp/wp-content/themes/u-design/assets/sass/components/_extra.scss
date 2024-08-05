@@ -1,0 +1,58 @@
+// Product 360 Degree
+div.product-gallery-degree .nav_bar a:before {
+    font-family: $framework-font
+}
+
+.product-gallery-btn.open-product-degree-viewer {
+    font-family: $theme-font !important;
+
+    &:before {
+        content: '\e9be';
+    }
+}
+
+// Product Video Popup
+.product-gallery-btn.open-product-video-viewer {
+    font-family: $theme-font !important;
+
+    &:before {
+        content: '\e9bd';
+    }
+}
+
+// Type Builder
+.alpha-posts-grid .alpha-tb-item {
+    margin-bottom: 0;
+}
+
+// Cookie Popup
+.cookies-popup-inner {
+    border-radius: 0;
+
+    .accept-cookie-btn {
+        border-radius: 0;
+    }
+
+    .alpha-rounded-skin & {
+        border-radius: $corner-md;
+
+        .accept-cookie-btn {
+            border-radius: $corner-sm;
+        }
+    }
+}
+
+// Minipopup Box
+.minipopup-box .btn-rounded {
+    border-radius: 0;
+
+    .alpha-rounded-skin & {
+        border-radius: $corner-sm;
+    }
+}
+
+// Twitter icon
+.fa-twitter.fa-twitter:before {
+    content: "\e908";
+    font-family: $framework-font;
+}

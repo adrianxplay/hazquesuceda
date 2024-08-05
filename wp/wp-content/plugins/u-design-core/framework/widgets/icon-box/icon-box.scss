@@ -1,0 +1,175 @@
+/* -------------------------------------------
+    Icon Box
+    1. Icon Box
+    2. Icon
+    3. Content
+
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.icon-box {
+    text-align: center;
+    --alpha-icon-primary: var(--alpha-dark-color);
+    --alpha-icon-primary-hover: var(--alpha-dark-color-hover);
+    --alpha-icon-secondary: #fff;
+    --alpha-icon-secondary-hover: #fff;
+    --alpha-icon-spacing: 2.4rem;
+
+    .icon-box-title {
+        margin: 0 0 .7rem;
+        text-transform: uppercase;
+        line-height: 1.6;
+    }
+
+    p {
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 1.72;
+        color: var(--alpha-body-color);
+    }
+
+    i::before {
+        margin: 0;
+    }
+
+    .icon-box-content {
+        text-align: center;
+    }
+}
+
+.icon-box-icon {
+    display: inline-block;
+    margin-bottom: var(--alpha-icon-spacing);
+
+    font: {
+        size: 3.5rem;
+        weight: 600;
+    }
+
+    line-height: 0;
+
+    i {
+        color: var(--alpha-icon-primary);
+    }
+
+    &:hover i {
+        color: var(--alpha-icon-primary-hover);
+    }
+
+    i {
+        position: relative;
+        width: 1em;
+        height: 1em;
+
+        &:before {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    svg {
+        height: 3.4rem;
+        width: 4.8rem;
+    }
+}
+
+.icon-circle .icon-box-icon {
+    border-radius: 50%;
+}
+
+.icon-border {
+    .icon-box-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: .5em;
+        background-color: var(--alpha-icon-secondary);
+        border: 1px solid;
+
+        &:hover {
+            background-color: var(--alpha-icon-secondary-hover);
+        }
+    }
+
+    svg {
+        height: 2.4rem;
+    }
+}
+
+.icon-inversed {
+    .icon-box-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: .5em;
+        background-color: var(--alpha-icon-primary);
+
+        i {
+            color: var(--alpha-icon-secondary);
+        }
+
+        &:hover {
+            background-color: var(--alpha-icon-primary-hover);
+
+            i {
+                color: var(--alpha-icon-secondary-hover);
+            }
+        }
+    }
+
+    svg {
+        height: 2.4rem;
+        fill: white;
+    }
+}
+
+@include mq('md') {
+    .icon-box-side {
+        display: flex;
+        align-items: flex-start;
+        justify-self: flex-start;
+
+        .icon-box-icon {
+            margin-#{$right}: var(--alpha-icon-spacing);
+            margin-bottom: 0;
+        }
+
+        .icon-box-content {
+            flex-grow: 1;
+            text-align: #{$left};
+
+            &+.icon-box-icon {
+                margin-#{$left}: var(--alpha-icon-spacing);
+                margin-#{$right}: 0;
+            }
+        }
+
+        .icon-box-title {
+            margin: 0;
+        }
+
+        &.right {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            text-align: right;
+
+            .icon-box-icon {
+                margin-#{$left}: var(--alpha-icon-spacing);
+                margin-#{$right}: 0;
+            }
+
+            .icon-box-content {
+                text-align: #{$right};
+
+                &+.icon-box-icon {
+                    margin-#{$right}: var(--alpha-icon-spacing);
+                    margin-#{$left}: 0;
+                }
+            }
+        }
+    }
+}

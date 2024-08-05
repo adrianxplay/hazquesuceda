@@ -1,0 +1,75 @@
+/* -------------------------------------------
+	No UiSlider
+---------------------------------------------- */
+.price_slider_amount {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-bottom: .3rem;
+
+	.clear, input {
+		display: none;
+	}
+	.price_label {
+		margin-bottom: 2rem;
+		color: var(--alpha-change-color-dark-1);
+		font-size: 1.3rem;
+	}
+	button.button {
+		font-size: inherit;
+		font-weight: 700;
+		text-transform: uppercase;
+		order: 2;
+		border-color: var(--alpha-change-color-dark-1);
+		background: var(--alpha-change-color-dark-1);
+		padding: .35rem 2.8rem;
+
+		&:hover, &:focus {
+			border-color: var(--alpha-change-color-dark-1-hover);
+			background: var(--alpha-change-color-dark-1-hover);
+		}
+	}
+}
+
+.ui-slider-horizontal {
+	height: 23px;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: -6px;
+		right: -10px;
+		top: 10px;
+		bottom: 11px;
+		background: var(--alpha-change-color-dark-1);
+	}
+	.ui-slider-range {
+		top: 10px;
+		height: 2px;
+	}
+}
+.ui-slider {
+	position: relative;
+	margin: .8rem 10px 2.5rem 6px;
+
+	.ui-slider-range {
+		position: absolute;
+		background: var(--alpha-primary-color);
+	}
+	.ui-slider-handle {
+		position: absolute;
+		z-index: 2;
+		width: 1.6rem;
+		height: 1.6rem;
+		border: 2px solid var(--alpha-primary-color);
+		background: var(--alpha-change-color-light-1);
+		border-radius: 50%;
+		cursor: pointer;
+		top: 3px;
+		margin-#{$left}: -.55rem;
+
+		&:first-of-type {
+			margin-#{$left}: -.65rem;
+		}
+	}
+}

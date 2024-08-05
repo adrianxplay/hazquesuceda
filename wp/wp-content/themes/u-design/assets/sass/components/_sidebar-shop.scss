@@ -1,0 +1,219 @@
+/* -------------------------------------------
+	Shop Sidebar
+		- Collapsible Widget
+		- Tag
+		- Filter Action
+		- Filter Items
+			(used in Widget, Select Menu)
+			(support submenu)
+			(support color item)
+		- Shop Sidebar
+		- Widget Products
+		- Fixed Sidebar for Shop Page
+			(>=992px)
+		- Remain Toggle for left, right sidebar
+------------------------------------------- */
+
+// Shop Sidebar
+.sidebar.shop-sidebar {
+	position: relative;
+	padding: var(--alpha-gap);
+	
+	.sidebar-content {
+		padding: 2rem;
+	}
+
+	.filter-actions {
+		padding: 0 1rem 2.8rem;
+
+		label {
+			font-size: 1.6rem;
+			font-weight: 600;
+			letter-spacing: -.025em;
+			color: var(--alpha-change-color-dark-1);
+		}
+
+		@include mq(lg, 'max') {
+			padding: 1.8rem 1rem 2.8rem;
+		}
+	}
+
+	&.sidebar-offcanvas .filter-actions {
+		padding-top: 1.8rem;
+	}
+
+	.filter-clean {
+		color: var(--alpha-primary-color);
+
+		&:hover {
+			color: var(--alpha-primary-color-hover);
+		}
+	}
+
+	.widget { 
+		margin-bottom: 1rem;
+
+		&:first-child {
+			margin-top: .8rem;
+		}
+	}
+	.widget-products .slider-wrapper {
+		margin-bottom: 2.7rem;
+	}
+
+	.btn-outline:not(:hover) {
+		color: var(--alpha-primary-color);
+		background: var(--alpha-change-color-light-1);
+	}
+	.sidebar-toggle-btn {
+		padding: .8em 1.04em;
+		min-width: 87px;
+		i {
+			font-size: 13px;
+		}
+	}
+
+	.yith-woo-ajax-navigation li,
+	.widget .wc-layered-nav-term,
+	.widget-price-filter li, 
+	.widget_product_categories .cat-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.yith-wcan-list .empty {
+		text-decoration: line-through;
+	}
+}
+
+.shop-sidebar.sidebar-offcanvas {
+	padding: 0;
+}
+
+@include mq(lg) {
+	.sidebar-fixed.left-sidebar.shop-sidebar {
+		max-width: var(--alpha-left-sidebar-width, 25%);
+		flex: 0 0 var(--alpha-left-sidebar-width, 25%);
+	}
+	.sidebar-fixed.right-sidebar.shop-sidebar {
+		max-width: var(--alpha-right-sidebar-width, 25%);
+		flex: 0 0 var(--alpha-right-sidebar-width, 25%);
+	}
+	.sidebar-fixed.left-sidebar.shop-sidebar + .main-content {
+		max-width: calc(100% - var(--alpha-left-sidebar-width, 25%));
+	}
+	.sidebar-fixed.right-sidebar.shop-sidebar + .main-content {
+		max-width: calc(100% - var(--alpha-right-sidebar-width, 25%));
+	}
+}
+
+.sidebar {
+	.widget.widget-price-filter .alpha-price-range-wrapper {
+		margin-top: .7rem;
+		ul {
+			margin-bottom: 1.3rem;
+		}
+	}
+	.alpha-product-prices {
+		.chosen a {
+			color: var(--alpha-primary-color);
+		}
+	}
+	.alpha-price-range {
+		input {
+			color: var(--alpha-grey-color);
+			border: 1px solid var(--alpha-change-color-light-3);
+			border-radius: $corner-sm;
+			width: 62px;
+			height: 37px;
+			padding: 3px 6px;
+			line-height: 37px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		button {
+			margin-#{$left}: 1rem;
+		}
+		.delimiter {
+			width: 24px;
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+
+			&:before {
+				content: '';
+				display: block;
+				width: 8px;
+				height: 2px;
+				margin: 0 auto;
+				background-color: var(--alpha-grey-color);
+			}
+		}
+	}
+}
+
+.sidebar-fixed .yith-wcan-reset-navigation {
+	padding: 1rem;
+	font-size: 1.1rem ;
+	margin-top: 12px;
+}
+.shop-sidebar .yith-woo-ajax-reset-navigation {
+	display: none !important;
+}
+
+// Filter Action, Price Slider, Filter Clean
+.toolbox .btn-link {
+	padding: 0;
+}
+.filter-clean {
+	font-size: 1.4rem ;
+	margin-#{$left}: auto;
+}
+
+// Products Widget - Single Product Page
+// .widget-products {
+// 	.widget-title {
+// 		display: inline-block;
+// 		position: relative;
+// 		z-index: 3;
+// 		border-bottom: 2px solid var(--alpha-body-color);
+// 	}
+// 	.sidebar &.widget .widget-title {
+// 		margin-bottom: -1px;
+// 	}
+// 	> .slider-wrapper:nth-child(2) {
+// 		border-top: 1px solid var(--alpha-change-border-color);
+// 		padding-top: 1rem;
+// 	}
+// }
+
+// Responsive
+@include mq(lg) {
+	.sticky-sidebar-fixed > .filter-actions {
+		visibility: hidden;
+	}
+	.sidebar-fixed.shop-sidebar {
+		
+		.sidebar-content {
+			padding: 0 0 2rem;
+		}
+		
+		// 5. Toggle Fixed Sidebar
+		transition: margin .4s;
+
+		+ .main-content {
+			//transition: flex-basis .4s, max-width .4s;
+			transition: flex .3s, max-width .3s;
+		}
+	}
+}
+
+@include mq(lg, max) {
+	.horizontal-sidebar .sidebar-content {
+		width: var(--alpha-left-sidebar-width, 28rem);
+	}
+	.sidebar.shop-sidebar {
+		padding: 0;
+	}
+}

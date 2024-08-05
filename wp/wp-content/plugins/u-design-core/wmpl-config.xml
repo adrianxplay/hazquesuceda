@@ -1,0 +1,23 @@
+<wpml-config>
+
+    <custom-types>
+
+        <custom-type translate="1">udesign_portfolio</custom-type>
+
+        <custom-type translate="1">udesign_member</custom-type>
+
+        <custom-type translate="1">udesign_template</custom-type>
+
+    </custom-types>
+
+    <taxonomies>
+
+        <taxonomy translate="1">udesign_portfolio_category</taxonomy>
+
+        <taxonomy translate="1">udesign_portfolio_skill</taxonomy>
+
+        <taxonomy translate="1">udesign_member_category</taxonomy>
+
+    </taxonomies>
+
+</wpml-config>

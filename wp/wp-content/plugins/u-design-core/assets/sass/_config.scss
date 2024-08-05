@@ -1,0 +1,105 @@
+/* -------------------------------------------
+	Alpha Config Variables
+------------------------------------------- */
+
+// 1. Colors
+$primary-color: #fd7800 !default;
+$primary-color-hover: lighten($primary-color, 10%) !default;
+$primary-color-light: lighten($primary-color, 40%) !default;
+$secondary-color: #9ab35e !default;
+$secondary-color-hover: lighten($secondary-color, 10%) !default;
+$secondary-color-light: lighten($secondary-color, 40%) !default;
+$body-color: #888 !default;
+$dark-body-color: #666 !default;
+$grey-color: #999 !default;
+$dark-color: #323334 !default;
+$dim-color: #565e67 !default;
+$dark-color-light: lighten($dark-color, 40%) !default;
+$white-color: #fff !default;
+$light-color: #ccc !default;
+
+$accent-color: #6f8dce !default;
+$accent-color-light: lighten($accent-color, 40%) !default;
+$success-color: #9AB35D !default;
+$success-color-light: lighten($success-color, 40%) !default;
+$info-color: #62A8EA !default;
+$info-color-light: lighten($info-color, 40%) !default;
+$alert-color: #F2A654 !default;
+$alert-color-light: lighten($alert-color, 40%) !default;
+$warning-color: #F2A654 !default;
+$warning-color-light: lighten($warning-color, 40%) !default;
+$danger-color: #F96868 !default;
+$danger-color-light: lighten($danger-color, 40%) !default;
+$grey-color-light: #aaa !default;
+$traffic-white-color: #f9f9f9 !default;
+$border-color: #e1e1e1 !default;
+$border-color-light: #eee !default;
+
+// 2. Font-families
+$font-family: Poppins, sans-serif !default;
+
+// 3. Font-sizes
+$body-size: 14;
+
+// 4. Breakpoints
+$breakpoints: (
+	xs: 480px,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1600px,
+	xlst: 1920px
+);
+$max-breakpoints: (
+	xs: 479px,
+	sm: 575px,
+	md: 767px,
+	lg: 991px,
+	xl: 1199px,
+	xxl: 1599px
+);
+
+// 5. Color of Social Icons
+$social-facebook: #3B5999;
+$social-twitter: #00adef;
+$social-linkedin: #0073b2;
+$social-email: #dd4b39;
+$social-youtube: #2c567e;
+$social-google: #dd4b39;
+$social-pinterest: #f96a02;
+$social-reddit: #ff4107;
+$social-tumblr: #304e6c;
+$social-vk: #6383a8;
+$social-whatsapp: #3c8a38;
+$social-xing: #1a7576;
+$social-instagram: #cc0001;
+$social-youtube: #2c567e;
+
+// 5. Corners
+$corner-sm: 3px;
+$corner-md: 5px;
+$corner-lg: 10px;
+
+// 6. Direction
+$dir: ltr !default;
+
+// 7. Theme
+$framework-name: alpha !default;
+$framework-icon-prefix: 'a' !default;
+$framework-font: 'alpha' !default;
+$theme-name: 'udesign' !default;
+$theme-icon-prefix: 'u' !default;
+$theme-font: 'udesign' !default;
+
+// 8. Gap
+$default-gap: 15px !default;
+
+// 9. Unused components
+$unused_components: (
+	'image-box',
+	'counter',
+	'gutenberg',
+	'iconlist',
+	'hotspot'
+);

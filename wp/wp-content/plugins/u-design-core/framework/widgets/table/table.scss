@@ -1,0 +1,59 @@
+/* -------------------------------------------
+    Table
+        1. Base Style
+        2. Responsive
+
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+// 1. Base Style
+.widget-table-wrapper {
+    width: 100%;
+}
+.widget-table {
+    max-width: 100%;
+    margin-bottom: 0;
+    th,td {
+        padding: 10px;
+        border: 1px solid rgba(0,0,0,0.1);
+        font-weight: 600;
+        white-space: normal;
+        vertical-align: middle;
+    }    
+    .table-cell-inner {
+        display: flex;
+        align-items: center;
+    }
+    // Table Header Cell Icon
+    .table-header-cell-icon {
+        display: flex;
+        align-items: center;
+        &.icon-position-before {
+            margin-#{$right}: 1rem;
+        }
+        &.icon-position-after {
+            order: 2;
+            margin-#{$left}: 1rem;
+        }
+    }
+    
+    // Table Body Cell
+    .table-body-cell {
+        a {
+            color: var(--alpha-primary-color);
+        }
+    }
+    th.table-body-cell {
+        color: var(--alpha-change-color-dark-1);
+    }
+}
+
+// 2. Responsive
+@include mq('lg', 'max') {
+    .widget-table-wrapper {
+        overflow-x: auto;
+    }
+}

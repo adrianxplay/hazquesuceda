@@ -1,0 +1,35 @@
+// Classic Type
+&.classic-type {
+    display: flex;
+    flex-flow: column;
+    text-align: $left;
+
+    .plan-price {
+        order: -1;
+        margin-top: 5rem;
+        color: var(--alpha-primary-color);
+    }
+    .plan-header {
+        position: relative;
+        margin-top: 2px;
+        padding: 0 5rem 2.1rem;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 5rem;
+            right: 5rem;
+            bottom: 0;
+            height: 1px;
+            background-color: $border-color;
+        }
+    }
+    .price-suffix {
+        display: inline;
+        vertical-align: 3px;
+        margin-#{$left}: 5px;
+    }
+    .plan-features {
+        margin-top: 1.2rem;
+    }
+}

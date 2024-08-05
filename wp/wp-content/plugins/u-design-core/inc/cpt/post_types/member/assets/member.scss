@@ -1,0 +1,193 @@
+/* -------------------------------------------
+	Member
+		1. Base Style
+        2. Member Type
+            - Boxed
+            - Circle
+            - Info
+            - Gallery
+            - Card
+        3. Other Style
+---------------------------------------------- */
+
+@import '../../../assets/config';
+@import '../../../assets/mixins';
+
+// 1. Base Style
+.members {
+    text-align: center;
+    .post-title {
+        margin-bottom: .6rem;
+        font-size: 1.8rem;
+    }
+    .post-details {
+        padding: 2.4rem 3rem 2.4rem;
+    }
+    .post-cats {
+        position: static;
+        font-size: 1.4rem;
+
+        > a {
+            padding: 0;
+            color: var(--alpha-grey-color);
+            background: transparent;
+
+            &:hover,
+            &:focus {
+                background: transparent;
+                color: var(--alpha-primary-color);
+            }
+        }
+    }
+    .post-media {
+        border-radius: inherit;
+    }
+}
+
+// 2. Member Type
+
+// Boxed
+.member-boxed {
+    padding: 1.5rem 1.5rem 0;
+    box-shadow: 0 5px 30px rgba(0,0,0,.1);
+}
+
+// Circle
+.member-circle {
+    display: inline-block;
+    
+    &.post {
+        background-color: transparent;
+    }
+}
+.member-circle,
+.member-info {
+    .post-media {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        margin: 0 auto 0 !important;
+    }
+    img {
+        width: 20rem;
+        height: 20rem;
+        object-fit: cover;
+    }
+}
+
+// Info
+.member-info {
+    padding-top: 4rem;
+    box-shadow: 0 .5rem 2rem rgba(0,0,0,.05);
+    .post-content {
+        margin: 1.1rem 0 1.5rem;
+        line-height: 1.72;
+    }
+    .social-icons {
+        justify-content: center;
+        margin: -3px 0 5px;
+    }
+    .social-icon {
+        margin: 3px;
+        border: 0;
+        color: var(--alpha-change-color-dark-1);
+    }
+
+    .alpha-dark & {
+        .social-icon,
+        .post-cats a {
+            color: var(--alpha-primary-color);
+        }
+        .post-cats a:hover {
+            color: var(--alpha-primary-color-hover);
+        }
+        .social-icon:hover {
+            background-color: var(--alpha-dark-color);
+        }
+    }
+}
+
+// Gallery
+.member-gallery {
+    overflow: hidden;
+
+    img {
+        transition: transform .3s;
+    }
+}
+
+// Card
+.member-card {
+    &.post {
+        background-color: transparent;
+    }
+    
+    .post-details {
+        position: relative;
+        z-index: 1;
+        margin: -4.9rem 2rem 0;
+        background: var(--alpha-change-color-light-1);
+        box-shadow: 0 5px 2rem rgba(0,0,0,.07);
+    }
+    .post-title {
+        margin-bottom: .5rem;
+    }
+}
+
+// 3. Other Style
+.members {
+    .member-hidden-social {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        text-align: center;
+        color: var(--alpha-change-color-light-1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s, visibility .3s, margin .3s;
+        z-index: 1;
+
+        .social-icons {
+            justify-content: center;
+        }
+        .social-icon {
+            color: inherit;
+        }
+    }
+
+    .member-hidden-info {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateY(100%);
+        background: var(--alpha-change-color-light-1);
+        padding: 1.5rem 2rem;
+        z-index: 1;
+        transition: transform .3s;
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    .post:hover {
+        .member-hidden-social {
+            opacity: 1;
+            visibility: visible;
+        }
+        .member-hidden-info {
+            transform: none;
+        }
+    }
+    .member-gallery:hover {
+        img {
+            transform: translateY(-15px);
+        }
+        .member-hidden-social {
+            margin-top: -15px;
+        }
+    }
+}

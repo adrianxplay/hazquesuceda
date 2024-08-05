@@ -1,0 +1,170 @@
+/* Social Icons */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: -4px;
+}
+
+@each $social, $value in (social-facebook, $social-facebook ), 
+                         (social-twitter, $social-twitter ), 
+                         (social-linkedin, $social-linkedin ), 
+                         (social-email, $social-email ), 
+                         (social-youtube, $social-youtube ), 
+                         (social-google, $social-google ), 
+                         (social-pinterest, $social-pinterest ), 
+                         (social-reddit, $social-reddit ), 
+                         (social-tumblr, $social-tumblr ), 
+                         (social-vk, $social-vk ), 
+                         (social-whatsapp, $social-whatsapp ), 
+                         (social-xing, $social-xing ),
+                         (social-instagram, $social-instagram) {
+    .#{$social},
+    .#{$social}.use-hover:hover {
+        color: $value;
+    }
+    .#{$social}.stacked {
+        background-color: $value;
+        color: #fff;
+    }
+    .#{$social}.full {
+        color: #fff;
+        background-color: $value;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+    .#{$social}.use-hover.boxed-advanced {
+        &:hover {
+            color: $value;
+        }
+    }
+    .#{$social}.framed {
+        &:hover {
+            border-color: $value;
+            background-color: $value;
+            color: #fff;
+        }
+    }
+    .#{$social}.stacked,
+    .#{$social}.full {
+        &:hover {
+            color: #fff;
+            background-color: lighten($value, 10%);
+            border-color: lighten($value, 10%);
+        }
+    }
+    .#{$social}.use-hover.full {
+        &:hover {
+            border-color: $value;
+            color: $value;
+            background-color: transparent;
+        }
+    }
+
+}
+
+.use-hover.social-icon:not(:hover) {
+    color: var(--alpha-change-color-dark-1);
+    border-color: var(--alpha-change-border-color);
+}
+.use-hover.stacked:not(:hover) {
+    color: #fff;
+    background-color: $body-color;
+}
+.use-hover.full {
+    border: 2px solid;
+    background-color: transparent;
+}
+
+
+.social-icon {
+    .social-icons & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    // set width and height 32px when icon size is 14px
+    width: 2.286em;
+    height: 2.286em;
+    margin: 4px;
+    border-radius: 50%;
+    font-size: var(--alpha-social-icon-size, 14px);
+    transition: color .3s, background .3s, border .3s;
+
+    &.framed {
+        border: 2px solid;
+    }
+
+    &.full {
+        width: 238px;
+        height: 54px;
+        font-size: 2.2rem;
+        text-transform: capitalize;
+
+        i {
+            margin-#{$right}: 1.4rem;
+        }
+        span {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+    }
+
+    &.boxed {
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, .07);
+    }
+
+    &.boxed-advanced {
+        width: 130px;
+        height: 130px;
+        flex-flow: column;
+        font-size: 2.2rem;
+        line-height: 1;
+        text-transform: uppercase;
+
+        i {
+            margin-bottom: 1.5rem;
+        }
+        span {
+            font-size: 12px;
+            color: #777;
+        }
+    }
+
+    &:hover {
+        color: var(--alpha-primary-color);
+    }
+}
+
+.social-icons-vertical {
+    display: block;
+
+    .social-icon {
+        margin-#{$right}: 0;
+    }
+}
+
+.social-icons-separated {
+    .social-icon {
+        position: relative;
+    }
+    .social-icon:#{$after} {
+        content: '';
+        position: absolute;
+        top: 50%;
+        #{$right}: -.4rem;
+        width: 1px;
+        height: 20px;
+        background-color: var(--alpha-change-border-color-light);
+        transform: translateY(-50%);
+    }
+    .social-icon:last-child:after {
+        content: none;
+    }
+}

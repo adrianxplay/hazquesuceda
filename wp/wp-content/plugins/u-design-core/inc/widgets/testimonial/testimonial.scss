@@ -1,0 +1,333 @@
+/* -------------------------------------------
+    Testimonial
+       1. Testimonial Public Style
+       2. Standard Type
+       3. Simple Type
+       4. Boxed Type
+       5. Aside Type
+       6. Bordered Type
+       7. Compatibility with Elementor
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+
+// 1. Testimonial Public Style
+.testimonial-group .testimonial {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+blockquote.testimonial {
+    border-#{$left}: 0;
+}
+
+.testimonial {
+    padding: 0;
+    width: 100%;
+    color: var(--alpha-body-color);
+    background-color: transparent;
+    transition: background-color .4s, box-shadow .4s;
+
+    &.left {
+        text-align: left;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.right {
+        text-align: right;
+    }
+
+    img,
+    .slider-wrapper & img {
+        vertical-align: top;
+        border-radius: inherit;
+        object-fit: cover;
+    }
+
+    cite:last-child,
+    div:last-child {
+        margin-bottom: 0;
+    }
+
+    cite {
+        display: block;
+        font-style: normal;
+        line-height: 1;
+        margin-bottom: 1.5rem;
+
+        span {
+            display: block;
+        }
+
+        >*:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .avatar {
+        display: inline-block;
+        margin-bottom: 2.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .img-avatar {
+        width: 70px;
+    }
+
+    .name {
+        font-size: 1.8rem;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 1;
+        color: var(--alpha-change-color-dark-1);
+        margin-bottom: .8rem;
+    }
+
+    .content {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .comment {
+        font-size: 1.4rem;
+        line-height: 1.86;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 2rem;
+    }
+
+    .role {
+        font-size: 1.2rem;
+        text-transform: none;
+        color: var(--alpha-grey-color);
+        line-height: 1;
+    }
+
+    .star-rating {
+        margin: 0;
+    }
+
+    .ratings-container {
+        line-height: 1;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .ratings-full,
+    .ratings {
+        display: inline-block;
+        position: relative;
+        font-family: $framework-font;
+        letter-spacing: .2em;
+    }
+
+    .ratings-full {
+        cursor: pointer;
+
+        &::before {
+            content: "\e986" "\e986" "\e986" "\e986" "\e986";
+            color: rgba(0, 0, 0, 0.16);
+            white-space: nowrap;
+        }
+    }
+
+    .ratings {
+        position: absolute;
+        top: 0;
+        #{$left}: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: left;
+        text-indent: -9999rem;
+
+        &::before {
+            --alpha-primary-color: inherit;
+            content: "\e986" "\e986" "\e986" "\e986" "\e986";
+            color: var(--alpha-primary-color);
+        }
+    }
+
+    .star-rating.rating-loaded:hover {
+        .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .tooltiptext {
+        #{$left}: 50%;
+        top: auto;
+        bottom: 150%;
+        text-indent: 0;
+        overflow: initial;
+        letter-spacing: 0;
+
+        &::after {
+            float: none;
+            content: '';
+            #{$left}: inherit;
+        }
+    }
+
+    .fa-icon {
+
+        &:before,
+        .ratings:before,
+        .ratings:after {
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
+            content: '\f005' '\f005' '\f005' '\f005' '\f005';
+        }
+
+        &.outline:before {
+            font-weight: 400;
+            content: '\f005' '\f005' '\f005' '\f005' '\f005';
+        }
+    }
+}
+
+.star-rating span:after {
+    --alpha-primary-color: inherit;
+    content: "\e986" "\e986" "\e986" "\e986" "\e986";
+    text-indent: 0;
+    position: absolute;
+    left: 0;
+    color: var(--alpha-primary-color);
+}
+
+// 2. Standard
+.testimonial-standard {
+    text-align: center;
+}
+
+// 3. Simple
+.testimonial-simple {
+    .img-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .content {
+        position: relative;
+        margin-bottom: 2rem;
+        padding: 3.5rem 4rem;
+        color: var(--alpha-body-color);
+        overflow: visible;
+        background-color: var(--alpha-change-color-light-1);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .05);
+        transition: background-color .3s;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            bottom: 0;
+            #{$left}: 56px;
+            width: 14px;
+            height: 14px;
+            transform: rotate(-45deg) translateY(80%);
+            background-color: var(--alpha-change-color-light-1);
+            z-index: 1;
+            transition: inherit;
+        }
+    }
+
+    .avatar {
+        margin: side-values(0 1.5rem 0 0);
+    }
+
+    .comment {
+        margin-bottom: 0;
+    }
+
+    .commenter {
+        display: flex;
+        align-items: center;
+        padding: 0 4rem;
+    }
+
+    &.inversed {
+
+        .content::after,
+        .content::before {
+            #{$right}: 56px;
+            #{$left}: auto;
+        }
+
+        .avatar {
+            order: 2;
+            margin-#{$left}: 1.5rem;
+            margin-#{$right}: 0;
+        }
+
+        .commenter {
+            justify-content: if-ltr(flex-end, flex-start);
+        }
+
+        cite,
+        .commentor-info {
+            text-align: $right;
+        }
+    }
+}
+
+// 4. Boxed
+.testimonial-boxed {
+    text-align: center;
+    padding: 5.5rem 4rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .05);
+}
+
+// 5. Aside
+.testimonial-aside {
+    text-align: $left;
+
+    .avatar {
+        width: 60px;
+    }
+
+    .commentor {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    &.center .commentor {
+        justify-content: center;
+    }
+
+    &.right .commentor {
+        justify-content: flex-end;
+    }
+
+    .avatar {
+        margin: side-values(0 2rem 0 0);
+    }
+
+    .ratings-container {
+        margin-bottom: .8rem;
+    }
+}
+
+// 6. Bordered
+.testimonial-bordered {
+    box-shadow: none;
+    padding: 4rem;
+    box-shadow: none;
+
+    &.testimonial-aside {
+        border: 1px solid var(--alpha-change-border-color);
+    }
+}
+
+// 7. Compatibility with Elementor
+.elementor .testimonial img,
+.slider-wrapper .elementor .testimonial img {
+    border-radius: inherit;
+}

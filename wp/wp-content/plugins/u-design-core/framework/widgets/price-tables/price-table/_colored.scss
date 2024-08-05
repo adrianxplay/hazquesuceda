@@ -1,0 +1,33 @@
+// Colored type
+&.colored-type {
+    background-color: #f1f4f8;
+    &.featured {
+        background: linear-gradient(0, rgba(246, 111, 42, .86), rgba(236, 98, 105, .86));
+        background-color:#fd7800;
+        padding-top: 2.5rem;
+        padding-bottom: 7.5rem;
+        position: relative;
+        z-index: 1;
+
+        &,
+        .plan-header,
+        .plan-header p,
+        .plan-price,
+        .price-suffix {
+            color: #fff;
+        }
+
+        .plan-feature {
+            border-color: rgba(255, 255, 255, .2);
+        }
+    }
+    .plan-price {
+        margin-top: 2rem;
+    }
+    
+    @include mq(sm) {
+        &.featured {
+            margin-top: -2.5rem;
+        }
+    }
+}

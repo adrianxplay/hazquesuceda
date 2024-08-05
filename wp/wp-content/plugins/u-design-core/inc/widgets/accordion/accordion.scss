@@ -1,0 +1,186 @@
+/* -------------------------------------------
+	Accordion
+	- Accordion Base
+	- Accordion Boxed
+	- Accordion Solid
+	- Accordion Focus
+	- Compatibility With Elementor
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+
+// Default
+
+.accordion {
+
+	.collapsed,
+	.expanding {
+		display: none;
+		// overflow: hidden;
+		// height: 0px;
+	}
+
+	.card {
+		border-bottom: 1px solid var(--alpha-change-border-color);
+	}
+}
+
+.card-header {
+	font-size: 1.6rem;
+	font-weight: 600;
+	line-height: 1.2;
+	color: var(--alpha-change-color-dark-1);
+	transition: margin-bottom .3s;
+
+	a {
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding: 2.1rem .8rem;
+		transition: color .3s, background-color .3s, border-color .3s;
+
+		&:hover,
+		&.collapse {
+			color: var(--alpha-primary-color);
+		}
+
+		i {
+			display: block;
+		}
+	}
+
+	.title {
+		padding-#{$right}: 2rem;
+	}
+}
+
+.card-header .opened,
+.card-header .closed {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	#{$right}: .4rem;
+}
+
+.collapse .closed {
+	display: none;
+}
+
+.expand .opened {
+	display: none;
+}
+
+.accordion.accordion .card .card-body {
+	padding: 1.6rem 2.5rem;
+}
+
+// Boxed Style
+.accordion-boxed {
+	.card {
+		border: 1px solid var(--alpha-change-border-color);
+	}
+
+	.card+.card {
+		margin-top: -1px;
+	}
+
+	.card-header a,
+	.card-body {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.card-header {
+
+		.opened,
+		.closed {
+			#{$right}: 2rem;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			right: 100%;
+			top: 0;
+			bottom: 0;
+			width: 0;
+		}
+
+		&:after {
+			left: 100%;
+		}
+	}
+}
+
+// Solid Style
+.accordion-solid {
+	.card-header {
+		background-color: var(--alpha-change-color-light-2);
+		transition: margin-bottom .3s, background-color .3s;
+
+		a {
+			padding-left: 1.8rem;
+			padding-right: 1.8rem;
+		}
+	}
+
+	.card {
+		border: 2px solid var(--alpha-change-color-light-2);
+		transition: border-color .3s;
+
+		+.card {
+			margin: 0;
+		}
+	}
+
+	.collapse {
+		& {
+			border-color: var(--alpha-primary-color);
+		}
+
+		.card-header {
+			background-color: var(--alpha-primary-color);
+		}
+
+		a {
+			color: var(--alpha-change-color-light-1);
+		}
+	}
+}
+
+// Focus
+.accordion-focus {
+	.card-header a:#{$before} {
+		content: '';
+		border-top: 2px solid;
+		width: 0;
+		margin: 0;
+		transition: width .3s, margin .3s;
+	}
+
+	.card.collapse,
+	.card:hover {
+		.card-header a:#{$before} {
+			width: 20px;
+			margin-#{$right}: 10px;
+		}
+	}
+}
+
+// Compatibility With Elementor
+.elementor-container.accordion,
+.elementor-row.accordion {
+	display: block;
+
+	.card {
+		display: block;
+		width: 100%;
+	}
+}
+
+.accordion .elementor-column .collapsed,
+.accordion .elementor-column .expanding {
+	display: none;
+}

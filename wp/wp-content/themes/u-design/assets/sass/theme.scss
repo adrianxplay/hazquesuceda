@@ -1,0 +1,70 @@
+/*
+1. config, mixins
+2. Framework additional css
+3. Base
+4. Wp Plugins
+5. Components
+6. Header
+7. Footer
+*/
+
+/* 1. Theme SCSS Framework */
+@import 'config';
+@import 'mixins';
+@import 'direction';
+
+/* 2. Framework additional css */
+
+/* 3. Base */
+@import 'base/base';
+@import 'base/type';
+@import 'base/layout';
+
+@import 'base/grid';
+@import 'base/spacing';
+@import 'base/helper';
+
+/* 4. Wp Plugins */
+@import 'compatibility/wp';
+@import 'compatibility/gutenberg';
+@import 'compatibility/woocommerce';
+
+/* 5. Components */
+@import 'components/slider';
+@import 'components/price-slider';
+@import 'components/account';
+@import 'components/animation';
+@import 'components/button';
+@import 'components/comment';
+@import 'components/cursor-type';
+@import 'components/grid-lines';
+@import 'components/dropdown';
+@import 'components/filter';
+@import 'components/form';
+@import 'components/icon';
+@import 'components/instagram';
+@import 'components/minipopup';
+@import 'components/overlay';
+@import 'components/page-header';
+@import 'components/pagination';
+@import 'components/popup';
+@import 'components/product-single';
+@import 'components/search';
+@import 'components/sidebar';
+@import 'components/sidebar-shop';
+@import 'components/tooltip';
+@import 'components/rollover';
+@import 'components/title';
+@import 'components/widget';
+@import 'components/toolbox';
+@import 'components/404';
+
+/* 6. Header */
+@import 'base/header/header';
+@import 'base/header/menu';
+
+/* 7. Footer */
+@import 'base/footer/footer';
+
+/* 8. Extra */
+@import 'components/extra';

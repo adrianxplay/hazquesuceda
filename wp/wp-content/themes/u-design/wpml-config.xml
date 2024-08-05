@@ -1,0 +1,360 @@
+<wpml-config>
+    <admin-texts>
+        <key name="theme_mods_u-design">
+            <key name="ptb_delimiter" />
+            <key name="mobile_bar_menu_label" />
+            <key name="mobile_bar_home_label" />
+            <key name="mobile_bar_shop_label" />
+            <key name="mobile_bar_wishlist_label" />
+            <key name="mobile_bar_account_label" />
+            <key name="mobile_bar_cart_label" />
+            <key name="mobile_bar_search_label" />
+            <key name="mobile_bar_top_label" />
+            <key name="portfolio_read_more_label" />
+            <key name="member_read_more_label" />
+            <key name="product_tab_title" />
+            <key name="product_related_title" />
+            <key name="product_upsells_title" />
+            <key name="product_fbt_title" />
+            <key name="white_label_title" />
+            <key name="cookie_text" />
+            <key name="cookie_agree_btn" />
+        </key>
+    </admin-texts>
+    <custom-fields>
+        <custom-field action="translate">page_title</custom-field>
+        <custom-field action="translate">page_subtitle</custom-field>
+        <custom-field action="translate">portfolio_text</custom-field>
+        <custom-field action="translate">portfolio_client_text</custom-field>
+        <custom-field action="translate">portfolio_copyright_text</custom-field>
+        <custom-field action="translate">member_profile</custom-field>
+    </custom-fields>
+    <elementor-widgets>
+        <widget name="udesign_widget_archive_posts_grid">
+            <fields>
+                <field type="[UDesign] Archive Builder - Title" editor_type="LINE">loadmore_label</field>
+                <field type="[UDesign] Archive Builder - Nothing Found" editor_type="AREA">post_found_nothing</field>
+            </fields>
+        </widget>
+        <widget name="udesign_header_account">
+            <fields>
+                <field type="[UDesign] Header Account - Login Label" editor_type="LINE">account_login</field>
+                <field type="[UDesign] Header Account - Register Label" editor_type="LINE">account_register</field>
+                <field type="[UDesign] Header Account - Logout Label" editor_type="LINE">account_logout</field>
+                <field type="[UDesign] Header Account - Delimiter" editor_type="LINE">account_delimiter</field>
+            </fields>
+        </widget>
+        <widget name="udesign_header_cart">
+            <fields>
+                <field type="[UDesign] Header Cart - Login Label" editor_type="LINE">label</field>
+                <field type="[UDesign] Header Cart - Delimiter" editor_type="LINE">delimiter</field>
+                <field type="[UDesign] Header Cart - Count Prefix" editor_type="LINE">count_pfx</field>
+                <field type="[UDesign] Header Cart - Count Suffix" editor_type="LINE">count_sfx</field>
+            </fields>
+        </widget>
+        <widget name="udesign_header_compare">
+            <fields>
+                <field type="[UDesign] Header Compare - Label" editor_type="LINE">label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_header_wishlist">
+            <fields>
+                <field type="[UDesign] Header Wishlist - Label" editor_type="LINE">label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_shop_widget_filter_toggle">
+            <fields>
+                <field type="[UDesign] Shop Filter Toggle - Label" editor_type="LINE">label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_banner">
+            <fields-in-item items_of="banner_item_list">
+                <field type="[UDesign] Banner - Text" editor_type="AREA">banner_text_content</field>
+                <field type="[UDesign] Banner - Button Text" editor_type="LINE">banner_btn_text</field>
+                <field type="[UDesign] Banner - Button Url" editor_type="LINK">banner_btn_link>url</field>
+                <field type="[UDesign] Banner - Image Url" editor_type="LINK">img_link>url</field>
+                <field type="[UDesign] Banner - Hotspot Url" editor_type="LINK">hotspot_link>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_testimonial_group">
+            <fields-in-item items_of="testimonial_group_list">
+                <field type="[UDesign] Testimonials - Name" editor_type="LINE">name</field>
+                <field type="[UDesign] Testimonials - Role" editor_type="LINE">role</field>
+                <field type="[UDesign] Testimonials - Title" editor_type="LINE">comment_title</field>
+                <field type="[UDesign] Testimonials - Comment" editor_type="AREA">content</field>
+                <field type="[UDesign] Testimonial - Link" editor_type="LINK">link>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_animated_text">
+            <fields>
+                <field type="[UDesign] Animated Text - Before" editor_type="LINE">title_before</field>
+                <field type="[UDesign] Animated Text - After" editor_type="LINE">title_after</field>
+            </fields>
+            <fields-in-item items_of="items">
+                <field type="[UDesign] Animated Text - Text" editor_type="LINE">text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_bar_chart">
+            <fields>
+                <field type="[UDesign] Bar Chart - Axis Label" editor_type="LINE">data_axis_label</field>
+            </fields>
+            <fields-in-item items_of="chart_data">
+                <field type="[UDesign] Bar Chart - Label" editor_type="LINE">label</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_breadcrumb">
+            <fields>
+                <field type="[UDesign] Breadcrumb - Delimiter" editor_type="LINE">delimiter</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_button">
+            <fields>
+                <field type="[UDesign] Button - Label" editor_type="LINE">label</field>
+                <field type="[UDesign] Button - Link" editor_type="LINK">link>url</field>
+                <field type="[UDesign] Button - Video Url" editor_type="LINK">video_url>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_circle_progressbar">
+            <fields>
+                <field type="[UDesign] Circle Progressbar - Title" editor_type="LINE">title</field>
+                <field type="[UDesign] Circle Progressbar - Unit" editor_type="LINE">units</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_contact">
+            <fields>
+                <field type="[UDesign] Contact - Link Text" editor_type="LINE">contact_link_text</field>
+                <field type="[UDesign] Contact - Telephone" editor_type="LINE">contact_telephone</field>
+                <field type="[UDesign] Contact - Delimiter" editor_type="LINE">contact_delimiter</field>
+                <field type="[UDesign] Contact - Link" editor_type="LINK">link>url</field>
+                <field type="[UDesign] Contact - Telephone Link" editor_type="LINK">contact_telephone_link>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_countdown">
+            <fields>
+                <field type="[UDesign] Countdown - Label" editor_type="LINE">label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_filter">
+            <fields>
+                <field type="[UDesign] Advanced Filter - Button Label" editor_type="LINE">button_label</field>
+            </fields>
+            <fields-in-item items_of="filter_items">
+                <field type="[UDesign] Advanced Filter - Search Placeholder" editor_type="LINE">search_placeholder</field>
+                <field type="[UDesign] Advanced Filter - Dropdown Title" editor_type="LINE">dropdown_title</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_flipbox">
+            <fields>
+                <field type="[UDesign] Flipbox - Front Side Title" editor_type="LINE">front_side_title</field>
+                <field type="[UDesign] Flipbox - Front Side Subtitle" editor_type="LINE">front_side_subtitle</field>
+                <field type="[UDesign] Flipbox - Front Side Content" editor_type="AREA">front_side_content</field>
+                <field type="[UDesign] Flipbox - Front Side Button Label" editor_type="LINE">front_side_button_text</field>
+                <field type="[UDesign] Flipbox - Back Side Title" editor_type="LINE">back_side_title</field>
+                <field type="[UDesign] Flipbox - Back Side Button Subtitle" editor_type="LINE">back_side_subtitle</field>
+                <field type="[UDesign] Flipbox - Back Side Button Content" editor_type="AREA">back_side_content</field>
+                <field type="[UDesign] Flipbox - Back Side Button Label" editor_type="LINE">back_side_button_text</field>
+                <field type="[UDesign] Flipbox - Front Side Button Link" editor_type="LINK">front_side_button_link>url</field>
+                <field type="[UDesign] Flipbox - Back Side Button Link" editor_type="LINK">back_side_button_link>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_heading">
+            <fields>
+                <field type="[UDesign] Heading - Heading" editor_type="LINE">title</field>
+                <field type="[UDesign] Heading - Link Label" editor_type="LINE">link_label</field>
+                <field type="[UDesign] Heading - Heading Link Url" editor_type="LINK">link_url>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_highlight">
+            <fields-in-item items_of="items">
+                <field type="[UDesign] Highlight - Text" editor_type="LINE">text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_imagebox">
+            <fields>
+                <field type="[UDesign] Imagebox - Title" editor_type="LINE">title</field>
+                <field type="[UDesign] Imagebox - Subtitle" editor_type="LINE">subtitle</field>
+                <field type="[UDesign] Imagebox - Content" editor_type="AREA">content</field>
+                <field type="[UDesign] Imagebox - Link Url" editor_type="LINK">link>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_image_compare">
+            <fields>
+                <field type="[UDesign] Image Compare - Text Before" editor_type="LINE">text_before</field>
+                <field type="[UDesign] Image Compare - Text After" editor_type="LINE">text_after</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_line_chart">
+            <fields>
+                <field type="[UDesign] Line Chart - Axis Label" editor_type="LINE">data_axis_label</field>
+            </fields>
+            <fields-in-item items_of="chart_data">
+                <field type="[UDesign] Line Chart - Label" editor_type="LINE">label</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_menu">
+            <fields>
+                <field type="[UDesign] Menu - Label" editor_type="LINE">label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_pie_doughnut_chart">
+            <fields-in-item items_of="chart_data">
+                <field type="[UDesign] Pie Doughnut Chart - Label" editor_type="LINE">label</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_polar_chart">
+            <fields-in-item items_of="chart_dataset">
+                <field type="[UDesign] Polar Chart - Axis Label" editor_type="LINE">dataset_label</field>
+            </fields-in-item>
+            <fields-in-item items_of="chart_data">
+                <field type="[UDesign] Polar Chart - Label" editor_type="LINE">label</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_price_tables">
+            <fields-in-item items_of="tables">
+                <field type="[UDesign] Price Tables - Title" editor_type="LINE">name</field>
+                <field type="[UDesign] Price Tables - Description" editor_type="LINE">desc</field>
+                <field type="[UDesign] Price Tables - Features List" editor_type="AREA">features_list</field>
+                <field type="[UDesign] Price Tables - Price" editor_type="LINE">price_value</field>
+                <field type="[UDesign] Price Tables - Price Suffix" editor_type="LINE">price_suffix</field>
+                <field type="[UDesign] Price Tables - Currency" editor_type="LINE">currency</field>
+                <field type="[UDesign] Price Tables - Button Label" editor_type="LINE">button_label</field>
+                <field type="[UDesign] Price Tables - Link Url" editor_type="LINK">link>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_progressbars">
+            <fields-in-item items_of="progressbars_list">
+                <field type="[UDesign] Progressbars - Title" editor_type="LINE">title</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_radar_chart">
+            <fields-in-item items_of="chart_dataset">
+                <field type="[UDesign] Radar Chart - Axis Label" editor_type="LINE">dataset_label</field>
+            </fields-in-item>
+            <fields-in-item items_of="chart_data">
+                <field type="[UDesign] Radar Chart - Label" editor_type="LINE">label</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_search">
+            <fields>
+                <field type="[UDesign] Search - Label" editor_type="LINE">label</field>
+                <field type="[UDesign] Search - Placeholder" editor_type="LINE">placeholder</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_sticky_nav">
+            <fields-in-item items_of="sticky_nav_item_list">
+                <field type="[UDesign] Sticky Navigation - Label" editor_type="LINE">label</field>
+                <field type="[UDesign] Sticky Navigation - Tooltip" editor_type="LINE">tooltip</field>
+                <field type="[UDesign] Sticky Navigation - Link Url" editor_type="LINK">link>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_subcategories">
+            <fields>
+                <field type="[UDesign] Subcategories - Delimiter" editor_type="LINE">cat_delimiter</field>
+                <field type="[UDesign] Subcategories - View All Label" editor_type="LINE">view_all</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_table">
+            <fields-in-item items_of="table_header">
+                <field type="[UDesign] Table - Heading" editor_type="LINE">table_header_cell_text</field>
+            </fields-in-item>
+            <fields-in-item items_of="table_body">
+                <field type="[UDesign] Table - Cell" editor_type="LINE">table_body_cell_text</field>
+                <field type="[UDesign] Table - Link Url" editor_type="LINK">table_body_cell_link>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_timeline">
+            <fields-in-item items_of="timeline_list">
+                <field type="[UDesign] Vertical Timeline - Title" editor_type="LINE">timeline_item_title</field>
+                <field type="[UDesign] Vertical Timeline - Meta" editor_type="LINE">meta</field>
+                <field type="[UDesign] Vertical Timeline - Description" editor_type="LINE">desc</field>
+                <field type="[UDesign] Vertical Timeline - Breakpoint" editor_type="LINE">breakpoint_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_timeline_horizontal">
+            <fields-in-item items_of="timeline_list">
+                <field type="[UDesign] Horizontal Timeline - Title" editor_type="LINE">timeline_item_title</field>
+                <field type="[UDesign] Horizontal Timeline - Meta" editor_type="LINE">meta</field>
+                <field type="[UDesign] Horizontal Timeline - Description" editor_type="LINE">desc</field>
+                <field type="[UDesign] Horizontal Timeline - Breakpoint" editor_type="LINE">breakpoint_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_sproduct_attributes">
+            <fields>
+                <field type="[UDesign] Single Product Attribues - View More Label" editor_type="LINE">viewmore_label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_posts">
+            <fields>
+                <field type="[UDesign] Posts - Title" editor_type="LINE">loadmore_label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_portfolios">
+            <fields>
+                <field type="[UDesign] Portfolios - Read More Label" editor_type="LINE">read_more_label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_members">
+            <fields>
+                <field type="[UDesign] Posts - Title" editor_type="LINE">loadmore_label</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_alert">
+            <fields>
+                <field type="[UDesign] Alert - Title" editor_type="LINE">title</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_counters">
+            <fields-in-item items_of="counters_list">
+                <field type="[UDesign] Counters - Target" editor_type="LINE">target</field>
+                <field type="[UDesign] Counters - Prefix" editor_type="LINE">prefix</field>
+                <field type="[UDesign] Counters - Suffix" editor_type="LINE">suffix</field>
+                <field type="[UDesign] Counters - Title" editor_type="LINE">title</field>
+                <field type="[UDesign] Counters - Description" editor_type="AREA">desc</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_events_calendar">
+            <fields>
+                <field type="[UDesign] Events Calendar - Title" editor_type="LINE">events_calendar_title</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_iconbox">
+            <fields>
+                <field type="[UDesign] Iconbox - Title" editor_type="LINE">title_text</field>
+                <field type="[UDesign] Iconbox - Description" editor_type="AREA">description_text</field>
+                <field type="[UDesign] Iconbox - Button Label" editor_type="LINE">button_label</field>
+                <field type="[UDesign] Iconbox - Link Url" editor_type="LINK">link>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_imagebox">
+            <fields>
+                <field type="[UDesign] Iconbox - Title" editor_type="LINE">title</field>
+                <field type="[UDesign] Iconbox - Description" editor_type="AREA">content</field>
+                <field type="[UDesign] Iconbox - Button Label" editor_type="LINE">button_label</field>
+                <field type="[UDesign] Imagebox - Link Url" editor_type="LINK">link>url</field>
+            </fields>
+        </widget>
+        <widget name="udesign_widget_price_list">
+            <fields-in-item items_of="price_list">
+                <field type="[UDesign] Price List - Title" editor_type="LINE">item_title</field>
+                <field type="[UDesign] Price List - Price" editor_type="LINE">item_price</field>
+                <field type="[UDesign] Price List - Description" editor_type="AREA">item_text</field>
+                <field type="[UDesign] Price List - Link Url" editor_type="LINK">item_url>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_scroll_nav">
+            <fields-in-item items_of="navigator_content_list">
+                <field type="[UDesign] Scroll Navigation - Tooltip" editor_type="LINE">navigator_tooltip</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_share">
+            <fields-in-item items_of="share_buttons">
+                <field type="[UDesign] Share - Link Url" editor_type="LINK">link>url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="udesign_widget_hotspot">
+            <fields>
+                <field type="[UDesign] Hotspot - Link Url" editor_type="LINK">link>url</field>
+            </fields>
+        </widget>
+    </elementor-widgets>
+</wpml-config>

@@ -1,0 +1,83 @@
+// Vendor Type 3
+.vendor-widget-3 {
+    border: 1px solid var(--alpha-change-border-color);
+    transition: box-shadow .45s, border-color .45s;
+    .vendor-details {
+        flex-direction: column;
+        padding: 0 2rem 2rem;
+        margin-top: calc( var(--alpha-vendor-logo-width, 9rem) / -2);
+    }
+    .vendor-info {
+        text-align: #{$right};
+        flex: 1;
+    }
+    .vendor-name {
+        display: block;
+        margin-top: 1.7rem;
+        margin-bottom: 1.3rem;
+        font-size: 1.8em;
+        line-height: 1;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+    .ratings-container {
+        margin-bottom: 1.3rem;
+    }
+    .vendor-products-count {
+        display: block;
+        margin-bottom: 1rem;
+        color: var(--alpha-body-color);
+        font-size: 1.4em;
+        line-height: 1;
+    }
+    .visit-vendor-btn {
+        margin-bottom: 2rem;
+        color: var(--alpha-secondary-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: color .4s;
+        &:hover,
+        &:focus, &.active {
+            color: var(--alpha-primary-color);
+        }
+    }
+    .vendor-banner {
+        min-height: 18rem;
+
+        img {
+            min-height: inherit;
+            object-fit: cover;
+        }
+    }
+    .vendor-logo {
+        max-width: var(--alpha-vendor-logo-width, 9rem);
+        height: var(--alpha-vendor-logo-width, 9rem);
+        background-color: var(--alpha-change-border-color);
+        border: 1px solid var(--alpha-change-border-color);
+        border-radius: 50%;
+        transition: background-color .45s, border-color .45s;
+        img {
+            border-radius: 50%;
+            transition: transform .45s;
+        }
+    }
+    &:hover {
+        border-color: transparent;
+        box-shadow: 5px 0 20px rgba(0,0,0,0.08);
+        .vendor-logo {
+            background-color: var(--alpha-primary-color);
+            border-color: var(--alpha-primary-color);
+            img{
+                transform: translateY(- 10px );
+            }
+        }
+    }
+    .star-rating {
+        margin-#{$right}: 0;
+    }
+    .product-media {
+        border: 1px solid transparent;
+        transition: border-color .4s;
+    }
+}

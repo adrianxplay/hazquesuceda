@@ -1,0 +1,1 @@
+.scroll-section.scrollable{position:relative;overflow-x:hidden;overflow-y:auto}.scroll-overlay-section{position:relative}.scroll-overlay-section:after{content:"";width:100%;height:4rem;position:absolute;right:0;bottom:0;background-image:linear-gradient(180deg,transparent 0%,var(--alpha-change-color-light-1) 100%)}

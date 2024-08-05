@@ -1,0 +1,120 @@
+/* -------------------------------------------
+	Accordion
+	- Accordion Base
+	- Accordion Shadow
+	- Accordion Stacked
+	- Compatibility With Elementor
+---------------------------------------------- */
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+
+// Accordion Base
+.accordion {
+	--alpha-accordion-background-color: var(--alpha-change-color-light-1);
+	--alpha-accordion-border-color: var(--alpha-change-border-color);
+	--alpha-accordion-card-spacing: 1rem;
+
+
+	.collapsed,
+	.expanding {
+		display: none;
+	}
+	.card {
+		margin-bottom: var(--alpha-accordion-card-spacing);
+		border: 1px solid var(--alpha-accordion-border-color);
+		background: var(--alpha-accordion-background-color);
+		transition: border .3s;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.card-body {
+		padding: 2rem;
+	}
+	.collapse .closed,
+	.expand .opened {
+		display: none;
+	}
+}
+.card-header {
+	font-size: 1.1em;
+
+	a {
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding: 1.5rem 2rem;
+		transition: color .3s, background-color .3s;
+
+		> i:first-child {
+			margin-#{$right}: 15px;
+		}
+
+		&:hover, &.collapse {
+			color: var(--alpha-primary-color);
+		}
+	}
+	.opened,
+	.closed {
+		display: flex;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		#{$right}: 2rem;
+	}
+}
+
+// Accordion Shadow
+.accordion-shadow {
+	--alpha-accordion-card-spacing: 2px;
+	--alpha-accordion-border-color: var(--alpha-change-color-light-2);
+
+	.card {
+		margin-bottom: 0;
+		border: none;
+		margin-bottom: var(--alpha-accordion-card-spacing);
+		box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+		&:last-child {
+			border: none;
+		}
+	}
+}
+
+// Accordion Stacked
+.accordion-stacked {
+	--alpha-accordion-body-padding: 2rem;
+
+	.card {
+		border: none;
+	}
+	.card-header {
+		a {
+			background-color: var(--alpha-change-color-light-2);
+		}
+		a:hover, a.collapse {
+			background-color: var(--alpha-primary-color);
+			color: var(--alpha-change-color-light-1);
+		}
+	}
+	.card .card-body {
+		padding: 2rem;
+		border: 1px solid var(--alpha-accordion-border-color);
+		border-top: none;
+	}
+}
+
+// Compatibility With Elementor
+.elementor-container.accordion,
+.elementor-row.accordion {
+	display: block;
+
+	.card {
+		display: block;
+		width: 100%;
+	}
+}
+.accordion .elementor-column .collapsed,
+.accordion .elementor-column .expanding {
+	display: none;
+}

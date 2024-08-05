@@ -1,0 +1,70 @@
+/******************************************
+ *                                        *
+ *                 Table                  *
+ *                                        *
+ ******************************************/
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+@import '../../../assets/sass/mixins';
+
+.widget-table-wrapper {
+    width: 100%;
+
+    thead {
+        background-color: #323334;
+        color: #fff;
+    }
+
+    td,
+    th {
+        border: none;
+    }
+}
+.widget-table {
+    max-width: 100%;
+    th,td {
+        font-size: 1.4rem;
+        font-weight: 600;
+        white-space: normal;
+        vertical-align: middle;
+    }    
+    .table-cell-inner {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+    // Table Header Cell
+    .table-header-cell {
+        line-height: 1;
+        .table-header-cell-icon {
+            display: flex;
+            align-items: center;
+            &.icon-position-before {
+                margin-#{$right}: 1rem;
+            }
+            &.icon-position-after {
+                order: 2;
+                margin-#{$left}: 1rem;
+            }
+        }
+    }
+    
+    // Table Body Cell
+    .table-body-cell {
+        color: #777;
+        line-height: 1;
+        a {
+            color: var(--alpha-primary-color, $primary-color);
+        }
+    }
+    th.table-body-cell {
+        color: var(--alpha-dark-color, $dark-color);
+    }
+}
+
+@include mq('lg', 'max') {
+    .widget-table-wrapper {
+        overflow-x: auto;
+    }
+}

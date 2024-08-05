@@ -1,0 +1,39 @@
+// Aside
+.testimonial-aside {
+    display: flex;
+    align-items: center;
+    .commentor {
+        text-align: center;
+        cite {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .content {
+        margin-#{$left}: 2rem;
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .comment { 
+        margin-bottom: 1rem;
+    }
+    .ratings-container {
+        margin-bottom: .5rem;
+    }
+    &.inversed {
+        .commentor {
+            order: 2;
+            cite {
+                margin-#{$right}: 0;
+            }
+        }
+        .content {
+            margin-#{$right}: 2rem;
+            margin-#{$left}: 0;
+        }
+    }
+}

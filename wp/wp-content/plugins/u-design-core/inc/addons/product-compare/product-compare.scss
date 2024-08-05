@@ -1,0 +1,236 @@
+/* -------------------------------------------
+    Compare
+        1. Popup Heading & Buttons
+        2. Compare List
+        3. Compare Responsive
+        4. Compare Action
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../framework/assets/sass/mixins/mixins';
+@import '../../../framework/assets/sass/mixins/direction';
+
+// 1. Popup Heading & Buttons
+.compare-popup {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 2rem 0;
+    background: var(--alpha-change-color-light-1);
+    transition: transform .3s;
+    z-index: 3001;
+
+    &.show {
+        transform: translateY(-99%);
+
+        + .compare-popup-overlay {
+            opacity: .7;
+            visibility: visible;
+            transition: opacity .3s;
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    h3 {
+        margin: 1rem 0 .2rem;
+        font-size: 2.4rem;
+    }
+}
+@media (max-width: 1199px) and (min-width: 992px) {
+    .compare-popup {
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+@media (min-height: 600px) and (min-width: 1200px) {
+    .compare-popup {
+        padding: 1rem 0;
+    }
+}
+.compare-clean {
+    margin: 1.4rem 3vw 1rem;
+    color: var(--alpha-body-color);
+    white-space: nowrap;
+}
+@include mq(lg) {
+    .compare-clean {
+        margin: 1.4rem 1vw 1rem;
+    }
+}
+.compare-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s;
+    z-index: 3000;
+}
+
+.compare-heading {
+    text-align: center;
+    p {
+        margin-bottom: 0;
+        color: var(--alpha-body-color);
+    }
+    mark {
+        color: inherit;
+        background: transparent;
+    }
+}
+
+.loading-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20002;
+}
+
+// 2. Compare List
+.compare-list {
+    margin: side-values(1rem auto 0 2.6vw);
+    max-width: 52%;
+    padding: 2rem;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    li {
+        position: relative;
+        width: 8vw;
+        width: 138px;
+        min-height: 106px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &:empty:before {
+            content: "\e90f";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-family: $framework-font;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            line-height: 5rem;
+            font-size: 3rem;
+            color: var(--alpha-change-border-color);
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            box-shadow: 2px 4px 15px rgba(0,0,0,.12);
+        }
+        &:empty:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            border: 1px solid var(--alpha-change-border-color);
+        }
+    }
+
+    .btn-remove {
+        position: absolute;
+        #{$right}: -1rem;
+        top: -1rem;
+        width: 1.5833em;
+        color: var(--alpha-body-color);
+        background-color: var(--alpha-change-color-light-1);
+        line-height: 1.5833em;
+        font-size: 0.8571em;
+        text-align: center;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+        .d-loading {
+            border-radius: inherit;
+        }
+    }
+}
+
+// 3. Compare Responsive
+@include mq(lg, 'max') {
+    .compare-popup .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .compare-list {
+        margin: 0 0 1rem;
+        padding: 0 1rem;
+        flex: 0 0 100%;
+        justify-content: center;
+        max-width: 100%;
+
+        .compare-slider {
+            padding: 2rem 0;
+        }
+
+        > li {
+            width: 20vw;
+        }
+    }
+    .compare-heading > * {
+        display: inline;
+    }
+}
+
+@include mq(xs, 'max') {
+    .compare-list > li {
+        min-height: 40px;
+    }
+    .compare-heading {
+        flex: 0 0 100%;
+        margin: 0 0 1rem;
+    }
+    .compare-heading > * {
+        display: block;
+    }
+}
+
+// 4. Compare Action
+.compare {
+	color: var(--alpha-body-color);
+	letter-spacing: -.025em;
+
+	&:before {
+		font-size: 1.6em;
+		color: inherit;
+		margin-#{$right}: .8rem;
+        vertical-align: -4px;
+    }
+}
+.btn-product-icon.compare:before {
+	font-family: $framework-font;
+	content: "\e93d";
+}
+.product .compare.added:before {
+	font-family: $theme-font;
+	content: "\e963";
+}

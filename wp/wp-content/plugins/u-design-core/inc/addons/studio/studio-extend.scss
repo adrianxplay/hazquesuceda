@@ -1,0 +1,24 @@
+/* -------------------------------------------
+	Studio Extend Style
+		1. Block Overlay
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../framework/assets/sass/mixins/mixins';
+@import '../../../framework/assets/sass/mixins/direction';
+
+// 1. Block Overlay
+.blocks-wrapper {
+    .block-online {
+        a {
+            display: block;
+            position: relative;
+        }
+    }
+
+    .block-actions {
+        width: auto;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+}

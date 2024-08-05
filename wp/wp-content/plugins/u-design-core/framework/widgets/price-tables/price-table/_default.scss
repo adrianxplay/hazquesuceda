@@ -1,0 +1,12 @@
+// Default Type
+&.default-type {
+    .plan-header {
+        color: var(--alpha-change-color-light-1);
+        background-color: var(--alpha-change-color-dark-1);
+    }
+    &.featured {
+        .plan-header {
+            background-color: var(--alpha-primary-color);
+        }
+    }
+}

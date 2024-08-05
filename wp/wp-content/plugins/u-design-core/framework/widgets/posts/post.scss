@@ -1,0 +1,225 @@
+/* -------------------------------------------
+    Blog
+        1. Base Style
+        2. Post Media
+        3. Post Details
+        4. Post Title
+        5. Post Content
+        6. Post Cats
+        7. Post Meta
+        8. Post Type
+
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+// 1. Base Style
+.posts {
+    // added (925)
+    &.sticky .post-title::after {
+        content: 'Sticky';
+    }
+    &.format-video .post-title::after {
+        content: 'Video';
+    }
+    &.sticky,
+    &.format-video {
+        .post-title::after { 
+            position: relative; 
+            top: -10px;
+            padding: 0 4px;
+            margin-#{$left}: 5px;
+            border-radius: var(--alpha-border-radius-form);
+            color: var(--alpha-white-color);
+            background-color: var(--alpha-primary-color);
+            font-size: .5em;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+    }
+    .mejs-overlay-button {
+        background: none;
+        border: 2px solid var(--alpha-white-color);
+        border-radius: 50%;
+        font-family: 'Font Awesome 5 Free';
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--alpha-white-color);
+        text-align: center;
+        transition: background .3s, color .3s, box-shadow .3s, opacity .3s;
+
+        &:hover {
+            box-shadow: 0px 0px 0px 15px rgba(255,255,255,.2);
+            background: var(--alpha-white-color);
+            color: var(--alpha-primary-color);
+        }
+
+        &::before {
+            content: '\f04b';
+            margin-#{$left}: 4px;
+        }
+
+        .posts & {
+            width: 4rem;
+            height: 4rem;
+            line-height: 3.6rem;
+        }
+    }
+    .mejs-overlay-button,
+    &.post-full .mejs-overlay-button {
+        width: 6.8rem;
+        height: 6.8rem;
+        line-height: 6.4rem;
+    }
+    .wp-video-shortcode {
+        height: auto;
+    }
+}
+.post-wrap.grid-item {
+    margin-bottom: 0;
+}
+.more-link, .btn-readmore {
+    margin-#{$left}: 5px;
+}
+.wp-block-group.has-background {
+    margin-bottom: 5px;
+}
+
+
+// 2. Post Media
+.post-media {
+    position: relative;
+    img {
+        display: block;
+        width: 100%;
+    }
+    .post-calendar {
+        position: absolute;
+        text-transform: uppercase;
+        #{$left}: 1.5rem;
+        top: 1.5rem;
+    }
+}
+.thumbnail-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .5em 0;
+    background: rgba(0,0,0,0.5);
+    color: var(--alpha-white-color);    
+    font-size: 0.8571em;
+    text-align: center;
+}
+
+// 3. Post Details
+.post-details {
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+    .post-media + &,
+    .slider-relative + & {
+        padding-top: 1.5rem;
+    }
+}
+
+// 4. Post Title
+.post-title {
+    overflow: hidden;
+    margin-bottom: 5px;
+    font-size: 1.071em;
+    word-wrap: break-word;
+    text-transform: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    a:hover,
+    a:focus {
+        color: var(--alpha-primary-color);
+    }
+    &.page-title {
+        font-size: 3rem;
+    }
+}
+
+// 5. Post Content
+.post-content {
+    margin-bottom: 5px;
+    font-size: 0.928em;
+    line-height: 1.9;
+    letter-spacing: -.025em;
+
+    p {
+        margin: 0;
+    }
+
+}
+
+// 6. Post Cats
+.post-cats {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+        &:not(:#{if-rtl(last, first)}-child) {
+            margin-left: .4em;
+        }
+        &:hover {
+            color: var(--alpha-primary-color-hover);
+        }
+    }
+}
+
+// 7. Post Meta
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: .5em;
+    & > span:last-of-type {
+        margin-#{$right}: 2rem;
+    }
+    & > span:last-child {
+        margin-#{$right}: 0;
+    }
+    a:hover,
+    a:focus {
+        color: var(--alpha-primary-color);
+    }
+    mark {
+        color: var(--alpha-change-color-dark-1);
+        font-weight: 600;
+        transition: inherit;      
+    }
+    .post-author {
+        font-size: .928em;
+        a {
+            font-size: 1.077em;
+            font-weight: 600;
+        }
+        & + *:before {
+            content: '-';
+            margin: 0 .3em;
+        }
+    }
+    .comments-link {
+        &:hover mark {
+            color: var(--alpha-primary-color);
+        }
+        &:before {
+            content: '\e92e';
+            display: inline-block;
+            margin-#{$right}: .5em;
+            vertical-align: -1px;
+            font-family: $theme-font;
+            font-size: 1.16em;
+            line-height: 1;
+        }
+    }
+}
+
+// 8. Post Type
+
+// @start feature: fs_bt_default
+@import 'blog/default';
+// @end feature: fs_bt_default

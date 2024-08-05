@@ -1,0 +1,54 @@
+/* -------------------------------------------
+    Product Extra Info Admin
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+.alpha_custom_labels {
+    padding: side-values(5px 20px 5px 162px);
+    margin: 9px 0;
+    font-size: 12px;
+    line-height: 24px;
+    h3 {
+        font-weight: 400;
+    }
+    .wp-picker-container {
+        vertical-align: middle;
+    }
+    .wc-metabox h3 .wp-picker-container button,
+    h3 label {
+        float: none;
+        margin-bottom: 0;
+    }
+    .wp-picker-input-wrap label {
+        width: auto;
+        float: none;
+        margin: 0;
+    }
+    input[type="text"].label_text,
+    input[type="text"].label_image {
+        width: 200px;
+    }
+    &.form-field .wc-metabox h3 > select,
+    &.form-field .wc-metabox .text-controls > input {
+        margin: side-values(0 13px 0 0);
+    }
+    &.form-field .wc-metabox h3 .text-controls > label {
+        margin: side-values(0 6px 0 0);
+    }
+    .wp-picker-container {
+        margin: side-values(0 7px 0 0);
+    }
+    .wc-metaboxes .wc-metabox:first-child {
+        margin-top: 14px !important;
+    }
+    div.wc-metaboxes {
+        border: none;
+    }
+    .text-controls,
+    .image-controls {
+        display: inline-block;
+    }
+}

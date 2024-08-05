@@ -1,0 +1,23 @@
+// Mini Type
+&.mini-type {
+    padding-top: 5rem;
+    .plan-header {
+        display: inline-block;
+        color: var(--alpha-dark-color);
+        background-color: #f1f4f8;
+        border-radius: 3rem;
+        padding: .4rem 1.5rem;
+        h3 {
+            font-size: 1em;
+            letter-spacing: 0;
+        }
+    }
+    .plan-price {
+        margin-top: 2.5rem;
+    }
+    &.featured {
+        .plan-price {
+            color: var(--alpha-primary-color);
+        }
+    }
+}

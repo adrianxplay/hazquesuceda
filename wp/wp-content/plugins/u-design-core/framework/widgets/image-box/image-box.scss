@@ -1,0 +1,55 @@
+/* -------------------------------------------
+	Image Box
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.image-box {
+    figure {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    img {
+        display: block;
+    }
+
+    &.inner {
+        .title, .subtitle {
+            color: var(--alpha-change-color-light-1);
+        }
+    }
+
+    .title {
+        margin-bottom: 3px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        a {
+            color: inherit;
+        }
+    }
+
+    .subtitle {
+        margin-bottom: 0;
+        font-size: 1em;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--alpha-body-color);
+    }
+
+    .content {
+        margin-top: 1rem;
+    }
+
+    &.outer .content {
+        margin-top: 0;
+    }
+}
+
+.elementor .elementor-widget-#{$theme-name}_widget_imagebox .elementor-widget-container .image-box figure {
+    margin-bottom: 1rem;
+}

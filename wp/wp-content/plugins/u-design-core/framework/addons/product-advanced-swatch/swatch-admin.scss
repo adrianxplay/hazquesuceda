@@ -1,0 +1,60 @@
+/* -------------------------------------------
+    Image Swatch
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+.alpha-wc-message {
+    margin: 10px;
+}
+
+#swatch_product_options {
+    .expand-close {
+        float: $right;
+        line-height: 24px;
+    }
+
+    .notice.inline {
+        margin: 1rem;
+    }
+
+    .notice p {
+        margin: 0;
+    }
+
+    th {
+        text-align: $left;
+        padding-bottom: 2rem;
+    }
+}
+
+.woocommerce #col-container .form-field select {
+    width: 100%;
+}
+
+.img-btn-set {
+    display: flex;
+    gap: 15px;
+
+    img {
+        display: block;
+    }
+
+    .img-btn-item {
+        border-radius: 3px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .active {
+        box-shadow: 0 0 0 1px #8c8f94;
+    }
+}
+
+.product_page_product_attributes form {
+    .form-field:nth-child(4) {
+        display: none;
+    }
+}

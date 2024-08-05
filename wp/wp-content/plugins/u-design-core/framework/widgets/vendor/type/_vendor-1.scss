@@ -1,0 +1,23 @@
+// Vendor Type 1
+.vendor-widget-1 {
+    .vendor-details {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .product-media  img {
+        border: 1px solid transparent;
+        transition: border-color .35s;
+        &:hover {
+            border-color: var(--alpha-primary-color);
+        }
+    }
+
+    .vendor-personal {
+        max-width: calc(100% - var(--alpha-vendor-logo-width, 8rem));
+    }
+    .vendor-name {
+        display: inline-block;
+        max-width: 100%;
+    }    
+}

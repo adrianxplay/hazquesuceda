@@ -1,0 +1,182 @@
+/* -------------------------------------------
+    Compare
+        1. Popup Heading & Buttons
+        2. Compare List
+        3. Compare Responsive
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+// 1. Popup Heading & Buttons
+.compare-popup {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 2rem 0;
+    background: var(--alpha-change-color-light-1);
+    transition: transform .3s;
+    z-index: 3001;
+
+    &.show {
+        transform: translateY(-99%);
+
+        + .compare-popup-overlay {
+            opacity: .7;
+            visibility: visible;
+            transition: opacity .3s;
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    h3 {
+        font-size: 1.7143em;
+        font-weight: 700;
+    }
+    .btn-dark {
+        --alpha-dark-color: #454545;
+        --alpha-dark-color-hover: #565656;
+    }
+}
+@media (min-height: 600px) and (min-width: 1200px) {
+    .compare-popup {
+        padding: 2.9rem 0;
+    }
+}
+.compare-clean {
+    margin: 1.4rem 1vw 1rem;
+    color: var(--alpha-body-color);
+}
+.compare-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s;
+    z-index: 3000;
+}
+.compare-heading {
+    text-align: center;
+    padding: 0 2.9rem;
+    p {
+        margin-bottom: 0;
+        color: var(--alpha-grey-color);
+    }
+    mark {
+        color: inherit;
+    }
+}
+
+// 2. Compare List
+.compare-list {
+    max-width: 54.9%;
+    padding: 3rem 2rem 2rem;
+
+    ul {
+        margin: 0;
+        list-style: none;
+    }
+
+    li {
+        width: 138px;
+        min-height: 106px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &:empty:before {
+            content: '+';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            line-height: 5rem;
+            font-size: 2.1429em;
+            color: var(--alpha-change-border-color);
+            width: 1.6667em;
+            height: 1.6667em;
+            border-radius: 50%;
+            box-shadow: 2px 4px 15px rgba(0,0,0,.12);
+        }
+        &:empty:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            border: 1px solid var(--alpha-change-border-color);
+        }
+    }
+
+    .btn-remove {
+        position: absolute;
+        #{$right}: -1rem;
+        top: -1rem;
+        width: 1.5833em;
+        color: var(--alpha-body-color);
+        background-color: var(--alpha-change-color-light-1);
+        line-height: 1.5833em;
+        font-size: 0.8571em;
+        text-align: center;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+        .d-loading {
+            border-radius: inherit;
+        }
+    }
+}
+
+// 3. Compare Responsive
+@include mq(lg, 'max') {
+    .compare-popup .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .compare-list {
+        margin: 0 0 1rem;
+        padding: 0 1rem;
+        flex: 0 0 100%;
+        justify-content: center;
+        max-width: 100%;
+
+        .compare-slider {
+            padding: 2rem 0;
+        }
+
+        > li {
+            width: 20vw;
+        }
+    }
+    .compare-heading > * {
+        display: inline;
+    }
+}
+
+@include mq(xs, 'max') {
+    .compare-list > li {
+        min-height: 40px;
+    }
+    .compare-heading {
+        flex: 0 0 100%;
+        margin: 0 0 1rem;
+    }
+    .compare-heading > * {
+        display: block;
+    }
+}

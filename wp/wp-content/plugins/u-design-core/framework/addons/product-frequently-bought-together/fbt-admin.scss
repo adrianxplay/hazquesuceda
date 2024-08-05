@@ -1,0 +1,14 @@
+/* -------------------------------------------
+    Frequently Bought Together Products Admin
+---------------------------------------------- */
+
+#alpha_fbt_options {
+    .form-field {
+        display: flex;
+        align-items: center;
+        .fbt_input {
+            max-width: 100px;
+            margin-left: 5px;
+        }
+    } 
+}

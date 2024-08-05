@@ -1,0 +1,374 @@
+/* -------------------------------------------
+    Single Post
+        1. Base Style
+		2. Post Author Detail
+		3. Post Navigation
+		4. Related Post
+		5. Default Content
+---------------------------------------------- */
+
+@import "../config";
+@import "../mixins";
+@import "../direction";
+
+// 1. Base Style
+.single-post {
+  .breadcrumb-container+main {
+    padding-top: 0;
+  }
+
+  .post-single-wrap {
+    margin-top: 1.8rem;
+  }
+
+  @include mq(lg) {
+    .sidebar .widget:first-child {
+      padding-top: 1.6rem;
+    }
+  }
+}
+
+.post-title.page-title {
+  white-space: normal;
+  font-size: 3.8rem;
+  line-height: 1.27;
+}
+
+.post-single {
+  margin-bottom: 3rem;
+
+  .post-cats-date {
+    text-align: center;
+  }
+
+  .post-title {
+    text-align: center;
+  }
+
+  .post-meta {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  >.post-media,
+  >.post-media-carousel {
+    margin-bottom: 4rem;
+  }
+
+  .post-content {
+    margin-bottom: 4.1rem;
+  }
+}
+
+// 2. Post Author Detail
+.post-author-detail {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  // position: relative;
+  // z-index: 1;
+  padding: 4rem;
+  box-shadow: 0 5px 2rem rgba(0, 0, 0, 0.07);
+  border-radius: $corner-sm;
+  background-color: var(--alpha-change-color-light-1);
+
+  article>& {
+    margin-bottom: 4.5rem;
+  }
+
+  .author-body {
+    flex: 1;
+  }
+}
+
+.author-name {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.01em;
+}
+
+.author-content {
+  line-height: 1.86;
+  margin-bottom: 1.8rem;
+}
+
+.author-avatar {
+  max-width: 8rem;
+  flex: 0 0 8rem;
+  margin-#{$right}: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 8rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: var(--alpha-change-border-color);
+  }
+}
+
+.author-link {
+  font-size: 1.3rem;
+  color: var(--alpha-change-color-dark-1);
+}
+
+.post-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+
+  >* {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-tags {
+    padding-#{$right}: 2rem;
+    margin-#{$right}: auto;
+  }
+}
+
+@supports (-moz-appearance: none) {
+  .post-single .author-avatar img {
+    max-width: calc(100% + 2px);
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    margin: -1px;
+  }
+}
+
+// 3. Post Navigation
+.navigation {
+  position: relative;
+
+  .nav-links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    a {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 0 0 100%;
+      max-width: 100%;
+      width: 100%;
+      color: var(--alpha-change-color-dark-1);
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      #{$right}: 0;
+      line-height: 0;
+      font-size: 2rem;
+      transition: inherit;
+
+      &:last-child {
+        position: static;
+        line-height: inherit;
+      }
+    }
+  }
+
+  .label,
+  i {
+    color: var(--alpha-body-color);
+  }
+
+  .nav-previous {
+    a {
+      text-align: $left;
+      padding-#{$left}: 4rem;
+      padding-#{$right}: 2rem;
+    }
+
+    i {
+      #{$left}: 0;
+    }
+  }
+
+  .nav-next:first-child {
+    width: 50%;
+    margin-#{$left}: auto;
+  }
+
+  .nav-next {
+    a {
+      align-items: flex-end;
+      text-align: $right;
+      padding-#{$right}: 4rem;
+      padding-#{$left}: 2rem;
+    }
+  }
+
+  .nav-previous,
+  .nav-next {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .nav-next {
+    border-top: none;
+  }
+
+  .post-nav-blog {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    padding: 1rem;
+    transform: translate(-50%, -50%);
+    font-size: 1.7rem;
+    color: var(--alpha-body-color);
+
+    &:hover {
+      color: var(--alpha-primary-color);
+    }
+  }
+
+  @include mq(sm, max) {
+    .nav-previous a {
+      padding-#{$left}: 3rem;
+    }
+
+    .nav-next a {
+      padding-#{$right}: 3rem;
+    }
+  }
+}
+
+.navigation-with-icon {
+  min-width: 8rem;
+
+  .nav-links a {
+    padding: 0;
+  }
+
+  .nav-next:first-child {
+    width: auto;
+    max-width: none;
+    flex: none;
+  }
+}
+
+.pager-link-title {
+  display: inline-block;
+  // flex: 0 0 auto;
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: none;
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scale(0);
+    transition: transform 0.3s;
+
+    a:hover &,
+    a:focus & {
+      transform: scale(1);
+    }
+  }
+}
+
+@include mq(sm, max) {
+
+  .post-single .post-author-detail,
+  .post-single .author-header {
+    display: block;
+  }
+
+  .post-single .author-avatar {
+    margin-#{$right}: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .navigation .nav-links {
+    letter-spacing: -0.04em;
+  }
+
+  .navigation .pager-link-title {
+    display: none;
+  }
+}
+
+@include mq(xs, max) {
+  .post-single .post-author-detail {
+    padding: 2rem;
+  }
+}
+
+// 4. Related Post
+.related-posts {
+  &:not(:last-child) {
+    margin-bottom: 10rem;
+  }
+
+  .title {
+    text-align: center;
+    margin: 9.6rem 0 3.9rem;
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 1439px) {
+  .related-posts {
+    .title {
+      margin: 5.6rem 0 3.9rem;
+    }
+  }
+}
+
+// 5. Default Content
+.list-type-check {
+  li {
+    padding-#{$left}: 2.8rem;
+
+    &::before {
+      color: var(--alpha-change-color-dark-1);
+    }
+  }
+}
+
+.post-single-wrap {
+  .post-content a {
+    color: var(--alpha-change-color-dark-1);
+    box-shadow: 0 1px;
+
+    &:hover,
+    &:focus {
+      color: var(--alpha-primary-color);
+    }
+  }
+
+  hr+hr {
+    border: none;
+  }
+}
+
+@include mq(md, max) {
+  .columns-md-max-1>.wp-block-column {
+    flex-basis: auto !important;
+  }
+}
+
+@include mq(sm, max) {
+  .post-title.page-title {
+    font-size: 3.2rem;
+  }
+}

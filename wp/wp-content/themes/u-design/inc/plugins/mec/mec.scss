@@ -1,0 +1,974 @@
+/********************************************
+ *      Modern Event Calendar               *
+ *         - Clean                          *
+ *         - Modern                         *
+ *         - Classic                        *
+ *         - Monthly Calendar/Novel         *
+ *         - Monthly Calendar/Simple        *
+ *******************************************/
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/mixins';
+@import '../../../assets/sass/direction';
+
+// Mec container
+.mec-container {
+    width: auto;
+    padding: 0;
+}
+
+// Mec Wrap
+.mec-wrap {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+
+    .row {
+        margin: calc(-1 * var(--alpha-gap));
+        ;
+    }
+
+    [class*='col-'] {
+        padding: var(--alpha-gap);
+    }
+
+    p {
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        line-height: inherit;
+    }
+
+    &~.comment-respond {
+        margin-top: 4rem;
+    }
+}
+
+.mec-wrap .mec-single-title,
+.single-mec-events .mec-wrap.mec-no-access-error h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+}
+
+.mec-color,
+.mec-color-before:before,
+.mec-color-hover:hover,
+.mec-wrap .mec-color,
+.mec-wrap .mec-color-before:before,
+.mec-wrap .mec-color-hover:hover {
+    color: #777;
+}
+
+.entry-content .mec-wrap h1,
+.entry-content .mec-wrap h2,
+.entry-content .mec-wrap h3,
+.entry-content .mec-wrap h4,
+.entry-content .mec-wrap h5,
+.entry-content .mec-wrap h6,
+.mec-wrap h1,
+.mec-wrap h2,
+.mec-wrap h3,
+.mec-wrap h4,
+.mec-wrap h5,
+.mec-wrap h6 {
+    font-weight: 400;
+}
+
+// Mec Calendar
+.mec-calendar {
+    margin-bottom: 4rem;
+    border: none;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, .05);
+
+    dl {
+        margin-top: 2.5rem;
+
+        &:first-child {
+            margin: 0;
+        }
+    }
+
+    dl,
+    dt {
+        font-weight: 600;
+    }
+
+    .mec-calendar-side .mec-next-month,
+    .mec-calendar-side .mec-previous-month {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        height: 47px;
+        line-height: 47px;
+        border-color: var(--alpha-change-border-color);
+        border-radius: 0;
+        box-shadow: none;
+        letter-spacing: inherit;
+    }
+
+    .mec-calendar-events-side,
+    .mec-calendar-side {
+        padding: 3rem;
+    }
+
+    .mec-calendar-side {
+        padding-bottom: 5.3rem;
+    }
+
+    .mec-event-article {
+        border: none;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+
+        &:first-of-type {
+            border-top: 1px solid var(--alpha-change-border-color);
+            padding-top: 3rem;
+        }
+
+        .mec-event-title {
+            margin: 0 0 10px;
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 1.4;
+            text-transform: none;
+
+            a {
+                color: var(--alpha-change-color-dark-1);
+            }
+        }
+
+        .mec-event-time {
+            font-size: 1.4rem;
+
+            i {
+                margin-#{$right}: 3px;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    .mec-calendar-events-side {
+        padding-top: 8rem;
+        border-color: var(--alpha-change-border-color);
+
+        .mec-table-side-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: inherit;
+            text-transform: capitalize;
+        }
+
+        .mec-table-side-day {
+            width: 57px;
+            height: 57px;
+            font-size: 2.2rem;
+            font-weight: 400;
+            line-height: 57px;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .mec-event-article:hover {
+        background: none;
+    }
+
+    .mec-calendar-header h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .mec-has-event:after {
+        margin: side-values(-3px 0 0 -3px);
+    }
+
+    .mec-calendar-row dt.mec-has-event:hover {
+        background: transparent;
+    }
+
+    .mec-has-event:after {
+        background-color: var(--alpha-primary-color);
+    }
+
+    .mec-calendar-side .mec-next-month i {
+        color: inherit;
+    }
+}
+
+.mec-calendar-events-side,
+.mec-daily-view-date-events {
+    .mec-event-image {
+        flex: 0 0 80px;
+        width: 80px;
+        margin-#{$right}: 3rem;
+        float: none;
+    }
+
+    .mec-event-article {
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+}
+
+.mec-load-month-link {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    letter-spacing: inherit;
+}
+
+/* Page with sidebar fix */
+@media (min-width: 961px) {
+    .mec-wrap.mec-sm959 .mec-calendar:not(.mec-event-calendar-classic):not(.mec-calendar-weekly) .mec-daily-view-day.mec-has-event:after {
+        bottom: 12px;
+    }
+
+    .mec-wrap.mec-sm959 .mec-calendar-daily:not(.mec-event-calendar-classic):not(.mec-calendar-weekly) .mec-daily-view-day.mec-has-event:after {
+        bottom: 0;
+    }
+
+    .mec-wrap.mec-sm959 .mec-calendar:not(.mec-event-calendar-classic):not(.mec-calendar-weekly) .mec-calendar-side {
+        width: 450px;
+    }
+
+    .mec-wrap.mec-sm959 .mec-calendar:not(.mec-event-calendar-classic):not(.mec-calendar-weekly) .mec-calendar-header {
+        width: 390px;
+        margin-top: 0;
+        margin-bottom: 35px;
+        padding-top: 5px;
+    }
+
+    .mec-wrap.mec-sm959 .mec-calendar:not(.mec-event-calendar-classic):not(.mec-calendar-weekly) dt {
+        width: 57px;
+        height: 57px;
+        line-height: 57px;
+    }
+}
+
+i.mec-sl-clock:before,
+i.mec-sl-clock-o:before {
+    position: relative;
+    top: 1px;
+    font-family: $theme-font;
+    content: "\e910";
+}
+
+// Daily View
+.mec-calendar-daily {
+    background: var(--alpha-change-color-light-1);
+
+    &.mec-calendar {
+        .mec-calendar-d-top {
+            background: none;
+            padding: 2.5rem 0 4rem;
+
+            h2 {
+                font-size: 8rem;
+                font-weight: 500;
+                color: var(--alpha-change-color-dark-1);
+            }
+
+            h3 {
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                color: var(--alpha-body-color);
+                font-family: inherit;
+                font-size: 2.8rem;
+                text-transform: capitalize;
+            }
+        }
+
+        .mec-today-container .mec-today-count {
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+
+        .mec-calendar-a-month h4 {
+            border: none;
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            padding: 2.7rem 0;
+        }
+
+        .mec-calendar-a-month {
+            border-color: var(--alpha-change-border-color);
+            border-width: 0 0 1px;
+        }
+
+        .mec-calendar-a-month .mec-previous-month,
+        .mec-calendar-a-month .mec-next-month {
+            border: none;
+
+            &:hover {
+                color: var(--alpha-primary-color);
+                box-shadow: none;
+            }
+        }
+
+        .mec-calendar-d-table {
+            display: flex;
+            align-items: center;
+            min-height: 70px;
+            padding: 0 70px;
+            box-shadow: none;
+            border-color: var(--alpha-change-border-color);
+            border-width: 1px 0;
+
+            a.mec-table-d-prev,
+            a.mec-table-d-next {
+                width: 70px;
+                height: 70px;
+                font-size: 16px;
+                line-height: 70px;
+            }
+
+            .mec-daily-view-day.mec-daily-view-day-active {
+                color: #fff;
+            }
+
+            .mec-daily-view-day {
+                border: none;
+                // border-radius: 50%;
+                transition: color .3s, background-color .3s;
+
+                &:hover {
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+            }
+
+            .mec-owl-carousel .mec-daily-view-day {
+                font-size: 1.6rem;
+                font-weight: 400;
+                line-height: 43px;
+            }
+
+            @include mq(xs, 'max') {
+                & {
+                    min-height: 4rem;
+                    padding: 0 4rem;
+                }
+
+                a.mec-table-d-prev,
+                a.mec-table-d-next {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 16px;
+                    line-height: 45px;
+                }
+
+                .mec-daily-view-day {
+                    line-height: 3.9rem;
+                }
+            }
+        }
+    }
+
+    .mec-daily-view-dates-events {
+        margin: 0;
+        padding: 0;
+
+        .mec-daily-view-date-events .mec-event-article {
+            padding: 3rem 70px;
+            border-top: 1px solid var(--alpha-change-border-color);
+
+            @include mq(xs, 'max') {
+                & {
+                    padding: 3rem 4rem;
+                }
+            }
+        }
+
+        .mec-event-article:first-of-type {
+            border: none;
+        }
+    }
+}
+
+// Grid View
+.mec-event-grid-modern {
+    .mec-event-article {
+        padding: 2.5rem 2.5rem 2rem;
+        margin: 0;
+        box-shadow: none;
+
+        @include mq(md, 'max') {
+            padding: 1.5rem 1.5rem 1rem;
+        }
+    }
+
+    .event-grid-modern-head {
+        margin-bottom: 17px;
+
+        .mec-event-month {
+            font-size: 1.6rem;
+        }
+
+        .mec-event-day {
+            margin-top: 0;
+            font-family: inherit;
+            font-size: 2.8rem;
+            color: var(--alpha-heading-color);
+            text-transform: capitalize;
+        }
+    }
+
+    .mec-event-content {
+        display: flex;
+        align-content: center;
+        padding-top: 0;
+    }
+
+    .mec-event-title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        font-weight: 400;
+
+        a {
+            color: var(--alpha-change-color-dark-1);
+        }
+    }
+
+    .mec-event-image {
+        flex: 0 0 80px;
+        width: 80px;
+        margin-#{$right}: 2rem;
+    }
+
+    .mec-booking-button {
+        display: inline-block;
+        position: static;
+        vertical-align: middle;
+    }
+
+    .mec-event-sharing-wrap {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        margin-#{$right}: 1.5rem;
+
+        li {
+            margin: 0 auto;
+        }
+    }
+
+    .mec-event-share {
+        margin: 0;
+
+        a {
+            color: #fff;
+        }
+    }
+
+    .mec-booking-button {
+        border: none;
+        padding: 0;
+        font-size: 1.6rem;
+        text-transform: capitalize;
+        color: var(--alpha-change-color-dark-1);
+
+        &:hover {
+            background-color: transparent;
+            color: var(--alpha-primary-color);
+        }
+
+        &:after {
+            content: '\e92c';
+            margin-#{$left}: .7rem;
+            position: relative;
+            top: 1px;
+            font-family: $framework-font;
+            font-size: 1.2em;
+        }
+    }
+
+    .mec-event-footer {
+        height: auto;
+    }
+}
+
+// Share
+.mec-event-sharing-wrap {
+    .mec-event-share {
+        width: 50px;
+        height: 50px;
+        transition: color .3s, background-color .3s;
+
+        i {
+            width: auto;
+            height: auto;
+            font-size: 2rem;
+            line-height: 48px;
+        }
+    }
+
+    .mec-event-sharing {
+        left: 50%;
+        right: auto;
+        bottom: 70px;
+        padding: 8px 0;
+        transform: translateX(-50%);
+        box-shadow: 0 0 20px rgba(0, 0, 0, .05);
+    }
+
+    li i {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+// Tile View
+.mec-event-tile-view {
+    article.mec-tile-item {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+
+        &:after {
+            content: none;
+        }
+
+        &:before {
+            border-radius: inherit;
+        }
+
+        .mec-event-title {
+            padding-top: 8px;
+            font-size: 2.2rem;
+            font-weight: 400;
+        }
+
+        .mec-event-time {
+            position: static;
+            color: rgba(255, 255, 255, .6);
+            font-size: 1.4rem;
+        }
+
+        .mec-event-month {
+            text-transform: uppercase;
+        }
+
+        &:hover {
+            box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+        }
+    }
+}
+
+.mec-tile-event-content {
+    left: 4rem;
+    right: 4rem;
+    bottom: 4rem;
+}
+
+.mec-skin-tile-month-navigator-container {
+    height: auto;
+    margin: 0;
+    border-bottom: 1px solid var(--alpha-change-border-color);
+    border-radius: 0;
+    background: transparent;
+    padding: 33px 28px;
+
+    &:before,
+    &:after {
+        content: none;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .mec-next-month,
+    .mec-previous-month {
+        padding: 1rem 2.5rem;
+        border: 1px solid var(--alpha-change-border-color);
+        border-radius: 0;
+        box-shadow: none;
+        top: 26px;
+
+        i {
+            font-size: .8em;
+        }
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        @include mq(md, 'max') {
+            top: 30px;
+            padding: 1rem 2rem;
+        }
+    }
+
+    .mec-next-month {
+        #{$right}: 30px;
+
+        i {
+            margin-#{$left}: 3px;
+        }
+    }
+
+    .mec-previous-month {
+        #{$left}: 30px;
+
+        i {
+            margin-#{$right}: 3px;
+        }
+    }
+
+    @include mq(md, 'max') {
+        & {
+            padding-top: 90px;
+        }
+    }
+}
+
+.mec-tile .mec-calendar-topsec {
+    margin-bottom: 4rem;
+    background: var(--alpha-change-color-light-1);
+    box-shadow: 0 5px 50px rgba(0, 0, 0, .05);
+
+    .mec-calendar-table {
+        padding: 3rem;
+    }
+}
+
+// Single Event
+.mec-events-event-image img {
+    width: 100%;
+}
+
+.single-mec-events {
+    .mec-single-event .col-lg-4 {
+        padding-#{$left}: 4.5rem;
+
+        @include mq(xl, max) {
+            padding-#{$left}: 2.5rem;
+        }
+    }
+}
+
+.mec-single-event {
+    .mec-frontbox {
+
+        &.mec-event-meta,
+        &.mec-event-social {
+            margin: 0;
+            border: none;
+            background-color: var(--alpha-change-color-light-2);
+            padding: 4rem 4rem 1.5rem;
+
+            a {
+                margin: 5px;
+            }
+        }
+
+        &.mec-event-social {
+            padding-bottom: 3.5rem;
+        }
+
+        .mec-events-event-categories {
+            margin-left: -5px;
+            margin-right: -5px;
+            width: calc(100% + 10px);
+            padding-bottom: 2.3rem;
+        }
+
+        &.mec-event-meta dt,
+        &.mec-event-meta h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            padding: 0;
+        }
+
+        &.mec-event-meta dl {
+            margin: 0;
+        }
+
+        &.mec-event-meta dd {
+            padding: 0;
+        }
+
+        dt,
+        h3 {
+            display: block;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        dl {
+            line-height: 1.5;
+        }
+
+        dd.mec-events-event-categories {
+            line-height: inherit;
+            min-height: 0;
+        }
+
+        &.mec-event-social {
+            padding-top: 0;
+
+            .mec-event-sharing {
+                margin: 0;
+                border: none;
+            }
+
+            ul {
+                margin: 0;
+            }
+
+            h3 {
+                display: none;
+            }
+
+            li a {
+                padding: 0;
+                border-radius: 50%;
+                transition: background-color .3s;
+
+                i {
+                    line-height: 38px;
+                }
+            }
+        }
+
+        .mec-events-event-categories i {
+            display: none;
+        }
+
+        @media (max-width: 959px) {
+            &.mec-event-meta {
+                margin-bottom: 6rem;
+
+                >*:last-child {
+                    border: none;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            &.mec-event-social {
+                background-color: transparent;
+                box-shadow: none;
+                padding: 0;
+
+                >div {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .mec-event-export-module {
+        border: none;
+        padding: 0;
+        margin-bottom: 25px;
+        box-shadow: none;
+
+        @include mq(xs, max) {
+            margin-bottom: 0;
+        }
+
+        &.mec-frontbox .mec-event-exporting .mec-export-details ul {
+            display: block;
+
+            li {
+                display: inline-block;
+                vertical-align: middle;
+
+                &:first-child a {
+                    border-color: var(--alpha-primary-color);
+                    background-color: var(--alpha-primary-color);
+                    color: var(--alpha-change-color-light-1);
+
+                    &:hover {
+                        border-color: var(--alpha-primary-color-hover);
+                        background-color: var(--alpha-primary-color-hover);
+                    }
+                }
+
+                &:last-child a {
+                    border-color: var(--alpha-primary-color);
+                    background-color: transparent;
+                    color: var(--alpha-primary-color);
+
+                    &:hover {
+                        border-color: var(--alpha-primary-color);
+                        background-color: var(--alpha-primary-color);
+                        color: var(--alpha-change-color-light-1);
+                    }
+                }
+
+                .alpha-rounded-skin & a {
+                    border-radius: $corner-sm;
+                }
+            }
+
+            a {
+                display: block;
+                font-size: inherit;
+                border-width: 2px;
+            }
+        }
+    }
+
+    .mec-event-content ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+            padding: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        li:before {
+            display: inline-block;
+            margin-#{$right}: 1rem;
+            content: "\e969";
+            font-family: $framework-font;
+            color: var(--alpha-primary-color, #fd7800);
+            vertical-align: middle;
+        }
+    }
+
+    .mec-event-content {
+        padding-bottom: 10px;
+        margin-bottom: 0;
+    }
+
+    .mec-event-meta .mec-events-event-categories a,
+    .mec-event-meta dd,
+    .mec-event-meta h6 {
+        color: inherit;
+    }
+
+    .mec-events-meta-date dd,
+    .mec-single-event-additional-organizers dd,
+    .mec-single-event-organizer dd {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 959px) {
+    .mec-single-event .mec-event-export-module.mec-frontbox .mec-event-exporting .mec-export-details ul li {
+        width: auto;
+
+        a {
+            width: auto;
+            padding-left: 28px;
+            padding-right: 28px;
+        }
+    }
+
+    .mec-event-export-module .mec-frontbox {
+        margin-bottom: 0;
+    }
+
+    .mec-single-event .col-md-4,
+    .mec-single-event .col-md-8 {
+        width: 100%;
+    }
+}
+
+@include mq(md, max) {
+    .mec-single-event .col-md-4 {
+        padding-top: 0;
+    }
+}
+
+.mec-export-details .mec-events-button {
+    padding: 9px 28px;
+}
+
+.mec-event-content {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+    }
+
+    p {
+        font-family: inherit;
+    }
+}
+
+.mec-single-event .mec-event-export-module.mec-frontbox .mec-event-exporting .mec-export-details ul {
+    margin: 0;
+}
+
+.mec-event-cost,
+.mec-event-more-info,
+.mec-event-website,
+.mec-events-meta-date,
+.mec-single-event-additional-organizers,
+.mec-single-event-category,
+.mec-single-event-date,
+.mec-single-event-label,
+.mec-single-event-location,
+.mec-single-event-organizer,
+.mec-single-event-time {
+    background: transparent;
+    padding: 0 0 2rem;
+    border-bottom: 1px solid var(--alpha-change-border-color);
+
+    i {
+        display: none;
+    }
+
+    &+div {
+        margin-top: 2.5rem;
+    }
+}
+
+.mec-single-event .mec-event-meta .mec-single-event-additional-organizers .mec-events-single-section-title,
+.mec-single-event .mec-event-meta .mec-single-event-organizer .mec-events-single-section-title,
+.mec-single-event .mec-events-meta-date h3 {
+    margin: 0 0 1.5rem;
+}
+
+.mec-modal-preloader,
+.mec-month-navigator-loading {
+    background: rgba(255, 255, 255, .6);
+}
+
+.mec-events-button {
+    font-weight: 600;
+}
+
+.mec-wrap .mec-event-empty {
+    justify-content: center;
+    text-align: center;
+
+    .mec-event-detail {
+        font-size: 1.6rem;
+        color: var(--alpha-grey-color-light);
+    }
+
+    i {
+        display: block;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url(../../../assets/images/calendar.svg);
+        opacity: .14;
+    }
+}
+
+.mec-calendar .mec-event-empty {
+    &.mec-event-article {
+        padding-top: 5rem;
+    }
+}

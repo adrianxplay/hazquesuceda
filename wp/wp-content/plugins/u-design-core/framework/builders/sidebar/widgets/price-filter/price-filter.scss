@@ -1,0 +1,53 @@
+// Sidebar - Price Filter
+
+@import '../../../../../assets/sass/config';
+@import '../../../../assets/sass/mixins/direction';
+@import '../../../../assets/sass/mixins/mixins';
+
+.widget-price-filter li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    
+.sidebar {
+	.alpha-product-prices {
+		.chosen a {
+			color: var(--alpha-primary-color);
+		}
+	}
+	.alpha-price-range {
+		display: flex;
+		margin: 1.3rem 0 1rem;
+		input {
+			display: inline-block;
+			color: var(--alpha-grey-color);
+			border: 1px solid var(--alpha-light-color);
+			width: 62px;
+			height: 37px;
+			padding: 3px 6px;
+			line-height: 37px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		button {
+			margin-#{$left}: 1rem;
+		}
+		.delimiter {
+			width: 24px;
+			display: inline-block;
+			vertical-align: middle;
+			align-self: center;
+			position: relative;
+
+			&:before {
+				content: '';
+				display: block;
+				width: 8px;
+				height: 2px;
+				margin: 0 auto;
+				background-color: var(--alpha-grey-color);
+			}
+		}
+	}
+}

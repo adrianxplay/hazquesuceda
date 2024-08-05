@@ -1,0 +1,6 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+<rect x="1000" y="8.2" width="0" height="91.8"/>
+<rect x="1000" display="none" width="0" height="86"/>
+<path d="M0,100h189.1C111.6,100,48.7,96.4,0,91.8L0,100z"/>
+<path d="M575,75.9c-159.3,0-185.7,24.1-385.9,24.1H1000V86c-37.9,2.3-85.7,4.3-137,4.3C726.9,90.3,734.4,75.9,575,75.9z"/>
+</svg>

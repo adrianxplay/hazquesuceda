@@ -1,0 +1,17 @@
+/* -------------------------------------------
+    360 Degree Gallery Admin
+---------------------------------------------- */
+
+
+#alpha-product-360-view {
+    .rwmb-label {
+        margin-bottom: 10px;
+    }
+    .rwmb-image-item {
+        width: calc(33.3333% - 12px);
+        .rwmb-file-icon {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

@@ -1,0 +1,1 @@
+.duplex-widget{position:relative}.duplex-wrap{display:block;position:absolute;z-index:2}.duplex-wrap~*{position:relative}.duplex{display:block}.duplex-text{font-size:10em;color:var(--alpha-change-color-light-2);text-transform:uppercase}.duplex-image{width:100%}.duplex-image img{display:block;width:100%}

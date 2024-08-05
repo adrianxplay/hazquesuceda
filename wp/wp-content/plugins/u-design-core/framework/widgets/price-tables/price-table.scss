@@ -1,0 +1,126 @@
+/* -------------------------------------------
+    Price Table
+        1. Base Style
+        2. Default Type
+        3. Simple Type
+        4. Colored Type
+        5. Mini Type
+        6. Classic Type
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.price-tables { 
+    justify-content: center 
+}
+.price-table {
+    text-align: center;
+    padding-bottom: 5rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .07);
+    background-color: var(--alpha-change-color-light-1);
+    border-radius: var(--alpha-border-radius-form);
+
+    .gutter-no & {
+        margin-bottom: 0;
+    }
+    .gutter-xs & {
+        margin-bottom: 2px;
+    }
+    .gutter-sm & {
+        margin-bottom: 10px;
+    }
+    .gutter-md & {
+        margin-bottom: 20px;
+    }
+
+    .plan-header {
+        padding: 1.5714em 0.7142em;
+        color: var(--alpha-change-color-dark-1);
+        h3 {
+            margin: 0;
+            color: inherit;
+            font-size: 1.2857em;
+        }
+        
+        p {
+            font-size: 0.8571em;
+            margin-bottom: 0;
+        }
+
+        & + p {
+            margin-top: 1rem;
+        }
+    }
+    .plan-price {
+        font-size: 2.7142em;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--alpha-change-color-dark-1);
+        margin-top: 1em;
+    }
+    .plan-features {
+        list-style: none;
+        margin-top: 1.42em;
+        margin-#{$left}: 0;
+    }
+    .plan-footer {
+        margin-top: 2em;
+    }
+    .plan-price,
+    .plan-features,
+    .plan-footer {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .currency {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .price-suffix {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--alpha-body-color);
+    }
+    .plan-feature {
+        padding: .5em 0;
+    }
+
+    &.featured {
+        .plan-header {
+            color: var(--alpha-primary-color);
+        }
+    }
+
+    &.features-separated {
+        .plan-feature {
+            padding: .9em 0;
+            border-bottom: 1px solid var(--alpha-change-border-color);
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+    @import 'price-table/default';
+    @import 'price-table/simple';
+
+    // Simple Type
+    &.simple-type,
+    &.colored-type {
+        .plan-header {
+            padding: 0;
+            padding-top: 5rem;
+
+            p {
+                color: var(--alpha-body-color);
+            }
+        }
+    }
+
+    @import 'price-table/colored';
+    @import 'price-table/mini';
+    @import 'price-table/classic';
+}

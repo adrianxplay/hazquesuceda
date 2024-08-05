@@ -1,0 +1,151 @@
+@import './config';
+
+html {
+    --alpha-container-width: 1260px;
+    --alpha-container-fluid-width: 1820px;
+    --alpha-site-bg-color: #{$white-color};
+    --alpha-site-width: false;
+    --alpha-site-gap: 0;
+    --alpha-gap: 15px; // $default-gap;
+
+    /* Colors */
+    --alpha-primary-color: #{$primary-color};
+    --alpha-primary-color-hover: #{lighten($primary-color, 10%)};
+    --alpha-primary-color-dark: #{darken($primary-color, 3%)}; // Only using admin, unnecessary for dynamic_vars.php
+    --alpha-primary-color-light: #{lighten($primary-color, 40%)};
+    --alpha-primary-color-op-80: rgba(253, 120, 0, 0.8);
+    --alpha-secondary-color: #{$secondary-color};
+    --alpha-secondary-color-hover: #{lighten($secondary-color, 10%)};
+    --alpha-secondary-color-light: #{lighten($secondary-color, 40%)};
+    --alpha-dark-color: #{$dark-color};
+    --alpha-dark-color-hover: #{lighten($dark-color, 10%)};
+    --alpha-dark-color-light: #{lighten($dark-color, 40%)};
+    --alpha-light-color: #{$light-color};
+    --alpha-accent-color: #{$accent-color};
+    --alpha-accent-color-hover: #{lighten($accent-color, 10%)};
+    --alpha-accent-color-light: #{lighten($accent-color, 40%)};
+    --alpha-success-color: #{$success-color};
+    --alpha-success-color-hover: #{lighten($success-color, 10%)};
+    --alpha-success-color-light: #{lighten($success-color, 40%)};
+    --alpha-info-color: #{$info-color};
+    --alpha-info-color-hover: #{lighten($info-color, 10%)};
+    --alpha-info-color-light: #{lighten($info-color, 40%)};
+    --alpha-alert-color: #{$alert-color};
+    --alpha-alert-color-hover: #{lighten($alert-color, 10%)};
+    --alpha-alert-color-light: #{lighten($alert-color, 40%)};
+    --alpha-danger-color: #{$danger-color};
+    --alpha-danger-color-hover: #{darken($danger-color, 10%)};
+    --alpha-danger-color-light: #{lighten($danger-color, 40%)};
+    --alpha-primary-gradient-1: #{darken($primary-color, 0.6%)};
+    --alpha-primary-gradient-2: #{lighten($primary-color, 10%)};
+    --alpha-white-color: #{$white-color};
+    --alpha-grey-color: #{$grey-color};
+    --alpha-grey-color-light: #{$grey-color-light};
+    --alpha-dark-body-color: #{$dark-body-color};
+    --alpha-traffic-white-color: #{$traffic-white-color};
+
+    /* Typography */
+    --alpha-body-font-family: 'Poppins';
+    --alpha-body-font-weight: 400;
+    --alpha-body-font-size: #{$body-size}px;
+    --alpha-body-line-height: 1.86;
+    --alpha-body-color: #{$body-color};
+    --alpha-body-letter-spacing: -.01em;
+    --alpha-heading-font-weight: 600;
+    --alpha-heading-line-height: 1.2;
+    --alpha-heading-letter-spacing: -0.025em;
+    --alpha-heading-text-transform: none;
+    --alpha-heading-color: #{$dark-color};
+
+    /* Other Styles */
+    --alpha-border-radius-form: 3px;
+    --alpha-change-border-color: #{$border-color};
+    --alpha-change-border-color-light: #{$border-color-light};
+
+    --alpha-change-color-light-1: #{$white-color};
+    --alpha-change-color-light-2: #f4f4f4;
+    --alpha-change-color-light-3: #{$light-color};
+    --alpha-change-color-dark-1: #{$dark-color};
+    --alpha-change-color-dark-1-hover: #{lighten($dark-color, 10%)};
+    --alpha-primary-color-dark: #{darken($primary-color, 4.1%)}; // Only using admin, unnecessary for dynamic_vars.php
+    --alpha-primary-color-light: #{lighten($primary-color, 9.54%)}; // Only using admin, unnecessary for dynamic_vars.php
+}
+
+.page-wrapper {
+    --alpha-page-wrapper-bg-color: #{$white-color};
+}
+
+.page-header {
+    --alpha-ptb-bg-color: #{$border-color-light};
+    --alpha-ptb-top-space: 46px;
+    --alpha-ptb-bottom-space: 46px;
+
+    .page-title {
+        --alpha-ptb-title-font-size: 28px;
+        --alpha-ptb-title-text-transform: capitalize;
+        --alpha-ptb-title-color: #{$dark-color};
+    }
+
+    .page-subtitle {
+        --alpha-ptb-subtitle-font-size: 18px;
+    }
+}
+
+.breadcrumb {
+    --alpha-ptb-breadcrumb-font-size: 12px;
+    --alpha-ptb-breadcrumb-color: #{$dark-color};
+}
+
+.d-lazyload {
+    --alpha-lazy-load-bg: #f4f4f4;
+}
+
+.loading-screen {
+    --alpha-page-transition-bg: #c4c4c4;
+}
+
+.loader {
+    --alpha-preloader-color: #{$primary-color};
+}
+
+@media (max-width: 1289px) {
+    .container-fluid .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .elementor-column-gap-no>.elementor-column>.col-half-section,
+    .elementor-column-gap-no>.elementor-row>.elementor-column>.col-half-section {
+        width: calc(100% - var(--alpha-gap) * 4);
+        padding-left: calc(2 * var(--alpha-gap));
+    }
+
+    .elementor-column-gap-no>.elementor-column>.col-half-section-right,
+    .elementor-column-gap-no>.elementor-row>.elementor-column>.col-half-section-right {
+        padding-left: 0;
+        padding-right: calc(2 * var(--alpha-gap));
+    }
+
+    .elementor-container>.elementor-column>.col-half-section,
+    .elementor-container>.elementor-row>.elementor-column>.col-half-section {
+        width: calc(100% - var(--alpha-gap) * 2 + var(--alpha-el-section-gap));
+    }
+}
+
+@media (max-width: 1289px) and (min-width: 480px) {
+
+    .elementor-top-section.elementor-section-boxed>.elementor-container,
+    .elementor-section-full_width .elementor-section-boxed>.elementor-container {
+        width: calc(100% - var(--alpha-gap) * 4 + 2 * var(--alpha-el-section-gap));
+    }
+}
+
+@media (max-width: 1819px) and (min-width: 480px) {
+    .elementor-top-section.elementor-section-boxed>.elementor-column-gap-no.container-fluid {
+        width: calc(100% - var(--alpha-gap) * 4 + 2 * var(--alpha-el-section-gap));
+    }
+
+    .c-fluid>.e-con-inner {
+        width: calc(100% - 60px + var(--alpha-con-ex-width));
+    }
+}

@@ -1,0 +1,644 @@
+@import '../../../../assets/sass/config';
+@import '../../../assets/sass/mixins/direction';
+
+
+/*
+ * *************************************** 
+ * Elementor Preview Scss
+ *
+ * 1. Base Setting
+ * 2. Studio
+ * 3. Header Builder
+ * 4. Compatibility with Widget
+ * 5. Plus Panel
+ * 6. Elementor Widget Icon for drag & drop
+ * 7. Block tooltip in elementor preview like elementor pro
+ * **************************************
+ */
+
+// 1. Base Setting
+.elementor-editor-section-settings {
+    top: 1px !important;
+    transform: translateX(-50%) translateY(-100%) !important;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.elementor-editor-element-settings {
+    position: absolute !important;
+    margin: 0 !important;
+}
+
+.elementor-edit-area-active .elementor-widget-wrap.elementor-element-empty.card-body {
+    min-height: 0;
+}
+
+// 2. Studio
+.elementor-studio-section-button {
+    position: relative;
+    overflow: hidden;
+    margin-#{$left}: 10px;
+
+    >.alpha-mini-logo {
+        transition: transform .2s;
+        line-height: 0;
+    }
+
+    >.eicon-insert {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 60px);
+        transition: transform .2s;
+    }
+
+    &:hover {
+        >.alpha-mini-logo {
+            transform: translateY(-50px);
+        }
+
+        >.eicon-insert {
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.elementor-builder-settings-section-button {
+    margin-#{$left}: 10px;
+
+}
+
+// 3. Header Builder
+.elementor-editor-active .custom-header {
+    .elementor-widget-#{$theme-name}_header_mmenu_toggle .elementor-widget-empty-icon {
+        display: none;
+    }
+
+    .elementor-widget-#{$theme-name}_header_mmenu_toggle {
+        background: none;
+    }
+
+    @media (min-width: 992px) {
+        .mobile-menu-toggle {
+            display: block !important;
+        }
+
+        .elementor-widget-#{$theme-name}_header_mmenu_toggle {
+            display: block !important;
+            background: repeating-linear-gradient(125deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .05) 1px, transparent 2px, transparent 9px);
+            border: 1px solid rgba(0, 0, 0, .02);
+
+            .elementor-widget-container {
+                -webkit-filter: opacity(.4) saturate(0);
+                filter: opacity(.4) saturate(0);
+            }
+        }
+    }
+}
+
+header .elementor-section-wrap {
+    z-index: 2;
+}
+
+// 4. Compatibility with Widget
+.slider-thumb-dots {
+    .elementor-slider-inner & {
+        margin-top: -10rem;
+    }
+
+    .elementor-slider-outer & {
+        margin-top: 2rem;
+    }
+
+    .elementor-column>.elementor-widget-wrap>& {
+        z-index: 2;
+        order: 2;
+    }
+}
+
+.elementor-widget-#{$theme-name}_single_comments {
+    .comments h3:first-child:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.elementor-widget .comment-respond {
+    padding-top: 5.5rem;
+    margin-bottom: 0;
+}
+
+.elementor-widget-#{$theme-name}_widget_button .btn .elementor-inline-editing {
+    min-height: unset;
+}
+
+// 5. Plus panel
+#elementor-add-new-section.elementor-dragging-on-child .elementor-add-section-inner {
+    border-color: var(--alpha-primary-color);
+}
+
+.elementor-add-new-section {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .elementor-add-section & {
+        display: inline-flex;
+    }
+
+    .elementor-add-template-button.elementor-add-section-area-button {
+        margin-#{$left}: 10px;
+    }
+
+    .elementor-add-section-drag-title {
+        width: 100%;
+    }
+}
+
+.elementor-add-section .elementor-add-section-inner {
+    .elementor-add-section-area-button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        border-radius: 0;
+        color: #fff;
+        background-color: var(--alpha-primary-color);
+        box-sizing: border-box;
+
+        &:hover {
+            color: #fff;
+            background-color: var(--alpha-primary-color-hover);
+            box-shadow: none;
+            opacity: 1;
+        }
+
+        i {
+            margin: auto;
+        }
+    }
+
+    .elementor-add-section-drag-title {
+        font-family: var(--alpha-body-font-family), sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        color: #6d7882;
+    }
+
+    .elementor-select-preset-title {
+        font-family: var(--alpha-body-font-family), sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: none;
+        color: #6d7882;
+    }
+}
+
+.elementor-select-preset-list {
+    margin: 20px auto 0 !important;
+    padding: 0 25px !important;
+
+    .elementor-preset {
+        padding: 10px !important;
+
+        path,
+        rect {
+            fill: #f2f3f5 !important;
+            transition: fill .3s;
+        }
+
+        &:hover rect,
+        &:hover path {
+            fill: #87919f !important;
+        }
+    }
+}
+
+.elementor-add-section-close {
+    transition: color .3s;
+}
+
+// 6. Elementor Widget Icon for drag & drop in elementor preview
+.elementor-sortable-helper {
+    .elementor-element-title-wrapper .title {
+        font-family: var(--alpha-body-font-family), sans-serif;
+    }
+
+    .alpha-elementor-widget-icon {
+        &:not([class*='fa-']) {
+            display: block;
+            height: 28px;
+            width: 28px;
+            margin-left: auto;
+            margin-right: auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+}
+
+// Widget Icon
+.elementor-sortable-helper .alpha-widget-icon-banner {
+    background-image: url(./element-images/banner.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-button {
+    background-image: url(./element-images/button.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-block {
+    background-image: url(./element-images/block.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-brand {
+    background-image: url(./element-images/brand.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-breadcrumb {
+    background-image: url(./element-images/breadcrumb.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-category {
+    background-image: url(./element-images/category.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-event {
+    background-image: url(./element-images/event.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-portfolio {
+    background-image: url(./element-images/portfolio.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-post {
+    background-image: url(./element-images/post.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-product {
+    background-image: url(./element-images/product.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-pricelist {
+    background-image: url(./element-images/price.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-flipbox {
+    background-image: url(./element-images/flipbox.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-floating {
+    background-image: url(./element-images/floating.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-testimonial {
+    background-image: url(./element-images/testimonial.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-animate {
+    background-image: url(./element-images/animate.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-highlight {
+    background-image: url(./element-images/highlight.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-filter {
+    background-image: url(./element-images/filter.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-vendor {
+    background-image: url(./element-images/vendor.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-search {
+    background-image: url(./element-images/search.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-imagecomp {
+    background-image: url(./element-images/image-compare.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-imagebox {
+    background-image: url(./element-images/imagebox.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-menu {
+    background-image: url(./element-images/menu.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-call {
+    background-image: url(./element-images/call.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-polar-chart {
+    background-image: url(./element-images/polar.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-radar-chart {
+    background-image: url(./element-images/radar.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-bar-chart {
+    background-image: url(./element-images/bar.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-progressbar {
+    background-image: url(./element-images/progressbar.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-logo {
+    background-image: url(./element-images/logo.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-line-chart {
+    background-image: url(./element-images/line.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-pie-chart {
+    background-image: url(./element-images/pie.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-hotspot {
+    background-image: url(./element-images/hotspot.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-countdown {
+    background-image: url(./element-images/countdown.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-share {
+    background-image: url(./element-images/social.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-table {
+    background-image: url(./element-images/table.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-degree {
+    background-image: url(./element-images/degree.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-post-grid {
+    background-image: url(./element-images/post-grid.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-cart-table {
+    background-image: url(./element-images/cart-table.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-cart-shipping {
+    background-image: url(./element-images/cart-shipping.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-cart-totals {
+    background-image: url(./element-images/cart-totals.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-cart-coupons {
+    background-image: url(./element-images/cart-coupons.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-checkout-billing {
+    background-image: url(./element-images/checkout-billing.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-checkout-shipping {
+    background-image: url(./element-images/checkout-shipping.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-checkout-review {
+    background-image: url(./element-images/checkout-review.png);
+}
+
+.elementor-sortable-helper .alpha-widget-icon-checkout-payment {
+    background-image: url(./element-images/checkout-payment.png);
+}
+
+.alpha-time-line-horizontal::before {
+    display: block;
+    transform: rotate(90deg);
+}
+
+// Block tooltip in elementor preview like elementor pro
+.elementor:not([data-editable-elementor-document])>.elementor-document-handle {
+    display: none;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ed9c28;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #fff;
+    border-radius: 0 0 3px 3px;
+    cursor: pointer;
+
+    &:after,
+    &:before {
+        content: "";
+        position: absolute;
+        border: solid transparent
+    }
+
+    &:before {
+        right: calc(100% - 1px);
+        border-right-color: #ed9c28;
+        border-width: 0 14px 23px 0
+    }
+
+    &:after {
+        left: calc(100% - 1px);
+        border-left-color: #ed9c28;
+        border-width: 0 0 23px 14px
+    }
+}
+
+.elementor-document-handle .eicon-edit {
+    margin-right: 5px
+}
+
+.elementor-editor-active .elementor {
+    position: relative;
+    transition: box-shadow .3s;
+}
+
+.elementor-editor-active .elementor:not(.elementor-edit-mode):hover {
+    box-shadow: 0 0 0 1px #ed9c28;
+    z-index: 9;
+}
+
+.elementor-editor-active .elementor:not(.elementor-edit-mode):hover .elementor-document-handle {
+    display: flex;
+    line-height: 23px;
+}
+
+.elementor-editor-active .elementor.loading {
+    opacity: .5
+}
+
+.elementor-editor-active .elementor[data-elementor-type=single]>.elementor-document-handle {
+    transform: translateX(-50%) translateY(-100%);
+    border-radius: 3px 3px 0 0
+}
+
+.elementor-editor-active .elementor[data-elementor-type=single]>.elementor-document-handle:before {
+    border-width: 23px 14px 0 0
+}
+
+.elementor-editor-active .elementor[data-elementor-type=single]>.elementor-document-handle:after {
+    border-width: 23px 0 0 14px
+}
+
+.elementor-embedded-editor.elementor-location-header .elementor-section-wrap:not(:empty)+#elementor-add-new-section {
+    display: none
+}
+
+
+// Quick Access 
+.alpha-qa-item {
+    position: absolute;
+    width: 30px;
+    height: 30px !important;
+    background-color: #08c;
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 1px rgb(60 67 74 / 15%);
+    text-align: center;
+    padding: 3px;
+    line-height: 1 !important;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: both .4s qa-appear;
+}
+
+.alpha-qa-item svg {
+    fill: #fff;
+    min-width: 20px;
+    min-height: 20px;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
+.alpha-qa-item .region {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    border: 3px solid #08c;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.alpha-qa-item:hover .region {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu li>ul,
+.toggle-menu .dropdown-box {
+    transition: none !important;
+}
+
+@keyframes qa-appear {
+
+    20%,
+    40%,
+    60%,
+    80%,
+    from,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000)
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1)
+    }
+
+    40% {
+        transform: scale3d(.9, .9, .9)
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03)
+    }
+
+    80% {
+        transform: scale3d(.97, .97, .97)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+// Edit Handlers
+.e-con>.e-con>.elementor-element-overlay>.elementor-editor-element-settings:hover> :not(.elementor-editor-element-add),
+.e-con-inner>.e-con>.elementor-element-overlay>.elementor-editor-element-settings:hover> :not(.elementor-editor-element-add),
+.elementor-widget .e-con>.elementor-element-overlay>.elementor-editor-element-settings:hover> :not(.elementor-editor-element-add) {
+    margin-inline-start: 0;
+}
+
+.elementor-editor-element-remove {
+    border-radius: 0 5px 0 0;
+    order: 13;
+}
+
+.elementor-editor-element-duplicate {
+    order: 12;
+}
+
+.elementor-editor-section-settings .elementor-editor-element-addon,
+.elementor-editor-container-settings .elementor-editor-element-addon,
+.e-handles-inside>.elementor-element-overlay>.elementor-editor-element-settings .elementor-editor-element-addon,
+.elementor-section--handles-inside>.elementor-element-overlay>.elementor-editor-element-settings .elementor-editor-element-addon {
+    border-radius: 0 !important;
+}
+
+.elementor-editor-widget-settings .elementor-editor-element-remove {
+    border-radius: 0;
+}
+
+.e-con>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-editStyle,
+.e-con>.e-con-custom-inner>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-editStyle,
+.elementor-section>.elementor-element-overlay>.elementor-editor-section-settings .elementor-editor-element-editStyle {
+    order: 2;
+}
+
+.e-con>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-editAnim,
+.e-con>.e-con-custom-inner>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-editAnim,
+.elementor-section>.elementor-element-overlay>.elementor-editor-section-settings .elementor-editor-element-editAnim {
+    order: 3;
+}
+
+.e-con>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-edit,
+.e-con>.e-con-custom-inner>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-edit,
+.elementor-section>.elementor-element-overlay>.elementor-editor-section-settings .elementor-editor-element-edit {
+    order: 4;
+}
+
+.e-con>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-addon,
+.e-con>.e-con-custom-inner>.elementor-element-overlay>.elementor-editor-container-settings .elementor-editor-element-addon,
+.elementor-section>.elementor-element-overlay>.elementor-editor-section-settings .elementor-editor-element-addon {
+    order: 5;
+}
+
+.e-con>.e-con>.elementor-element-overlay .elementor-editor-element-edit,
+.e-con-inner>.e-con>.elementor-element-overlay .elementor-editor-element-edit,
+.elementor-widget .e-con>.elementor-element-overlay .elementor-editor-element-edit {
+    order: -1;
+}
+
+.e-handles-inside>.elementor-element-overlay>.elementor-editor-element-settings .elementor-editor-element-setting:last-child:after,
+.elementor-section--handles-inside>.elementor-element-overlay>.elementor-editor-element-settings .elementor-editor-element-setting:last-child:after,
+.e-handles-inside>.elementor-element-overlay>.elementor-editor-element-settings .elementor-editor-element-setting:first-child:before,
+.elementor-section--handles-inside>.elementor-element-overlay>.elementor-editor-element-settings .elementor-editor-element-setting:first-child:before {
+    pointer-events: none;
+}

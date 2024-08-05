@@ -1,0 +1,27 @@
+// Vendor Type 2
+.vendor-widget-2 {
+    padding: 2rem;
+    border: 1px solid var(--alpha-change-border-color);
+    transition: border-color .3s;
+    .vendor-logo {
+        margin-#{$right}: 1rem !important;
+        max-width: var(--alpha-vendor-logo-width, 7rem);
+        img {
+            width: 100%;
+        }
+    }
+    .vendor-details {
+        display: flex;
+        align-items: center;
+    }
+    .vendor-personal {
+        margin-#{$left}: 0;
+        max-width: calc(100% - var(--alpha-vendor-logo-width,9rem));
+    }
+    .vendor-products {
+        margin-top: 2rem;
+    }
+    &:hover {
+        border-color: var(--alpha-primary-color);
+    }
+}

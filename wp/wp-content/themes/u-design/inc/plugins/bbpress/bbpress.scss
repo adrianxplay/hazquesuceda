@@ -1,0 +1,175 @@
+/*---------------------------------------------
+ *      alpha BuddyPress & BB Press         *
+ *          - BuddyPress                      *
+ *          - BBPress                         *
+ *--------------------------------------------*/
+$dir: ltr !default; 
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+
+
+/* 1. BuddyPress */
+
+// Activity
+#buddypress {
+    .activity-update-form {
+        padding: 2rem;
+        border-color: var(--alpha-change-border-color-light);
+        background-clip: unset;
+        box-shadow: none;
+        margin-bottom: 2rem;
+
+        #whats-new-textarea textarea {
+            border-color: var(--alpha-change-border-color-light);
+            font-size: 1.4rem;
+            padding: 1rem;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        #whats-new-content {
+            padding-bottom: 0;
+        }
+
+        #whats-new-submit input[type=submit] {
+            display: inline-block;
+            border: 2px solid var(--alpha-change-border-color);
+            background-color: var(--alpha-change-border-color);
+            color: var(--alpha-change-color-dark-1);
+            outline: 0;
+            border-radius: 0;
+            // Height 44px, Width 120px for default
+            padding: 1.8rem 4.7rem;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -.025em;
+            line-height: 1;
+            text-transform: capitalize;
+            text-align: center;
+            transition: color .3s, border-color .3s, background-color .3s, box-shadow .3s;
+            white-space: nowrap;
+            width: auto;
+        }
+    }
+
+    // Info element
+    .info {
+        padding: 2rem;
+        border: 1px dashed var(--alpha-change-color-light-3);
+        box-shadow: none;
+        &.bp-feedback {
+            background-color: #f8f8f8;
+            margin-bottom: 2rem;
+
+            .bp-icon {
+                background-color: transparent;
+                color: var(--alpha-change-color-dark-1);
+                padding: 0;
+                line-height: 1;
+            }
+        }
+        button.bp-tooltip span::before {
+            font-size: 2rem;
+        }
+    }
+
+    // Profile
+    .profile {
+        padding-#{$left}: 1rem;
+
+        .screen-heading {
+            font-weight: 600;
+        }
+        .profile-group-title {
+            padding-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .profile-fields td {
+            border: 1px solid var(--alpha-change-border-color-light);
+            font-size: 1.4rem;
+            text-align: center;
+        }
+    }
+
+    // Item Body
+    .item-body {
+        .general-settings-screen {
+            padding-#{$left}: 1rem;
+        }
+        .settings-input {
+            padding-#{$left}: 2rem;
+        }
+    }
+
+    // Select Wrap
+    .select-wrap {
+        border: 0;
+        select {
+            margin-#{$right}: -20px;
+            color: var(--alpha-dark-body-color);
+            border: 1px solid var(--alpha-change-border-color-light);
+            font-size: 1.4rem;
+            padding: 1rem;
+        }
+    }
+}
+
+/* 2. BBPress Wrapper */
+.bbpress-wrapper {
+    padding: 1rem;
+    .entry-title {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    // Input element
+    input {
+        border: 1px solid var(--alpha-change-border-color-light);
+        &[type="text"] {
+            height: 3.7rem;
+            padding: 1rem;
+        }
+    }
+
+    // Notice Element
+    .bbp-template-notice {
+        border: 1px dashed var(--alpha-change-color-light-3);
+        background-color: #f7f7f7;
+        padding: 1rem;
+        color: var(--alpha-dark-body-color);
+
+        li {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+// BBPress Forum
+#bbpress-forums {
+    fieldset.bbp-form {
+        input[type=text],
+        select {
+            padding-#{$left}: 1rem;
+            height: 3.7rem;
+            min-height: 3.7rem;
+            border: 1px solid var(--alpha-change-border-color-light);
+            color: var(--alpha-dark-body-color);
+        }
+
+        input[type=checkbox],
+        label {
+            margin-bottom: 0;
+            vertical-align: middle;
+            margin-right: .5rem;
+        }
+    }
+
+    // Merge Forms
+    #merge_topic {
+        input, label {
+            margin-bottom: 1rem;            
+        }
+    }
+}

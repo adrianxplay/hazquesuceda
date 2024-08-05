@@ -1,0 +1,81 @@
+/* -------------------------------------------
+	Single Portfolio
+---------------------------------------------- */
+
+@import '../../../assets/config';
+@import '../../../assets/mixins';
+@import '../../../assets/direction';
+
+.portfolio-single > .col-md-6:first-child {
+    text-align: center;
+}
+
+.post.portfolio-single > .col-md-6 {
+    padding: var(--alpha-gap);
+    flex: 0 0 100%;
+}
+
+@include mq(lg) {
+    .portfolio-single > .col-md-6:first-child {
+        width: 500px;
+        flex: 0 0 500px;
+    }
+    .portfolio-single > .col-md-6:last-child {
+        padding-#{$left}: 30px;
+        flex: 1;
+    }
+}
+@include mq(xl) {
+    .portfolio-single > .col-md-6:first-child {
+        max-width: 600px;
+        flex: 0 0 600px;
+    }
+    .portfolio-single > .col-md-6:last-child {
+        padding-#{$left}: 50px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .portfolio-single > .col-md-6:last-child {
+        padding-#{$left}: 90px;
+    }
+}
+
+.portfolio-single.row {
+    margin-bottom: 3.5rem;
+    .social-icons {
+        justify-content: center;
+        margin-top: 2.7rem;
+    }
+    .social-icon {
+        width: 3em;
+        height: 3em;
+    }
+    .post-title {
+        margin-top: 2.2rem;
+        text-align: $left;
+    }
+    .meta-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 3.5rem;
+    }
+    .portfolio-meta {
+        max-width: 50%;
+        flex: 0 0 50%;
+        padding-#{$right}: 1rem;
+        margin-bottom: 2.5rem;
+        label {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--alpha-grey-color-light);
+            text-transform: uppercase;
+        }
+        &, a {
+            color: var(--alpha-change-color-dark-1);
+        }
+        a:hover {
+            color: var(--alpha-primary-color);
+        }
+    }
+}

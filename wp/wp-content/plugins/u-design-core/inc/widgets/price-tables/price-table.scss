@@ -1,0 +1,240 @@
+/* -------------------------------------------
+    Price Table
+        1. Base Style
+        2. Default Type
+        3. Simple Type
+        4. Colored Type
+        5. Mini Type
+        6. Classic Type
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+@import '../../../assets/sass/mixins';
+
+.price-tables:not(.slider-wrapper) {
+    justify-content: center;
+}
+
+.price-table {
+    text-align: center;
+    padding-bottom: 5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
+    background-color: var(--alpha-white-color, $white-color);
+    
+    .gutter-no & {
+        margin-bottom: 0;
+    }
+    .gutter-xs & {
+        margin-bottom: 2px;
+    }
+    .gutter-sm & {
+        margin-bottom: 10px;
+    }
+    .gutter-md & {
+        margin-bottom: 20px;
+    }
+
+    .plan-header {
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--alpha-dark-color, $dark-color);
+        padding: 2.2rem 1rem;
+
+        h3 {
+            font: inherit;
+            color: inherit;
+            text-transform: inherit;
+            margin: 0;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: capitalize;
+            margin-bottom: 0;
+        }
+
+        & + p {
+            margin-top: 1rem;
+        }
+    }
+    .plan-price {
+        font-size: 3.8rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--alpha-dark-color, $dark-color);
+        margin-top: 3.8rem;
+    }
+    .plan-features {
+        list-style: none;
+        margin-top: 2rem;
+    }
+    .plan-footer {
+        margin-top: 2.7rem;
+    }
+    .plan-price,
+    .plan-features,
+    .plan-footer {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .currency {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .price-suffix {
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        color: var(--alpha-body-color, $body-color);
+    }
+    .plan-feature {
+        padding: .7rem 0;
+    }
+
+    &.featured {
+        .plan-header {
+            color: var(--alpha-primary-color, $primary-color);
+        }
+    }
+
+    &.features-separated {
+        .plan-feature {
+            padding: 1.3rem 0;
+            border-bottom: 1px solid var(--alpha-change-border-color);
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+    // Default Type
+    &.default-type {
+        .plan-header {
+            color: var(--alpha-white-color, $white-color);
+            background-color: var(--alpha-dark-color, $dark-color);
+        }
+        &.featured {
+            .plan-header {
+                background-color: var(--alpha-primary-color, $primary-color);
+            }
+        }
+    }
+    
+    // Simple Type
+    &.simple-type,
+    &.colored-type {
+        .plan-header {
+            padding: 0;
+            padding-top: 5rem;
+
+            p {
+                color: var(--alpha-body-color, $body-color);
+            }
+        }
+    }
+
+    &.simple-type {
+        .plan-price {
+            margin-top: 2.2rem;
+        }
+    }
+
+    // Colored type
+    &.colored-type {
+        background-color: var(--alpha-change-color-light-2);
+        &.featured {
+            background: linear-gradient(0, rgba(246, 111, 42, .86), rgba(236, 98, 105, .86));
+            background-color:#fd7800;
+            padding-top: 2.5rem;
+            padding-bottom: 7.5rem;
+            position: relative;
+            z-index: 1;
+
+            &,
+            .plan-header,
+            .plan-header p,
+            .plan-price,
+            .price-suffix {
+                color: var(--alpha-white-color, $white-color);
+            }
+
+            .plan-feature {
+                border-color: rgba(255, 255, 255, .2);
+            }
+        }
+        .plan-price {
+            margin-top: 2rem;
+        }
+        
+        @include mq(sm) {
+            &.featured {
+                margin-top: -2.5rem;
+            }
+        }
+    }
+
+    // Mini Type
+    &.mini-type {
+        padding-top: 5rem;
+        .plan-header {
+            display: inline-block;
+            color: var(--alpha-dark-color,$dark-color);
+            background-color: var(--alpha-change-color-light-2);
+            border-radius: 3rem;
+            padding: .4rem 1.5rem;
+            font-size: 1.4rem;
+            letter-spacing: 0;
+            text-transform: capitalize;
+        }
+        .plan-price {
+            margin-top: 2.5rem;
+        }
+        &.featured {
+            .plan-price {
+                color: var(--alpha-primary-color, $primary-color);
+            }
+        }
+    }
+
+    // Classic Type
+    &.classic-type {
+        display: flex;
+        flex-flow: column;
+        text-align: $left;
+
+        .plan-price {
+            order: -1;
+            margin-top: 5rem;
+            color: var(--alpha-primary-color, $primary-color);
+        }
+        .plan-header {
+            position: relative;
+            margin-top: 2px;
+            padding: 0 5rem 2.1rem;
+            line-height: 1.5;
+            text-transform: capitalize;
+
+            &:after {
+                content: '';
+                position: absolute;
+                left: 5rem;
+                right: 5rem;
+                bottom: 0;
+                height: 1px;
+                background-color: var(--alpha-change-border-color);
+            }
+        }
+        .price-suffix {
+            display: inline;
+            vertical-align: 3px;
+            margin-#{$left}: 5px;
+        }
+        .plan-features {
+            margin-top: 1.2rem;
+        }
+    }
+}

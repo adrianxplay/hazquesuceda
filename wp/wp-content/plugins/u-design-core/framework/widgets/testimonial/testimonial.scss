@@ -1,0 +1,155 @@
+/* -------------------------------------------
+    Testimonial
+        1. Base Style
+        2. Testimonial Type
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+// 1. Base Style
+
+.testimonial-group .testimonial {
+    margin-bottom: 2rem;
+}
+blockquote.testimonial {
+    border-#{$left}: 0;
+}
+.testimonial {
+    width: 100%;
+    background-color: transparent;
+    transition: background-color .4s, box-shadow .4s;
+
+    img, 
+    .slider-wrapper & img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+    cite {
+        display: block;
+        font-style: normal;
+        line-height: 1;
+    }
+    .name {
+        color: var(--alpha-change-color-dark-1);
+        font-weight: 600;
+    }
+
+    .avatar, cite,
+    .comment {
+        margin-bottom: 1.5rem;
+    }
+
+    .content {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .comment-title {
+        margin-bottom: 1rem;
+        font-size: 1em;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .comment {
+        line-height: 1.86;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .ratings-container {
+        line-height: 1;
+        font-size: 1.1rem;
+    }
+    .ratings-full,
+    .ratings {
+        display: inline-block;
+        position: relative;
+        font-family: $theme-font;
+        letter-spacing: .2em;
+    }
+    .ratings-full {
+        cursor: pointer;
+        &::before {
+            content: "\e986" "\e986" "\e986" "\e986" "\e986";
+            color: rgba(0, 0, 0, 0.16);
+            white-space: nowrap;
+        }
+        &:hover {
+            .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    .ratings {
+        position: absolute;
+        top: 0;
+        #{$left}: 0;
+        white-space: nowrap;
+        overflow: hidden;
+    
+        &::before {
+            content: "\e986" "\e986" "\e986" "\e986" "\e986";
+            color: var(--alpha-secondary-color);
+        }
+    }
+    &.aside,
+    &.aside_info .commenter,
+    .avatar {
+        display: inline-flex;
+    }
+
+    &.aside,
+    &.aside_info {
+        .avatar {
+            margin-#{$right}: 1.5rem;
+        }
+    }
+
+    cite span,
+    &.top_info cite {
+        display: block;
+    }
+
+    .role {
+        font-size: 0.9285em;
+        text-transform: none;
+        color: #999;
+    }
+    .fa-icon {
+        &:before,
+        .ratings:before {
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
+            content: '\f005' '\f005' '\f005' '\f005' '\f005';
+        }
+        &.outline:before {
+            font-weight: 400;
+            content: '\f005' '\f005' '\f005' '\f005' '\f005';
+        }
+    }
+    
+    .elementor & {
+        img, 
+        .slider-wrapper & img {
+            max-width: none;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
+
+// 2. Testimonial Type
+
+@import './testimonial/simple';
+@import './testimonial/boxed';
+@import './testimonial/aside';

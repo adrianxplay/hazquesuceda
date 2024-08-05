@@ -1,0 +1,149 @@
+/* -------------------------------------------
+    Custom Icon List
+     - alpha-icon-lists
+     - Compatibility with Elementor
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.alpha-icon-lists {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        transition: background-color .3s;
+
+        a {
+            color: inherit;
+        }
+
+        i {
+            vertical-align: middle;
+        }
+    }
+
+    li:after {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border-width: 0 0 1px 0;
+    }
+
+    .list-title {
+        margin: 0;
+    }
+
+    &.h-align-center {
+        text-align: center;
+
+        li:after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &.h-align-right {
+        text-align: right;
+
+        li:after {
+            margin-left: auto;
+        }
+    }
+
+    &.inline-type {
+        display: flex;
+        flex-wrap: wrap;
+
+        li:after {
+            top: 50%;
+            left: 100%;
+            right: auto;
+            transform: translateY(-50%);
+            border-width: 0 1px 0 0;
+            height: 14px;
+        }
+    }
+
+    &.v-align-middle {
+        text-align: right;
+        align-items: center;
+    }
+
+    &.v-align-bottom {
+        text-align: right;
+        align-items: flex-end;
+    }
+
+    &.numeric-lists {
+        li a {
+            &:#{$before} {
+                content: attr(data-id);
+                margin-#{$right}: 5px;
+            }
+        }
+    }
+}
+
+.alpha-icon-list-item {
+    position: relative;
+
+    &:hover {
+        color: var(--alpha-primary-color);
+    }
+}
+
+.a-icon-calendar {
+    margin-#{$left}: 1px;
+}
+
+// Compatibility with Elementor
+.elementor-widget .elementor-icon-list-icon {
+    display: inline-flex;
+    transition: background .3s, border .3s;
+
+    i {
+        width: auto;
+    }
+
+    &+.elementor-icon-list-text {
+        padding-left: 8px;
+    }
+}
+
+.elementor-icon-list-item>a {
+    transition: none;
+}
+
+.elementor-widget .elementor-icon-list-icon i,
+.elementor-widget .elementor-icon-list-text {
+    transition: .3s;
+}
+
+.elementor-icon-list-text a {
+    color: inherit;
+
+    &:hover {
+        color: var(--alpha-primary-color);
+    }
+}
+
+.elementor-widget .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:after {
+    position: absolute;
+}
+
+.elementor-icon-list-items .elementor-icon-list-item .elementor-icon-list-badge {
+    position: relative;
+    background-color: var(--alpha-primary-color);
+    color: #fff;
+    padding: 4px 6.5px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    min-height: 0;
+}

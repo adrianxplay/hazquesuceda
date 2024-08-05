@@ -1,0 +1,256 @@
+/* -------------------------------------------
+    Categories
+        Base
+        - Default Type
+        - Classic Type
+        - Icon Type
+        - Ellipse Type
+        - Group Type
+            - Image
+            - Icon
+        - Banner Type
+        - Badge Type
+        - Overlay Category
+        - Block Type
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+
+// Base
+.product-category {
+    position: relative;
+    font-size: 1rem;
+    figure {
+        text-align: center;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    mark {
+        color: inherit;
+        background: transparent;
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    i {
+        display: inline-block;
+        font-size: 4.2rem;
+        color: var(--alpha-body-color);
+        margin-bottom: 1.5rem;
+        transition: transform .3s;
+    }
+    .category-content .btn {
+        color: inherit;
+
+        i {
+            font-size: 1.3em;
+            color: inherit;
+            margin: side-values(0 0 0 1rem);
+        }
+    }
+    // (new)
+    &.content-left .category-content {
+        align-items: if-ltr(flex-start, flex-end);
+        text-align: left;
+    }
+    &.content-center .category-content {
+        align-items: center;
+        text-align: center;
+    }
+    &.content-right .category-content {
+        align-items: if-ltr(flex-end, flex-start);
+        text-align: right;
+    }
+}
+.category-content .woocommerce-loop-category__title {
+    margin-bottom: .5rem;
+    font: {
+        size: 1.4rem;
+        weight: 600;
+    }
+    line-height: 1.2;
+    color: inherit;
+    a {
+        color: inherit;
+    }
+}
+
+.category-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: background .3s;
+}
+.cat-type-absolute {
+    .category-content {
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        #{$left}: 0;
+        width: auto;
+        min-height: 50px;
+    }
+}
+
+// Default Type
+.cat-type-default {
+    overflow: hidden;
+    .category-content {
+        padding: 1.8rem 0;
+        left: 1.2rem;
+        right: 1.2rem;
+        bottom: 1.4rem;
+        background: var(--alpha-white-color);
+        color: var(--alpha-dark-color);
+        opacity: .9;
+    }
+    .woocommerce-loop-category__title {
+        margin-bottom: 0;
+    }
+    &.active,
+    &:hover {
+        .category-content {
+            background: var(--alpha-primary-color);
+            color: var(--alpha-white-color);
+        }
+    }
+
+    mark {
+        margin-bottom: .5rem;
+        transition: color .3s;
+    }
+}
+
+// Ellipse Type 2
+.cat-type-ellipse2 {
+    figure {
+        border-radius: 50%;
+        overflow: hidden;
+        border: 0px solid var(--alpha-white-color);
+        transition: padding .3s, box-shadow .3s;
+        
+        img {
+            border-radius: inherit;
+        }
+    }
+    .category-content {
+        margin-top: 2.3rem;
+    }
+    .woocommerce-loop-category__title {
+        color: var(--alpha-dark-color);
+        font-weight: 700;
+        letter-spacing: 0;
+        &:hover {
+            color: var(--alpha-primary-color);
+        }
+    }
+
+    &.active figure,
+    &:hover figure {
+        padding: 6px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .12);
+    }
+}
+
+// Banner Type
+.cat-type-banner {
+    overflow: hidden;
+    color: var(--alpha-dark-color);
+    &.text-white {
+        color: var(--alpha-white-color);
+        .btn {
+            color: var(--alpha-white-color);
+        }
+    }
+    .category-content {
+        top: 3.7rem;
+        #{$left}: 3.8rem;
+        bottom: auto;
+        align-items: flex-start;
+        z-index: 1;
+        background-color: transparent;
+        transition: top .3s, padding .3s;
+        min-height: 0;
+    }
+    .woocommerce-loop-category__title {
+        text-transform: none;
+        text-align: $left;
+        transition: color .3s;
+        font: {
+            size: 2rem;
+            family: inherit;
+        }
+    }
+    mark {
+        margin-bottom: 2.6rem;
+    }
+}
+
+// Card Type
+div.cat-type-card.product {
+    text-align: center;
+}
+.cat-type-card {
+    border: 1px solid var(--alpha-change-border-color);
+    overflow: hidden;
+
+    i {
+        width: 9.2rem;
+        margin: -5rem 0 0;
+        color: var(--alpha-primary-color);
+        background: var(--alpha-white-color);
+        font-size: 3rem;
+        box-shadow: 0 .7rem 3rem rgba(0,0,0,.07);
+        transition: color .3s, background-color .3s, transform .3s, box-shadow .3s;
+        text-align: center;
+        line-height: 9.2rem;
+        border-radius: 50%;
+    }
+    .category-content {
+        padding: 0 1rem 1.5rem;
+    }
+    .woocommerce-loop-category__title {
+        color: var(--alpha-dark-color);
+        font-size: 1.8rem;
+        padding: 1.6rem 0 1rem;
+
+        &:after {
+            content: "";
+            width: 3.4rem;
+            background: var(--alpha-primary-color);
+            display: block;
+            text-align: center;
+            margin: .6rem auto 0;
+            height: 2px;
+            transition: width .3s;
+        }
+    }
+    &:hover {
+        i {
+            color: var(--alpha-white-color);
+            background: var(--alpha-primary-color);
+            transform: translateY(-1rem);
+            box-shadow: 0 15px 30px rgba(0,0,0,.1);
+        }
+        .woocommerce-loop-category__title:after {
+            width: 6.8rem;
+        }
+    }
+}
+
+.filter-categories .active {
+    color: var(--alpha-primary-color);
+}
+// In Creative Grid
+.grid-item {
+    > .product-category {
+        height: 100%;
+    }
+}

@@ -1,0 +1,89 @@
+/* -------------------------------------------
+	Walker Nav Menu
+ ------------------------------------------- */
+
+.menu-item {
+
+    &:not(.menu-item-depth-0) .field-megamenu_width,
+    &:not(.menu-item-depth-0) .field-megamenu {
+        display: none !important;
+    }
+}
+
+.menu-item-settings .edit-menu-item-image,
+.menu-item-settings .edit-menu-item-flyout_image {
+    margin-bottom: 10px;
+}
+
+.field-image label,
+.field-flyout-image label {
+    display: block;
+}
+
+.field-megamenu,
+.field-megamenu_width,
+.field-megamenu_pos,
+.field-image,
+.field-flyout-image,
+.field-block,
+.menu-item-depth-1.menu-item-megamenu .field-nolink {
+    display: none;
+}
+
+.menu-item-depth-0 .field-flyout-image,
+.menu-item-depth-2 .field-image,
+.menu-item-depth-2 .field-block {
+    display: block;
+}
+
+.field-depth-warning.description {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: var(--alpha-border-radius-form);
+    color: #fff;
+    background: var(--alpha-danger-color);
+}
+
+.menu-item-depth-1.menu-item-megamenu .field-warning-column {
+    display: block;
+}
+
+.menu-item-depth-1.menu-item-megamenu .field-icon,
+.menu-item-depth-1.menu-item-megamenu .field-label_name {
+    display: none;
+}
+
+.menu-item-depth-2.menu-item-megamenu .field-warning-heading {
+    display: block;
+}
+
+.menu-item-depth-0 {
+    .field-megamenu {
+        display: block;
+    }
+
+    &.menu-item-megamenu {
+
+        .field-megamenu_width,
+        .field-megamenu_pos {
+            display: block;
+        }
+    }
+}
+
+.menu-item-depth-2 {
+    .field-block {
+        display: block;
+    }
+}
+
+@media (min-width: 783px) {
+    #menu-settings-column {
+        position: sticky;
+        top: 32px;
+        margin-bottom: 20px;
+    }
+}

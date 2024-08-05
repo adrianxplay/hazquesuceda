@@ -1,0 +1,309 @@
+/* -------------------------------------------
+    Image Compare
+        - Wrapper Style
+        - Label Style
+        - Handle Style
+        - Handle Types Style
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.icomp-wrapper {
+    border-radius: inherit;
+}
+
+//Image compare widget wrapper style
+.icomp-container {
+    position: relative;
+    min-height: 1px;
+    border-radius: inherit;
+    overflow: hidden;
+    img {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .default-img {
+        position: static;
+    }
+    
+    &.active .icomp-overlay,
+    &.active .icomp-overlay:hover {
+        > * {
+            opacity: 0;
+        }
+    }
+    &:hover .icomp-overlay {
+        .icomp-after-label,
+        .icomp-before-label {
+            opacity: 1;
+        }
+    }
+}
+//Image compare label style
+.icomp-horizontal {
+    .icomp-before-label:before {
+        top: 50%;
+        #{$left}: 10px;
+        transform: translateY(-50%);
+    }
+    .icomp-after-label:before {
+        top: 50%;
+        #{$right}: 10px;
+        transform: translateY(-50%);
+    }
+}
+
+.icomp-vertical {
+    .icomp-before-label:before,
+    .icomp-after-label:before {
+        #{$left}: 50%;
+        max-width: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+    }
+    .icomp-before-label:before {
+        top: 10px;
+    }
+    .icomp-after-label:before {
+        bottom: 10px;
+    }
+}
+
+.icomp-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    > div {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity .5s;
+        opacity: 0;
+        
+        &:before {
+            content: attr(data-content);
+            position: absolute;
+            padding: 1rem 2rem;
+            color: var(--alpha-white-color);
+            background: rgba(255,255,255,.2);
+            border-radius: var(--alpha-border-radius-form);
+        }
+    }
+}
+
+.icomp-labels-stretch {
+    .icomp-before-label:before {
+        top: 10px;
+        bottom: auto;
+        #{$right}: auto;
+        transform: none;
+    }
+    &.icomp-vertical .icomp-before-label:before {
+        #{$left}: auto;
+        #{$right}: 0;
+    }
+    .icomp-after-label:before {
+        top: auto;
+        bottom: 10px;
+        #{$left}: auto;
+        transform: none;
+    }
+}
+//Image compare handle style
+.icomp-handle {
+    position: absolute;
+    color: var(--alpha-white-color);
+    background: currentColor;
+    font-size: 4px;
+    cursor: pointer;
+
+    .icomp-horizontal & {
+        width: 1em;
+        height: 100%;
+        margin-#{$left}: -.5em;
+    }
+    .icomp-vertical & {
+        width: 100%;
+        height: 1em;
+        margin-top: -.5em;
+    }
+
+    &:before,
+    &:after,
+    .icomp-diamond & .icomp-down-arrow,
+    .icomp-diamond & .icomp-up-arrow,
+    .icomp-diamond & .icomp-left-arrow,
+    .icomp-diamond & .icomp-right-arrow {
+        box-shadow: inherit;
+    }
+}
+
+.icomp-line {
+    .icomp-handle {
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            #{$left}: 50%;
+            width: 1.5em;
+            height: 1.5em;
+            background: #323334;
+            font-size: 3em;
+            border: .16em solid;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .icomp-horizontal &:before {
+            top: 0;
+        }
+        .icomp-horizontal &:after {
+            top: 100%;
+        }
+        .icomp-vertical &:before {
+            #{$left}: 0;
+        }
+        .icomp-vertical &:after {
+            #{$left}: 100%;
+        }
+    }
+}
+
+.icomp-has-bg {
+    .icomp-handle {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: calc(50% - 1.8em);
+            #{$left}: calc(50% - 1.8em);
+            width: 3.6em;
+            height: 3.6em;
+            font-size: 3.75em;
+            border: .34em solid;
+            border-radius: 50%;
+        }
+    }
+}
+
+.icomp-rect .icomp-handle:before {
+    border-radius: 0;
+}
+//Image compare handle types style
+.icomp-arrow {
+    .icomp-left-arrow,
+    .icomp-right-arrow,
+    .icomp-up-arrow,
+    .icomp-down-arrow {
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 1.8em solid transparent;
+    }
+    .icomp-left-arrow {
+        #{$left}: 50%;
+        margin-top: -1.5em;
+        margin-#{$left}: -3.8em;
+        border-#{$left}-width: 0;
+        border-#{$right}: 1.8em solid;
+    }
+    .icomp-right-arrow {
+        #{$right}: 50%;
+        margin-top: -1.5em;
+        margin-#{$right}: -3.8em;
+        border-#{$right}-width: 0;
+        border-#{$left}: 1.8em solid;
+    }
+    .icomp-up-arrow {
+        #{$left}: 50%;
+        margin: 0;
+        border-top-width: 0;
+        border-bottom: 1.8em solid;
+        transform: translate(-50%, -188%);
+    }
+    .icomp-down-arrow {
+        #{$left}: 50%;
+        margin: 0;
+        border-bottom-width: 0;
+        border-top: 1.8em solid;
+        transform: translate(-50%, 88%);
+    }
+}
+
+.icomp-diamond {
+    .icomp-handle {
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 1em;
+            height: calc(50% - 5.5em);
+            background: inherit;
+        }
+        &:before {
+            top: 0;
+        }
+
+        .icomp-horizontal & {
+            width: 0;
+            &:after {
+                bottom: 0;
+            }
+        }
+        
+        .icomp-vertical & {
+            height: 0;
+
+            &:before,
+            &:after {
+                #{$right}: 0;
+                width: calc(50% - 5.5em);
+                height: 1em;
+                background: inherit;
+            }
+            &:before {
+                #{$left}: 0;
+            }
+        }
+    }
+    .icomp-left-arrow,
+    .icomp-up-arrow {
+        position: absolute;
+        top: 50%;
+        #{$left}: 50%;
+        width: 10em;
+        height: 10em;
+        margin: side-values(-5em 0 0 -4.5em);
+        border: 1.25em solid currentColor;
+        transform: rotate(45deg);
+        z-index: 1;
+    }
+    .icomp-up-arrow {
+        margin: side-values(-4.5em 0 0 -5em);
+    }
+    .icomp-right-arrow,
+    .icomp-down-arrow {
+        position: absolute;
+        top: 50%;
+        #{$left}: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        margin: side-values(-1.25em 0 0 -.75em);
+        background: inherit;
+        transform: rotate(45deg);
+    }
+    .icomp-down-arrow {
+        margin: side-values(-.75em 0 0 -1.25em);
+    }
+}

@@ -1,0 +1,47 @@
+/* -------------------------------------------
+	Price List
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/direction';
+
+.alpha-price-lists {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.alpha-price-list-main {
+	display: flex;
+	align-items: flex-end;
+
+    .alpha-price-list-title, .alpha-price-list-price {
+		margin: 0;
+        font-size: 1.8rem;
+		line-height: 1;
+		transition: color .35s;
+    }
+
+	>span {
+		flex: 1;
+	    align-self: stretch;
+		border-bottom: 1px dotted;
+		border-color: var(--alpha-primary-color);
+		opacity: 0.4;
+	    margin: 0 1rem;
+	}
+}
+.price-hover-image {
+	position: fixed;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	width: 200px;
+	pointer-events: none;
+	z-index: 1;
+}
+.price-hover-wrap {
+	overflow: hidden;
+}
+.elementor-widget-udesign_widget_price_list .elementor-widget-container .alpha-price-lists .alpha-price-list-item:first-child {
+	padding-top: 0;
+}

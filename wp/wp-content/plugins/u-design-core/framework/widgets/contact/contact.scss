@@ -1,0 +1,40 @@
+/* -------------------------------------------
+    Contact
+        1. Base Style
+        2. Responsive
+
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+.contact {
+    display: flex;
+    align-items: center;
+    --alpha-contact-icon-size: 2.7rem;
+
+    .contact-content {
+        line-height: 1.5;
+    }
+
+    .telephone {
+        display: block;
+    }
+
+    .contact-delimiter {
+        text-transform: lowercase;
+    }
+
+    i {
+        font-size: var(--alpha-contact-icon-size);
+        vertical-align: middle;
+        padding-#{$right}: 7px;
+        transition: color .3s;
+    }
+
+    svg {
+        width: var(--alpha-contact-icon-size);
+        height: var(--alpha-contact-icon-size);
+    }
+}

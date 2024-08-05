@@ -1,0 +1,53 @@
+// Simple
+.testimonial-simple {
+    .content {
+        position: relative;
+        margin-bottom: 2rem;
+        color: var(--alpha-body-color);
+        overflow: visible;
+        border: 1px solid var(--alpha-change-border-color);
+        background-color: var(--alpha-change-color-light-1);
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;  
+            display: block;
+            bottom: 0;
+            #{$left}: 40px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--alpha-change-border-color);
+            transform: rotate(-45deg) translateY(80%);
+        }
+        &::before {
+            background-color: inherit;
+            z-index: 11;
+            transform: rotate(-45deg) translate(5%, 75%);
+        }
+    }
+    .comment {
+        padding: 2.1rem 3rem;
+    }
+    .name { margin-bottom: .7rem; }
+    cite, .avatar, .comment { margin-bottom: 0; }
+    .commenter {
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        .avatar { margin-#{$right}: 1.5rem; }
+    }
+    &.inversed {
+        .content::after,
+        .content::before {
+            #{$right}: 55px;
+            #{$left}: auto;
+        }
+        .avatar {
+            order: 2;
+            margin-#{$left}: 1.5rem;
+            margin-#{$right}: 0;
+        }
+        .commenter { justify-content: if-ltr(flex-end, flex-start); }
+        cite { text-align: $right; }
+    }
+}

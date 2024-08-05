@@ -1,0 +1,26 @@
+@import "../../../../assets/sass/config";
+@import "../../../../assets/sass/direction";
+
+/*
+ * *************************************** 
+ * Elementor Preview Extend Scss
+ *
+ * 1. Header Builder
+ * **************************************
+ */
+
+// 1. Header Builder
+body.#{$framework-name}_header_template {
+  .page-wrapper {
+    flex-flow: column;
+  }
+}
+body.side-header .header .elementor-preset {
+  width: 50%;
+  max-width: 50%;
+}
+
+// Comment Respond
+.elementor-widget.elementor-element .comment-respond {
+  padding-top: 0;
+}

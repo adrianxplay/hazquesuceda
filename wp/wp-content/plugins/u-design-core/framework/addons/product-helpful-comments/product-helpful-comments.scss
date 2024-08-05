@@ -1,0 +1,64 @@
+/* -------------------------------------------
+    Product Helpful Comments
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+.review-vote {
+	margin-bottom: 2rem;
+	.btn {
+		margin-#{$right}: 2rem;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: 0;
+	}
+	> .already_vote {
+		white-space: pre;
+	}
+	i {
+		margin-#{$right}: .5rem;
+	}
+}
+
+.woocommerce-Reviews {
+    .title-wrapper .select-box {
+        margin-#{$left}: auto;
+    }
+
+    .select-box {
+        display: inline-flex;
+        align-items: center;
+
+        select:not(:last-child) {
+            margin-#{$right}: 1rem;
+        }
+    }
+
+    .sticky-wrapper {
+        position: sticky;
+        top: 5rem;
+    }
+}
+
+@include mq('md') {
+    .woocommerce-Reviews .select-wrapper {
+        text-align: right;
+    }
+
+    .tab-section .woocommerce-Reviews .review {
+        border-top: none;
+        border-bottom: 1px solid var(--alpha-change-border-color);
+    
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+}
+
+@include mq('md', max) {
+    .woocommerce-Reviews .title-wrapper .select-box {
+        display: none;
+    }
+}

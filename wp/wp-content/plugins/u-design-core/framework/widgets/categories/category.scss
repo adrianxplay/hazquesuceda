@@ -1,0 +1,101 @@
+/* -------------------------------------------
+    Product Categories
+        1. Base
+        2. Creative Grid
+        3. Type
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+// 1. Base
+.product-category {
+    position: relative;
+    font-size: 1rem;
+    figure {
+        text-align: center;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: var(--alpha-border-radius-form);
+    }
+    mark {
+        color: inherit;
+        background: transparent;
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    .btn {
+        color: inherit;
+        font-size: 1.4em;
+    }
+    i {
+        display: inline-block;
+        font-size: 4.2em;
+        color: var(--alpha-body-color);
+        margin-bottom: 1.5rem;
+        transition: transform .3s;
+    }
+    
+    .creative-grid &,
+    .creative-grid & > a {
+        height: 100%;
+    }
+    .creative-grid & .d-lazyload {
+        height: 100% !important;
+        padding-top: 0 !important;
+    }
+}
+.woocommerce-loop-category__title {
+    font: {
+        size: 1.4rem;
+    }
+    a {
+        color: inherit;
+        &:hover {
+            color: inherit;
+        }
+    }
+}
+.category-wrap {
+    margin-bottom: 2rem;
+    list-style: none;
+}
+.category-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: background .3s;
+}
+.cat-type-absolute {
+    .category-content {
+        position: absolute;
+        bottom: 0;
+        #{$left}: 0;
+        width: auto;
+        min-height: 50px;
+        cursor: pointer;
+    }
+}
+.filter-categories .active {
+    color: var(--alpha-primary-color);
+}
+
+// 2. Creative Grid
+.grid-item {
+    > .product-category {
+        height: 100%;
+    }
+}
+
+// 3. Type
+// @start feature: fs_pct_default
+@import 'category/default';
+// @end feature: fs_pct_default

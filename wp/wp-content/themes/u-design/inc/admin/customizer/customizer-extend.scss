@@ -1,0 +1,189 @@
+@import '../../../assets/sass/config';
+@import '../../../assets/sass/mixins';
+@import '../../../assets/sass/direction';
+
+#accordion-section-compare,
+#accordion-section-product_fbt,
+#accordion-section-image_swatch,
+#accordion-section-quickview,
+#accordion-section-360gallery,
+#accordion-section-brand,
+#accordion-section-advanced_swatch,
+#accordion-section-product_unit,
+#accordion-section-product_buy_now {
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+        content: none;
+    }
+
+    h3 {
+        display: flex;
+        align-items: center;
+
+        &:before {
+            content: "WOO";
+            display: inline-block;
+            padding: 1px 6px;
+            margin-#{$left}: 10px;
+            background-color: #65bc7b;
+            color: #fff;
+            font-size: 11px;
+            order: 1;
+        }
+    }
+}
+
+#accordion-panel-features>h3:before,
+#accordion-section-title_tagline>h3:before {
+    background-size: auto !important;
+}
+
+#accordion-panel-blog>h3:before {
+    background-image: url(../../../assets/images/admin/customizer/option_blog.svg);
+}
+
+#accordion-panel-page_header>h3:before {
+    background-image: url(../../../assets/images/admin/customizer/option_page_header.svg);
+}
+
+#accordion-panel-portfolio>h3:before {
+    background-image: url(../../../assets/images/admin/customizer/option_portfolio.svg);
+}
+
+#accordion-panel-member>h3:before {
+    background-image: url(../../../assets/images/admin/customizer/option_member.svg);
+}
+
+#accordion-panel-tribe_customizer>h3:before {
+    background-image: url(../../../assets/images/admin/customizer/option_calendar.svg);
+}
+
+#accordion-section-share>h3:before {
+    background-image: url(../../../assets/images/admin/customizer/option_share.svg);
+}
+
+#customize-control-portfolio_type .image label,
+#customize-control-member_type .image label,
+#customize-control-product_type.customize-control .image label {
+    max-width: 100%;
+}
+
+#customize-control-portfolios_load .image img,
+#customize-control-members_load .image img {
+    width: 100%;
+}
+
+.customize-control-kirki-radio-image .image {
+
+    &#input_portfolio_type,
+    &#input_portfolios_layout,
+    &#input_member_type,
+    &#input_members_layout {
+        img {
+            width: auto;
+        }
+    }
+
+    label img {
+        border: 1px solid #ccc;
+    }
+}
+
+.section-nav-status {
+    top: 41px;
+    right: 15px;
+    background-color: #fff;
+    color: #87919f;
+
+    &:hover {
+        color: var(--alpha-primary-color);
+    }
+}
+
+.expanded .wp-full-overlay-footer,
+.wp-full-overlay-footer .devices,
+.wp-full-overlay-sidebar {
+    background: #f4f4f4;
+}
+
+.wp-full-overlay-footer .devices button {
+
+    &:focus,
+    &.active:hover {
+        border-bottom-color: var(--alpha-primary-color);
+    }
+
+    &:hover:before,
+    &:focus:before {
+        color: var(--alpha-primary-color);
+    }
+}
+
+.customize-control {
+    input[type=checkbox] {
+        box-shadow: 0 0 0 1px #87919f;
+    }
+}
+
+#input_quickview_type.image label {
+    max-width: 43%;
+}
+
+.customize-control ul.ui-sortable {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    li {
+        background: #87919f;
+    }
+}
+
+.customize-control-kirki-toggle {
+    .switch {
+        box-shadow: none !important;
+
+        &:after {
+            box-shadow: none;
+        }
+    }
+}
+
+.options-description {
+    font-style: normal;
+}
+
+#customize-control-cs_blog_page_alert,
+#customize-control-cs_post_type_alert,
+#customize-control-cs_shop_page_alert,
+#customize-control-cs_import_option,
+#customize-control-cs_export_option,
+#customize-control-cs_member_related_title {
+    margin-bottom: 10px;
+}
+
+#customize-control-portfolios_load,
+#customize-control-members_load {
+    .image {
+        margin-right: -5px;
+        margin-left: -5px;
+
+        label {
+            max-width: 115px;
+            margin: 5px;
+            border: none;
+
+            img {
+                width: auto;
+            }
+        }
+    }
+}
+
+.customize-control input[type=checkbox],
+.customize-control input[type=radio] {
+    border-radius: 2px;
+    box-shadow: none;
+}

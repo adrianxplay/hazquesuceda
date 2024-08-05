@@ -1,0 +1,53 @@
+/* -------------------------------------------
+    Product Extra Info
+        1. Product Loop
+        2. Product Single
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/mixins';
+@import '../../assets/sass/mixins/direction';
+
+// 1. Product loop
+.product-extra-info {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    text-transform: lowercase;
+    word-break: break-all;
+    .product-details .price + & {
+        margin-bottom: .6rem;
+    }
+}
+.product-cart-popup {
+    .price + .product-extra-info {
+        margin-bottom: 0;
+        opacity: 1;
+        transition: opacity .3s;
+    }
+
+    &:hover .product-extra-info {
+        opacity: 0;
+
+        & + .product-hide-details {
+            bottom: 0;
+            opacity: 1;
+        }
+    }
+}
+
+// 2. Product single
+.product-single .summary {
+    .price {
+        display: inline-block;
+        vertical-align: middle;
+
+        & + .product-extra-info {
+            margin-bottom: 8px;
+        }
+   }
+
+   .product-extra-info {
+       font-size: 2.2rem;
+   }
+}

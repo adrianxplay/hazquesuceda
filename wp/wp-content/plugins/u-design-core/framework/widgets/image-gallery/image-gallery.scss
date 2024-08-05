@@ -1,0 +1,76 @@
+/* -------------------------------------------
+    Image Gallery
+        1. Image Gallery
+        2. LightBox
+---------------------------------------------- */
+
+@import '../../../assets/sass/config';
+@import '../../assets/sass/mixins/direction';
+@import '../../assets/sass/mixins/mixins';
+
+// 1. Image Gallery
+.image-gallery {
+    margin-top: calc(-1 * var(--alpha-gap));
+
+    &,
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &.row>* {
+        padding: var(--alpha-gap);
+    }
+
+    figcaption {
+        position: absolute;
+        top: 50%;
+        #{$left}: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--alpha-gallery-caption-color, var(--alpha-white-color));
+        opacity: 0;
+        transition: opacity .3s;
+        z-index: 1;
+    }
+
+    .image-gallery-item{
+        position: relative;
+
+        &:hover figcaption {
+            opacity: 1;
+        }
+    }
+
+    figure {
+        height: 100%;
+    }
+
+    &.creative-grid img {
+        width: 100%;
+    }
+
+    a {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+}
+
+.image-gallery:not(.use_lightbox) a {
+    cursor: default;
+}
+
+// 2. LightBox
+.mfp-bottom-bar {
+    .mfp-title {
+        padding-#{$left}: 2em;
+    }
+
+    .mfp-counter {
+        #{$right}: 2em;
+    }
+}
